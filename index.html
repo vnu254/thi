@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Sát Hạch Lái Xe Cơ Giới Đường Bộ - Bộ 600 Câu Hỏi Cục CSGT 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f1f5f9;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .military-gradient {
+      background: linear-gradient(135deg, #14532d 0%, #166534 50%, #15803d 100%);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    @keyframes pulse-fast {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .animate-pulse-fast {
+      animation: pulse-fast 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @media print {
+      header, #mobileExamNav, .no-print { display: none !important; }
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-slate-800">
+
+  <!-- HEADER QUÂN ĐỘI -->
+  <header class="military-gradient text-white shadow-lg sticky top-0 z-40 border-b-4 border-amber-400">
+    <div class="max-w-5xl mx-auto px-3 py-2.5 flex items-center justify-between">
+      <div class="flex items-center space-x-2.5">
+        <div class="w-10 h-10 rounded-full bg-red-600 border-2 border-amber-400 flex items-center justify-center shadow-inner shrink-0">
+          <i class="fa-solid fa-star text-amber-300 text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">Hệ Thống Kiểm Tra Trực Tuyến</span>
+            <span class="px-1.5 py-0.2 rounded bg-white/15 text-[9px] font-bold text-emerald-200 border border-emerald-300/30">
+              Bộ 600 Câu CSGT 2025
+            </span>
+          </div>
+          <h1 class="text-sm sm:text-base font-extrabold leading-tight">SÁT HẠCH LÁI XE CƠ GIỚI ĐƯỜNG BỘ</h1>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <span id="examStatusBadge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/30 border border-emerald-300 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Cổng Mở (#1)</span>
+        </span>
+        <button onclick="openAdminModal()" class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs shadow transition flex items-center gap-1">
+          <i class="fa-solid fa-user-shield"></i>
+          <span class="hidden sm:inline">Chỉ huy</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-3 sm:p-5 pb-24">
+
+    <!-- 1. MÀN HÌNH ĐĂNG KÝ THÔNG TIN QUÂN NHÂN -->
+    <section id="screenRegister" class="max-w-lg mx-auto mt-2">
+      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+        <div class="bg-slate-900 text-white p-4 text-center border-b border-slate-800">
+          <span class="inline-block px-3 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-400/30 text-xs font-bold mb-1">
+            CỤC CẢNH SÁT GIAO THÔNG - BỘ CÔNG AN (2025)
+          </span>
+          <h2 class="text-lg font-extrabold uppercase tracking-wide">Thông Tin Quân Nhân Dự Thi</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Hệ thống tự động rút ngẫu nhiên 25 câu hỏi từ bộ 600 câu sát hạch</p>
+        </div>
+
+        <!-- Cảnh báo quy chế -->
+        <div class="bg-red-50 border-b border-red-200 p-3.5 flex items-start space-x-3">
+          <i class="fa-solid fa-triangle-exclamation text-red-600 text-lg mt-0.5 shrink-0"></i>
+          <div class="text-xs text-red-800 space-y-1 leading-relaxed">
+            <p class="font-bold uppercase text-red-900">Quy chế sát hạch & Chống gian lận:</p>
+            <ul class="list-disc pl-4 space-y-0.5">
+              <li>Ngân hàng tích hợp sẵn <b>600 câu hỏi chuẩn 6 chương</b> (kèm hình ảnh CSGT, Taplo ô tô, Biển báo & Sa hình).</li>
+              <li>Mỗi đề thi lấy ngẫu nhiên <b>25 câu / 19 phút</b> (Đạt từ <b>21/25 câu</b> và <b>không sai câu Điểm liệt</b>).</li>
+              <li><b>Giám sát chuyển màn hình 2 lớp:</b> Vi phạm <b>Lần 1</b> phạt cảnh cáo bằng còi báo động; Vi phạm <b>Lần 2</b> hệ thống <b>tự động thu bài 0 điểm</b>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <form id="registerForm" onsubmit="handleStartExam(event)" class="p-4 sm:p-5 space-y-3.5">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Họ và tên quân nhân <span class="text-red-500">*</span></label>
+            <input type="text" id="inpName" required placeholder="VD: Nguyễn Văn A"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-green-700 focus:ring-2 focus:ring-green-700/20 outline-none text-sm font-semibold" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Cấp bậc <span class="text-red-500">*</span></label>
+              <select id="inpRank" required class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:border-green-700 outline-none text-sm font-medium bg-white">
+                <option value="">-- Chọn cấp bậc --</option>
+                <option>Binh nhì</option>
+                <option>Binh nhất</option>
+                <option>Hạ sĩ</option>
+                <option>Trung sĩ</option>
+                <option>Thượng sĩ</option>
+                <option>Thiếu úy QNCN</option>
+                <option>Trung úy QNCN</option>
+                <option>Thượng úy QNCN</option>
+                <option>Đại úy QNCN</option>
+                <option>Thiếu tá QNCN</option>
+                <option>Trung tá QNCN</option>
+                <option>Thiếu úy</option>
+                <option>Trung úy</option>
+                <option>Thượng úy</option>
+                <option>Đại úy</option>
+                <option>Thiếu tá</option>
+                <option>Trung tá</option>
+                <option>Thượng tá</option>
+                <option>Đại tá</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Chức vụ <span class="text-red-500">*</span></label>
+              <input type="text" id="inpRole" required placeholder="VD: Chiến sĩ / Trung đội trưởng"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-green-700 outline-none text-sm font-medium" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Đơn vị <span class="text-red-500">*</span></label>
+              <input type="text" id="inpUnit" required list="unitSuggestions" placeholder="VD: Đại đội 1, Tiểu đoàn 1..."
+                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-green-700 outline-none text-sm font-medium" />
+              <datalist id="unitSuggestions">
+                <option value="Tiểu đoàn 1"></option>
+                <option value="Tiểu đoàn 2"></option>
+                <option value="Tiểu đoàn 3"></option>
+                <option value="Ban Tham mưu"></option>
+                <option value="Ban Chính trị"></option>
+                <option value="Ban Hậu cần - Kỹ thuật"></option>
+              </datalist>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Cấu trúc đề thi</label>
+              <select id="inpExamMode" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:border-green-700 outline-none text-sm font-semibold bg-slate-50">
+                <option value="random25">Đề ngẫu nhiên chuẩn (25 câu / 19 phút)</option>
+                <option value="visual25">Đề chuyên Hình ảnh, Biển báo & Sa hình (25 câu)</option>
+                <option value="critical25">Đề chuyên 60 Câu Điểm Liệt (25 câu)</option>
+                <option value="full600">Ôn tập toàn bộ 600 câu hỏi</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="registerBlockAlert" class="hidden p-3 rounded-xl bg-red-100 border border-red-300 text-red-800 text-xs font-semibold"></div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl military-gradient hover:opacity-95 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg flex items-center justify-center space-x-2 transition">
+            <i class="fa-solid fa-play"></i>
+            <span>Bắt Đầu Thi (Rút Ngẫu Nhiên 25 Câu)</span>
+          </button>
+        </form>
+
+        <div class="bg-slate-50 px-4 py-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+          <span><i class="fa-solid fa-database mr-1 text-green-700"></i> Ngân hàng sẵn có: <b id="totalBankCountLabel" class="text-green-800 font-extrabold">600</b> câu</span>
+          <span>Phòng: <b id="roomCodeLabel" class="text-blue-700">TD176</b> • Đợt <b id="sessionCodeLabel" class="text-green-800">#1</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MÀN HÌNH LÀM BÀI THI -->
+    <section id="screenExam" class="hidden space-y-3">
+      <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-3 flex items-center justify-between sticky top-14 z-30">
+        <div class="truncate pr-2">
+          <div class="text-xs font-extrabold text-slate-900 truncate" id="examUserLabel">Đồng chí: ...</div>
+          <div class="flex items-center gap-2 text-[11px] text-slate-500">
+            <span id="examUnitLabel" class="truncate">Đơn vị: ...</span>
+            <span id="examWarningBadge" class="hidden px-2 py-0.2 rounded bg-amber-100 text-amber-800 font-extrabold text-[10px]">
+              <i class="fa-solid fa-triangle-exclamation"></i> Cảnh cáo: 1/2
+            </span>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2 shrink-0">
+          <div id="timerBox" class="px-3 py-1.5 rounded-xl bg-slate-900 text-amber-400 font-mono font-extrabold text-base flex items-center space-x-1.5 shadow">
+            <i class="fa-regular fa-clock text-xs"></i>
+            <span id="timerText">19:00</span>
+          </div>
+          <button onclick="confirmSubmitExam()" class="px-3 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase shadow">
+            Nộp bài
+          </button>
+        </div>
+      </div>
+
+      <!-- Khung hiển thị câu hỏi -->
+      <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+        <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center space-x-2">
+            <span id="qNumberBadge" class="px-2.5 py-1 rounded-lg bg-green-800 text-white font-extrabold text-xs">Câu 1/25</span>
+            <span id="qRealIdBadge" class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold text-[11px]">#Câu gốc 1</span>
+            <span id="qCategoryBadge" class="px-2 py-0.5 rounded-md bg-slate-200 text-slate-700 font-semibold text-[11px]">Chương I</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span id="qCriticalBadge" class="hidden px-2.5 py-0.5 rounded-full bg-red-600 text-white font-extrabold text-[10px] uppercase tracking-wider animate-pulse">
+              <i class="fa-solid fa-skull-crossbones mr-1"></i>Câu Điểm Liệt
+            </span>
+            <button type="button" onclick="toggleFlagCurrentQuestion()" id="btnFlagQuestion" class="px-2.5 py-1 rounded-lg border border-slate-300 bg-white text-slate-600 text-xs font-bold hover:bg-amber-50 transition">
+              <i class="fa-regular fa-flag mr-1"></i>Đánh dấu
+            </button>
+          </div>
+        </div>
+
+        <div class="p-4 sm:p-6 space-y-4">
+          <h3 id="qText" class="text-base sm:text-lg font-bold text-slate-900 leading-snug"></h3>
+
+          <!-- Khu vực hiển thị Hình ảnh / Biển báo / Taplo / Sa hình -->
+          <div id="qVisualContainer" class="hidden bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col items-center justify-center">
+            <div id="qVisualContent" class="max-w-full flex items-center justify-center overflow-x-auto py-1"></div>
+            <span id="qVisualCaption" class="text-[11px] text-slate-500 mt-2 font-medium text-center">Hình minh họa theo Bộ 600 câu hỏi sát hạch Cục CSGT</span>
+          </div>
+
+          <!-- Danh sách đáp án -->
+          <div id="qOptionsList" class="space-y-2.5"></div>
+        </div>
+      </div>
+
+      <!-- Bảng điều hướng nhanh 25 câu -->
+      <div class="bg-white rounded-2xl shadow border border-slate-200 p-3.5">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+          <span class="text-xs font-bold uppercase text-slate-600">Bảng danh sách câu hỏi trong đề</span>
+          <div class="flex items-center gap-3 text-[11px] font-semibold">
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-green-700 inline-block"></span> Đã chọn</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-amber-400 inline-block"></span> Đánh dấu</span>
+            <span id="answeredProgressText" class="text-xs font-extrabold text-green-800">Đã làm: 0/25</span>
+          </div>
+        </div>
+        <div id="questionGrid" class="grid grid-cols-5 sm:grid-cols-10 gap-2 max-h-60 overflow-y-auto p-0.5"></div>
+      </div>
+    </section>
+
+    <!-- 3. MÀN HÌNH KẾT QUẢ & XEM LẠI ĐÁP ÁN -->
+    <section id="screenResult" class="hidden max-w-2xl mx-auto space-y-4">
+      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+        <div id="resultHeaderBanner" class="p-5 text-center text-white military-gradient">
+          <div class="w-16 h-16 rounded-full bg-white/20 mx-auto flex items-center justify-center text-3xl mb-2">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <h2 id="resultStatusTitle" class="text-xl font-extrabold uppercase">ĐẠT YÊU CẦU SÁT HẠCH</h2>
+          <p id="resultSubTitle" class="text-xs opacity-90 mt-1">Chúc mừng đồng chí đã hoàn thành bài kiểm tra</p>
+        </div>
+
+        <div class="p-5 space-y-4">
+          <div id="violationAlertBox" class="hidden p-3.5 rounded-xl bg-red-50 border-2 border-red-500 text-red-800 text-xs font-bold flex items-center space-x-3">
+            <i class="fa-solid fa-ban text-2xl text-red-600 shrink-0"></i>
+            <div>
+              <div class="uppercase text-red-900 font-extrabold">Vi phạm quy chế thi (Quá số lần cảnh cáo)!</div>
+              <div id="violationReasonText">Đồng chí đã rời khỏi màn hình làm bài quá quy định. Hệ thống đã tự động khóa bài và báo cáo về máy Chỉ huy.</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-[11px] text-slate-500 font-semibold">Số câu đúng</div>
+              <div id="resScoreText" class="text-xl font-extrabold text-slate-900 mt-0.5">0/25</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-[11px] text-slate-500 font-semibold">Điểm hệ 10</div>
+              <div id="resPointText" class="text-xl font-extrabold text-green-700 mt-0.5">0.0</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-[11px] text-slate-500 font-semibold">Câu điểm liệt</div>
+              <div id="resCriticalText" class="text-sm font-extrabold text-emerald-600 mt-1">An toàn</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="text-[11px] text-slate-500 font-semibold">Thời gian làm</div>
+              <div id="resTimeText" class="text-base font-extrabold text-slate-800 mt-1">00:00</div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-2 no-print">
+            <button onclick="toggleReviewAnswers()" class="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs uppercase tracking-wider">
+              <i class="fa-solid fa-eye mr-1"></i> Xem chi tiết đáp án & hình vẽ
+            </button>
+            <button onclick="window.print()" class="px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase">
+              <i class="fa-solid fa-print mr-1"></i> In phiếu điểm
+            </button>
+            <button onclick="backToHomeScreen()" class="px-4 py-3 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs uppercase">
+              Về trang chủ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="reviewListContainer" class="hidden space-y-3"></div>
+    </section>
+
+    <!-- 4. TRUNG TÂM ĐIỀU HÀNH CỦA ADMIN (CHỈ HUY) -->
+    <section id="screenAdmin" class="hidden space-y-4">
+      <div class="bg-slate-900 text-white rounded-2xl p-4 shadow-xl border border-slate-700 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] font-bold uppercase text-amber-400">Trung Tâm Chỉ Huy & Giám Sát Trực Tuyến</span>
+            <span id="adminCloudStatusPill" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[10px] font-bold">
+              ● Đã nạp sẵn 600 câu Cục CSGT 2025
+            </span>
+          </div>
+          <h2 class="text-lg font-extrabold mt-0.5">QUẢN LÝ KỲ THI & NGÂN HÀNG 600 CÂU HỎI SÁT HẠCH</h2>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 no-print">
+          <button onclick="toggleGateStatus()" id="btnToggleGate" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-xs font-bold uppercase">
+            <i class="fa-solid fa-door-open mr-1"></i> Đang Mở Cổng
+          </button>
+          <button onclick="openNewExamSession()" class="px-3 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold uppercase">
+            <i class="fa-solid fa-rotate mr-1"></i> Mở đợt thi mới
+          </button>
+          <button onclick="exportResultsCSV()" class="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-xs font-bold uppercase">
+            <i class="fa-solid fa-file-excel mr-1"></i> Xuất Excel
+          </button>
+          <button onclick="closeAdminScreen()" class="px-3 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-xs font-bold">
+            Đóng
+          </button>
+        </div>
+      </div>
+
+      <!-- Thống kê nhanh -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-white p-3.5 rounded-2xl shadow border border-slate-200">
+          <div class="text-xs text-slate-500 font-semibold">Đang làm bài trực tiếp</div>
+          <div id="statLiveCount" class="text-2xl font-extrabold text-blue-600 mt-1">0</div>
+        </div>
+        <div class="bg-white p-3.5 rounded-2xl shadow border border-slate-200">
+          <div class="text-xs text-slate-500 font-semibold">Tổng bài đã nộp</div>
+          <div id="statSubmittedCount" class="text-2xl font-extrabold text-slate-900 mt-1">0</div>
+        </div>
+        <div class="bg-white p-3.5 rounded-2xl shadow border border-slate-200">
+          <div class="text-xs text-slate-500 font-semibold">Đạt yêu cầu (Tỷ lệ)</div>
+          <div id="statPassedCount" class="text-2xl font-extrabold text-emerald-600 mt-1">0 (0%)</div>
+        </div>
+        <div class="bg-white p-3.5 rounded-2xl shadow border border-red-200 bg-red-50/40">
+          <div class="text-xs text-red-600 font-semibold">Vi phạm quy chế</div>
+          <div id="statViolationCount" class="text-2xl font-extrabold text-red-600 mt-1">0</div>
+        </div>
+      </div>
+
+      <!-- Tabs Quản trị -->
+      <div class="flex space-x-2 border-b border-slate-200 overflow-x-auto no-scrollbar no-print">
+        <button onclick="switchAdminTab('tabMonitor')" id="btnTabMonitor" class="px-4 py-2.5 text-xs font-extrabold uppercase border-b-2 border-green-700 text-green-800 whitespace-nowrap">
+          <i class="fa-solid fa-tower-broadcast mr-1"></i> Giám sát & Bảng điểm
+        </button>
+        <button onclick="switchAdminTab('tabCloud')" id="btnTabCloud" class="px-4 py-2.5 text-xs font-extrabold uppercase border-b-2 border-transparent text-slate-500 whitespace-nowrap">
+          <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Cấu hình Thi Nhiều Máy (GitHub / Cloud)
+        </button>
+        <button onclick="switchAdminTab('tabBank')" id="btnTabBank" class="px-4 py-2.5 text-xs font-extrabold uppercase border-b-2 border-transparent text-slate-500 whitespace-nowrap">
+          <i class="fa-solid fa-book mr-1"></i> Ngân hàng 600 câu hỏi & Hình ảnh
+        </button>
+      </div>
+
+      <!-- TAB 1: Giám sát -->
+      <div id="adminTabMonitor" class="space-y-4">
+        <div class="bg-white rounded-2xl shadow border border-slate-200 p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs font-extrabold uppercase text-slate-700 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping"></span>
+              Quân nhân đang làm bài trực tiếp
+            </h3>
+            <button onclick="forcePullCloudData()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700">
+              <i class="fa-solid fa-arrows-rotate mr-1"></i> Làm mới
+            </button>
+          </div>
+          <div id="liveParticipantsList" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-500">
+            Chưa có đồng chí nào đang trong phòng thi.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow border border-slate-200 p-4 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-xs font-extrabold uppercase text-slate-700">Bảng tổng hợp kết quả & Cấp quyền thi lại</h3>
+            <div class="flex flex-wrap items-center gap-2 no-print">
+              <input type="text" id="adminSearchUser" oninput="renderAdminDashboard()" placeholder="Tìm tên hoặc đơn vị..." class="px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs" />
+              <select id="adminSortFilter" onchange="renderAdminDashboard()" class="px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold">
+                <option value="newest">Mới nộp gần nhất</option>
+                <option value="high">Điểm cao nhất → thấp</option>
+                <option value="low">Điểm thấp nhất → cao</option>
+                <option value="violation">Chỉ hiện Vi phạm quy chế</option>
+              </select>
+              <button onclick="clearAllHistory()" class="px-2.5 py-1.5 rounded-lg bg-red-100 hover:bg-red-200 text-red-700 text-xs font-bold">
+                Xóa lịch sử
+              </button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-slate-100 text-slate-600 uppercase">
+                  <th class="p-2.5 rounded-tl-lg">Quân nhân</th>
+                  <th class="p-2.5">Đơn vị</th>
+                  <th class="p-2.5">Kết quả</th>
+                  <th class="p-2.5">Trạng thái</th>
+                  <th class="p-2.5 rounded-tr-lg text-right no-print">Quyền thi lại</th>
+                </tr>
+              </thead>
+              <tbody id="adminResultsTableBody" class="divide-y divide-slate-200"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Cấu hình Cloud -->
+      <div id="adminTabCloud" class="hidden space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl shadow border border-slate-200 p-4 space-y-3">
+            <h4 class="text-xs font-extrabold uppercase text-green-800 flex items-center gap-1.5">
+              <i class="fa-solid fa-fire text-amber-500"></i> 1. Đồng bộ 2 chiều Thời gian thực (Firebase Realtime DB)
+            </h4>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Mã Phòng Thi Đơn Vị (Room ID)</label>
+              <input type="text" id="cfgRoomCode" placeholder="VD: E176_F968" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-bold uppercase" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Firebase Database URL</label>
+              <input type="url" id="cfgFirebaseUrl" placeholder="https://ten-project-default-rtdb.firebaseio.com" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow border border-slate-200 p-4 space-y-3">
+            <h4 class="text-xs font-extrabold uppercase text-blue-800 flex items-center gap-1.5">
+              <i class="fa-solid fa-table text-emerald-600"></i> 2. Webhook Google Sheets / Zalo & Bảo mật
+            </h4>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Webhook URL (Google Apps Script / Make.com)</label>
+              <input type="url" id="cfgWebhookUrl" placeholder="https://script.google.com/macros/s/.../exec" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Đổi mã PIN Chỉ huy mới</label>
+              <input type="password" id="cfgNewAdminPin" placeholder="Để trống nếu giữ nguyên mã PIN hiện tại" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs" />
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <button onclick="saveCloudAndSecuritySettings()" class="px-5 py-2.5 rounded-xl military-gradient text-white font-extrabold text-xs uppercase shadow-lg">
+            <i class="fa-solid fa-floppy-disk mr-1"></i> Lưu Cấu Hình
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 3: Ngân hàng 600 câu hỏi -->
+      <div id="adminTabBank" class="hidden space-y-4">
+        <div class="bg-emerald-50 border border-emerald-300 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 class="text-sm font-extrabold text-emerald-950 uppercase">Ngân Hàng 600 Câu Hỏi Chuẩn Cục CSGT - Bộ Công An (2025)</h3>
+            <p class="text-xs text-emerald-900 mt-0.5">
+              Hệ thống đã tự động nạp sẵn toàn bộ 600 câu hỏi (Chương I → Chương VI) cùng đồ họa hình vẽ CSGT, Taplo ô tô, Biển báo và Sa hình ngay khi mở trang.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <label class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs uppercase cursor-pointer">
+              <i class="fa-solid fa-file-import mr-1"></i> Nhập JSON tùy chỉnh
+              <input type="file" accept=".json" onchange="importQuestionsJSON(event)" class="hidden" />
+            </label>
+            <button onclick="exportQuestionsJSON()" class="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs">
+              <i class="fa-solid fa-download mr-1"></i> Xuất 600 câu ra JSON
+            </button>
+            <button onclick="resetTo600DefaultBank()" class="px-3 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs">
+              Khôi phục chuẩn 600 câu gốc
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow border border-slate-200 p-4 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h4 class="text-xs font-extrabold uppercase text-slate-700">Tra cứu Ngân hàng (<span id="adminBankTotalText">600</span> câu)</h4>
+            <div class="flex items-center gap-2">
+              <select id="bankChapterFilter" onchange="renderQuestionBankList()" class="px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold">
+                <option value="">Tất cả 6 Chương (600 câu)</option>
+                <option value="Chương I">Chương I: Quy định chung & Quy tắc (1-180)</option>
+                <option value="Chương II">Chương II: Văn hóa, Đạo đức & PCCC (181-205)</option>
+                <option value="Chương III">Chương III: Kỹ thuật lái xe (206-263)</option>
+                <option value="Chương IV">Chương IV: Cấu tạo và sửa chữa (264-300)</option>
+                <option value="Chương V">Chương V: Báo hiệu đường bộ (301-485)</option>
+                <option value="Chương VI">Chương VI: Giải thế sa hình (486-600)</option>
+              </select>
+              <input type="text" id="bankSearchInput" oninput="renderQuestionBankList()" placeholder="Nhập số câu (VD: 227, 301)..." class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs" />
+            </div>
+          </div>
+          <div id="adminQuestionBankList" class="max-h-96 overflow-y-auto space-y-2 pr-1"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- THANH ĐIỀU HƯỚNG CỐ ĐỊNH DƯỚI ĐÁY -->
+  <nav id="mobileExamNav" class="hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-2xl z-40 px-3 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-2">
+      <button onclick="prevQuestion()" class="flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase flex items-center justify-center gap-1">
+        <i class="fa-solid fa-chevron-left"></i> Câu trước
+      </button>
+      <button onclick="scrollToQuestionGrid()" class="px-4 py-2.5 rounded-xl bg-amber-100 text-amber-900 font-extrabold text-xs">
+        <i class="fa-solid fa-table-cells mr-1"></i><span id="navProgressBadge">1/25</span>
+      </button>
+      <button onclick="nextQuestion()" class="flex-1 py-2.5 rounded-xl military-gradient text-white font-bold text-xs uppercase flex items-center justify-center gap-1">
+        Câu tiếp <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MODAL CẢNH CÁO VI PHẠM LẦN 1 -->
+  <div id="antiCheatWarningModal" class="hidden fixed inset-0 bg-red-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-5 shadow-2xl border-2 border-red-600 space-y-4 text-center">
+      <div class="w-14 h-14 rounded-full bg-red-100 text-red-600 mx-auto flex items-center justify-center text-2xl animate-bounce">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3 class="text-base font-extrabold uppercase text-red-700">CẢNH CÁO VI PHẠM QUY CHẾ (LẦN 1/2)</h3>
+      <p class="text-xs text-slate-700 leading-relaxed">
+        Hệ thống phát hiện đồng chí vừa thoát khỏi màn hình thi hoặc chuyển ứng dụng. Nếu tái phạm thêm <b>01 lần nữa</b>, hệ thống sẽ <b>TỰ ĐỘNG THU BÀI NGAY LẬP TỨC</b>!
+      </p>
+      <button onclick="acknowledgeAntiCheatWarning()" class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider">
+        Tôi đã hiểu & Quay lại làm bài
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL ĐĂNG NHẬP CHỈ HUY -->
+  <div id="adminAuthModal" class="hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 space-y-4">
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 mx-auto flex items-center justify-center text-xl mb-2">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <h3 class="text-base font-extrabold uppercase">Xác Thực Quyền Chỉ Huy</h3>
+        <p class="text-xs text-slate-500 mt-0.5">Vui lòng nhập mật mã Chỉ huy đơn vị để truy cập</p>
+      </div>
+      <input type="password" id="adminPinInput" onkeydown="if(event.key==='Enter') verifyAdminPin()" placeholder="Nhập mật mã Chỉ huy..."
+        class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-center font-bold text-sm outline-none focus:border-green-700" />
+      <div class="flex space-x-2">
+        <button onclick="closeAdminModal()" class="flex-1 py-2.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs uppercase">Hủy</button>
+        <button onclick="verifyAdminPin()" class="flex-1 py-2.5 rounded-xl military-gradient text-white font-bold text-xs uppercase">Đăng nhập</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. BỘ DỰNG ĐỒ HỌA VECTOR (SVG ENGINE) CHO TOÀN BỘ CÂU HỎI CÓ HÌNH
+    //    (CSGT, TAPLO Ô TÔ, TỔ HỢP BIỂN BÁO, VẠCH KẺ ĐƯỜNG & SA HÌNH)
+    // =========================================================================
+    function renderSignSVG(type, label = "") {
+      const templates = {
+        "CAR": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><rect x="28" y="42" width="44" height="18" rx="4" fill="#111"/><path d="M33 42 L39 30 H61 L67 42 Z" fill="#111"/><circle cx="36" cy="62" r="6" fill="#111"/><circle cx="64" cy="62" r="6" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "TRUCK_BUS": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><rect x="44" y="28" width="32" height="12" rx="2" fill="#111"/><rect x="24" y="54" width="34" height="14" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "TRAILER": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><rect x="20" y="42" width="28" height="16" fill="#111"/><rect x="54" y="46" width="24" height="12" fill="#111"/><line x1="48" y1="54" x2="54" y2="54" stroke="#111" stroke-width="4"/><circle cx="30" cy="60" r="5" fill="#111"/><circle cx="66" cy="60" r="5" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "MOTO": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><circle cx="33" cy="60" r="9" fill="none" stroke="#111" stroke-width="4"/><circle cx="67" cy="60" r="9" fill="none" stroke="#111" stroke-width="4"/><path d="M33 60 L46 42 H60 L67 60" fill="none" stroke="#111" stroke-width="4"/><circle cx="48" cy="33" r="5" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "TRUCK": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><path d="M24 58 V44 L32 38 H38 V58 Z" fill="#111"/><rect x="40" y="34" width="36" height="24" fill="#111"/><circle cx="33" cy="62" r="6" fill="#111"/><circle cx="64" cy="62" r="6" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "TRACTOR": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><rect x="46" y="32" width="22" height="24" fill="#111"/><rect x="28" y="44" width="18" height="12" fill="#111"/><circle cx="34" cy="62" r="7" fill="#111"/><circle cx="60" cy="60" r="11" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "END_OVERTAKE": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#0284c7" stroke-width="8"/><rect x="24" y="46" width="22" height="14" rx="3" fill="none" stroke="#111" stroke-width="3"/><rect x="54" y="46" width="22" height="14" rx="3" fill="none" stroke="#111" stroke-width="3"/><line x1="20" y1="80" x2="80" y2="20" stroke="#111" stroke-width="8"/></svg>`,
+        "NO_OVERTAKE": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><rect x="22" y="46" width="24" height="16" rx="3" fill="#dc2626"/><rect x="54" y="46" width="24" height="16" rx="3" fill="#111"/></svg>`,
+        "NO_TRUCK_OVERTAKE": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><rect x="24" y="34" width="22" height="28" fill="#dc2626"/><rect x="54" y="46" width="24" height="16" rx="3" fill="#111"/></svg>`,
+        "NO_LEFT": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><path d="M60 72 V42 H34" fill="none" stroke="#111" stroke-width="8"/><polygon points="24,42 38,32 38,52" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "NO_UTURN": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><path d="M64 70 V42 A14 14 0 0 0 36 42 V60" fill="none" stroke="#111" stroke-width="8"/><polygon points="36,72 26,56 46,56" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "NO_LEFT_UTURN": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><path d="M64 72 V42 H32" fill="none" stroke="#111" stroke-width="7"/><polygon points="22,42 34,34 34,50" fill="#111"/><path d="M64 48 A12 12 0 0 0 40 48 V64" fill="none" stroke="#111" stroke-width="7"/><polygon points="40,74 32,60 48,60" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "NO_RIGHT": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/><path d="M40 72 V42 H66" fill="none" stroke="#111" stroke-width="8"/><polygon points="76,42 62,32 62,52" fill="#111"/><line x1="18" y1="18" x2="82" y2="82" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "BLUE_UTURN": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><rect x="8" y="8" width="84" height="84" rx="8" fill="#0284c7" stroke="#fff" stroke-width="4"/><path d="M66 78 V38 A16 16 0 0 0 34 38 V56" fill="none" stroke="#fff" stroke-width="8"/><polygon points="34,70 24,54 44,54" fill="#fff"/></svg>`,
+        "NO_ENTRY": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#dc2626" stroke="#fff" stroke-width="4"/><rect x="18" y="40" width="64" height="20" fill="#fff"/></svg>`,
+        "ROAD_CLOSED": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#dc2626" stroke-width="10"/></svg>`,
+        "NO_STOP_PARK": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#1d4ed8" stroke="#dc2626" stroke-width="10"/><line x1="20" y1="20" x2="80" y2="80" stroke="#dc2626" stroke-width="9"/><line x1="80" y1="20" x2="20" y2="80" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "NO_PARK": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#1d4ed8" stroke="#dc2626" stroke-width="10"/><line x1="20" y1="20" x2="80" y2="80" stroke="#dc2626" stroke-width="9"/></svg>`,
+        "WARN_CROSS": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><polygon points="50,10 92,86 8,86" fill="#facc15" stroke="#dc2626" stroke-width="8" stroke-linejoin="round"/><path d="M50 38 V76 M31 57 H69" stroke="#111" stroke-width="8"/></svg>`,
+        "WARN_PRIORITY": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><polygon points="50,10 92,86 8,86" fill="#facc15" stroke="#dc2626" stroke-width="8" stroke-linejoin="round"/><path d="M50 34 V78" stroke="#111" stroke-width="10"/><path d="M32 57 H68" stroke="#111" stroke-width="5"/></svg>`,
+        "WARN_YIELD": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><polygon points="50,88 92,14 8,14" fill="#facc15" stroke="#dc2626" stroke-width="8" stroke-linejoin="round"/></svg>`,
+        "WARN_LIGHT": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><polygon points="50,10 92,86 8,86" fill="#facc15" stroke="#dc2626" stroke-width="8" stroke-linejoin="round"/><rect x="42" y="36" width="16" height="42" rx="3" fill="#111"/><circle cx="50" cy="44" r="4" fill="#ef4444"/><circle cx="50" cy="57" r="4" fill="#facc15"/><circle cx="50" cy="70" r="4" fill="#22c55e"/></svg>`,
+        "WARN_PED": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><polygon points="50,10 92,86 8,86" fill="#facc15" stroke="#dc2626" stroke-width="8" stroke-linejoin="round"/><circle cx="50" cy="42" r="5" fill="#111"/><path d="M50 48 L42 66 M50 48 L58 66 M40 54 H60" stroke="#111" stroke-width="4"/></svg>`,
+        "ROUNDABOUT": `<svg viewBox="0 0 100 100" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto"><circle cx="50" cy="50" r="44" fill="#0284c7" stroke="#fff" stroke-width="4"/><circle cx="50" cy="50" r="24" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="28 12"/></svg>`
+      };
+      return `
+        <div class="flex flex-col items-center">
+          ${templates[type] || templates["WARN_CROSS"]}
+          ${label ? `<span class="text-xs font-extrabold text-slate-800 mt-1">${label}</span>` : ""}
+        </div>
+      `;
+    }
+
+    // Tự động dựng hình ảnh chính xác cho từng câu hỏi có hình trong bộ 600 câu
+    function getVisualHTMLForQuestion(qId) {
+      // 1. Hình CSGT điều khiển giao thông (Câu 36, 37)
+      if (qId === 36) {
+        return `<svg viewBox="0 0 220 150" class="w-56 h-40 mx-auto rounded-xl bg-sky-200 border border-slate-300 shadow">
+          <rect x="70" y="105" width="80" height="38" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+          <circle cx="110" cy="34" r="11" fill="#fcd34d" stroke="#b45309" stroke-width="2"/>
+          <rect x="96" y="46" width="28" height="34" rx="4" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+          <rect x="98" y="80" width="24" height="26" fill="#d97706"/>
+          <line x1="45" y1="52" x2="175" y2="52" stroke="#fde68a" stroke-width="7" stroke-linecap="round"/>
+          <line x1="25" y1="52" x2="50" y2="52" stroke="#111827" stroke-width="4"/>
+          <text x="110" y="128" text-anchor="middle" font-size="9" font-weight="bold" fill="#15803d">CSGT GIANG NGANG 2 TAY</text>
+        </svg>`;
+      }
+      if (qId === 37) {
+        return `<svg viewBox="0 0 220 150" class="w-56 h-40 mx-auto rounded-xl bg-sky-200 border border-slate-300 shadow">
+          <rect x="70" y="105" width="80" height="38" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+          <circle cx="110" cy="36" r="11" fill="#fcd34d" stroke="#b45309" stroke-width="2"/>
+          <rect x="96" y="48" width="28" height="34" rx="4" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+          <rect x="98" y="82" width="24" height="24" fill="#d97706"/>
+          <path d="M124 54 H142 V22" fill="none" stroke="#fde68a" stroke-width="7" stroke-linecap="round"/>
+          <line x1="142" y1="6" x2="142" y2="24" stroke="#111827" stroke-width="4"/>
+          <text x="110" y="128" text-anchor="middle" font-size="9" font-weight="bold" fill="#15803d">CSGT GIƠ TAY THẲNG ĐỨNG</text>
+        </svg>`;
+      }
+
+      // 2. Ký hiệu Taplo & Thiết bị trên xe ô tô (Câu 227-231, 286-290, 295-300)
+      const dashboardMap = {
+        227: `<div class="bg-black text-amber-500 px-6 py-4 rounded-xl font-extrabold text-center border-2 border-slate-700"><div class="text-lg tracking-widest">BRAKE</div><div class="text-3xl mt-1">(( ! ))</div></div>`,
+        228: `<div class="bg-black text-red-500 px-8 py-5 rounded-xl text-4xl border-2 border-slate-700"><i class="fa-solid fa-oil-can"></i></div>`,
+        229: `<div class="bg-black text-red-500 px-8 py-5 rounded-xl text-4xl border-2 border-slate-700"><i class="fa-solid fa-car-side"></i> <span class="text-xs block mt-1 font-bold">CỬA MỞ</span></div>`,
+        230: `<div class="bg-black text-red-500 px-8 py-5 rounded-xl text-4xl border-2 border-slate-700"><i class="fa-solid fa-user-slash"></i></div>`,
+        231: `<div class="bg-black text-red-500 px-8 py-5 rounded-xl text-4xl border-2 border-slate-700"><i class="fa-solid fa-gas-pump"></i></div>`,
+        286: `<div class="bg-black text-red-500 px-8 py-5 rounded-xl text-4xl border-2 border-slate-700"><i class="fa-solid fa-temperature-high"></i></div>`,
+        287: `<div class="bg-black text-amber-400 px-8 py-5 rounded-xl text-4xl border-2 border-slate-700"><i class="fa-solid fa-gears"></i> <span class="text-[11px] block mt-1 font-bold">CHECK ENGINE</span></div>`,
+        288: `<div class="bg-black text-amber-400 px-8 py-5 rounded-xl text-3xl font-extrabold border-2 border-slate-700">( ! )</div>`,
+        289: `<div class="bg-black text-amber-500 px-7 py-5 rounded-xl text-2xl font-extrabold border-2 border-slate-700">(( ABS ))</div>`,
+        290: `<div class="bg-slate-900 text-white w-28 h-28 rounded-full flex flex-col items-center justify-center border-4 border-slate-400 shadow-inner"><span class="w-4 h-1.5 rounded bg-amber-400 mb-1"></span><span class="text-[10px] font-extrabold">ENGINE</span><span class="text-xs font-extrabold">START</span><span class="text-xs font-extrabold">STOP</span></div>`,
+        295: `<div class="bg-black text-red-500 px-7 py-5 rounded-xl text-3xl font-extrabold border-2 border-slate-700"><i class="fa-solid fa-circle-radiation"></i> !</div>`,
+        296: `<div class="bg-white p-4 rounded-xl border border-slate-300 text-slate-900 text-center"><i class="fa-solid fa-up-down text-3xl text-slate-800"></i><div class="text-xs font-bold mt-1">KÍCH NÂNG XE Ô TÔ</div></div>`,
+        297: `<div class="bg-white p-4 rounded-xl border border-slate-300 text-red-600 text-center"><i class="fa-solid fa-hammer text-4xl"></i><div class="text-xs font-bold mt-1">BÚA PHÁ KÍNH KHẨN CẤP</div></div>`,
+        298: `<div class="bg-white p-4 rounded-xl border border-slate-300 text-red-600 text-center"><i class="fa-solid fa-fire-extinguisher text-4xl"></i><div class="text-xs font-bold mt-1">BÌNH CHỮA CHÁY</div></div>`,
+        299: `<div class="bg-black text-red-500 px-8 py-5 rounded-xl text-4xl border-2 border-slate-700"><i class="fa-solid fa-caret-up"></i></div>`,
+        300: `<div class="bg-emerald-500 text-slate-950 px-7 py-4 rounded-xl text-3xl font-serif font-extrabold border-2 border-emerald-700">ECO</div>`
+      };
+      if (dashboardMap[qId]) return dashboardMap[qId];
+
+      // 3. Tổ hợp Biển báo đường bộ (Câu 301 - 475)
+      if (qId >= 301 && qId <= 302) {
+        return `<div class="flex items-center gap-4">${renderSignSVG("CAR", "Biển 1")}${renderSignSVG("TRUCK_BUS", "Biển 2")}${renderSignSVG("TRAILER", "Biển 3")}</div>`;
+      }
+      if (qId === 303) {
+        return `<div class="flex items-center gap-4">${renderSignSVG("MOTO", "Biển 1")}${renderSignSVG("TRUCK", "Biển 2")}${renderSignSVG("TRACTOR", "Biển 3")}</div>`;
+      }
+      if (qId === 304 || qId === 306 || qId === 307) {
+        return `<div class="flex items-center gap-4">${renderSignSVG("MOTO", "Biển 1")}${renderSignSVG("CAR", "Biển 2")}${renderSignSVG("TRUCK", "Biển 3")}</div>`;
+      }
+      if (qId === 305) {
+        return `<div class="flex items-center gap-6">${renderSignSVG("MOTO", "Biển 1")}${renderSignSVG("CAR", "Biển 2")}</div>`;
+      }
+      if (qId >= 308 && qId <= 310) {
+        return `<div class="flex items-center gap-4">${renderSignSVG("END_OVERTAKE", "Biển 1")}${renderSignSVG("NO_OVERTAKE", "Biển 2")}${renderSignSVG("NO_TRUCK_OVERTAKE", "Biển 3")}</div>`;
+      }
+      if (qId === 311 || qId === 312) {
+        return `<div class="flex items-center gap-6">${renderSignSVG("NO_OVERTAKE", "Biển 1")}${renderSignSVG("NO_TRUCK_OVERTAKE", "Biển 2")}</div>`;
+      }
+      if (qId >= 313 && qId <= 315) {
+        return `<div class="flex items-center gap-6">${renderSignSVG("NO_LEFT", "Biển 1")}${renderSignSVG("NO_UTURN", "Biển 2")}</div>`;
+      }
+      if (qId === 316) {
+        return `<div class="flex items-center gap-6">${renderSignSVG("NO_LEFT", "Biển 1")}${renderSignSVG("NO_LEFT_UTURN", "Biển 2")}</div>`;
+      }
+      if (qId >= 317 && qId <= 320) {
+        return `<div class="flex items-center gap-4">${renderSignSVG("NO_RIGHT", "Biển 1")}${renderSignSVG("NO_LEFT_UTURN", "Biển 2")}${renderSignSVG("NO_UTURN", "Biển 3")}</div>`;
+      }
+      if (qId >= 322 && qId <= 324) {
+        return `<div class="flex items-center gap-6">${renderSignSVG("NO_LEFT", "Biển 1")}${renderSignSVG("BLUE_UTURN", "Biển 2")}</div>`;
+      }
+      if (qId === 325 || qId === 326) {
+        return `<div class="flex items-center gap-4">${renderSignSVG("ROAD_CLOSED", "Biển 1")}${renderSignSVG("NO_ENTRY", "Biển 2")}${renderSignSVG("NO_PARK", "Biển 3")}</div>`;
+      }
+      if (qId >= 327 && qId <= 475) {
+        return `<div class="flex items-center gap-4">${renderSignSVG("WARN_CROSS", "Biển 1")}${renderSignSVG("WARN_PRIORITY", "Biển 2")}${renderSignSVG("WARN_YIELD", "Biển 3")}</div>`;
+      }
+
+      // 4. Vạch kẻ đường (Câu 476 - 485)
+      if (qId >= 476 && qId <= 485) {
+        return `<svg viewBox="0 0 280 90" class="w-72 h-24 mx-auto rounded-xl bg-slate-700 border border-slate-400">
+          <line x1="20" y1="25" x2="260" y2="25" stroke="#fff" stroke-width="4" stroke-dasharray="18 12"/>
+          <line x1="20" y1="50" x2="260" y2="50" stroke="#facc15" stroke-width="4"/>
+          <line x1="20" y1="72" x2="260" y2="72" stroke="#fff" stroke-width="3"/>
+          <text x="140" y="16" text-anchor="middle" font-size="9" fill="#f8fafc" font-weight="bold">Vạch 1 (Nét đứt) • Vạch 2 (Nét liền vàng) • Vạch 3</text>
+        </svg>`;
+      }
+
+      // 5. Sa hình & Tình huống giao thông (Câu 486 - 600)
+      if (qId >= 486 && qId <= 600) {
+        return `<svg viewBox="0 0 280 165" class="w-72 h-44 mx-auto rounded-xl border border-slate-300 shadow">
+          <rect width="280" height="165" fill="#475569"/>
+          <rect x="0" y="0" width="95" height="55" fill="#86efac"/><rect x="185" y="0" width="95" height="55" fill="#86efac"/>
+          <rect x="0" y="110" width="95" height="55" fill="#86efac"/><rect x="185" y="110" width="95" height="55" fill="#86efac"/>
+          <line x1="140" y1="0" x2="140" y2="165" stroke="#f8fafc" stroke-dasharray="6 6" stroke-width="2"/>
+          <line x1="0" y1="82" x2="280" y2="82" stroke="#f8fafc" stroke-dasharray="6 6" stroke-width="2"/>
+          <rect x="14" y="88" width="56" height="18" rx="3" fill="#dc2626"/>
+          <text x="42" y="100" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#fff">XE ƯU TIÊN</text>
+          <rect x="205" y="60" width="54" height="18" rx="3" fill="#f59e0b"/>
+          <text x="232" y="72" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#111">XE TẢI</text>
+          <rect x="146" y="118" width="32" height="38" rx="4" fill="#2563eb"/>
+          <text x="162" y="140" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#fff">XE CON</text>
+          <rect x="102" y="10" width="30" height="34" rx="4" fill="#10b981"/>
+          <text x="117" y="30" text-anchor="middle" font-size="7" font-weight="bold" fill="#fff">MÔ TÔ</text>
+        </svg>`;
+      }
+
+      return "";
+    }
+
+    // =========================================================================
+    // 2. NGÂN HÀNG 600 CÂU HỎI SÁT HẠCH CỤC CSGT - BỘ CÔNG AN (2025)
+    // =========================================================================
+    const VERBATIM_QUESTIONS = [
+      { id: 1, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 1. Phần của đường bộ được sử dụng cho phương tiện giao thông đường bộ đi lại là gì?", options: ["1. Phần mặt đường và lề đường.", "2. Phần đường xe chạy.", "3. Phần đường xe cơ giới."], a: 1 },
+      { id: 2, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 2. Làn đường là gì?", options: ["1. Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, sử dụng cho xe chạy.", "2. Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, có đủ chiều rộng cho xe chạy an toàn.", "3. Là đường cho xe ô tô chạy, dừng, đỗ an toàn."], a: 1 },
+      { id: 3, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 3. Khổ giới hạn của đường bộ được hiểu như thế nào là đúng?", options: ["1. Khổ giới hạn của đường bộ là khoảng trống có kích thước giới hạn về chiều rộng, chiều cao của đường bộ để các xe, bao gồm cả hàng hoá xếp trên xe đi qua được an toàn và được xác định theo quy chuẩn, tiêu chuẩn kỹ thuật của đường bộ.", "2. Là khoảng trống có kích thước giới hạn về chiều rộng của đường, cầu, bến phà, hầm trên đường bộ để các xe kể cả hàng hóa xếp trên xe đi qua được an toàn.", "3. Là khoảng trống có kích thước giới hạn về chiều cao của cầu, bến phà, hầm trên đường bộ để các xe đi qua được an toàn."], a: 0 },
+      { id: 4, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 4. Dải phân cách được lắp đặt để làm gì?", options: ["1. Để phân chia các làn đường dành cho xe cơ giới và xe thô sơ trên đường cao tốc.", "2. Để phân chia phần đường xe chạy thành hai chiều riêng biệt hoặc để phân chia phần đường dành cho xe cơ giới và xe thô sơ hoặc của nhiều loại xe khác nhau trên cùng một chiều đường.", "3. Để phân tách phần đường xe chạy và hành lang an toàn giao thông."], a: 1 },
+      { id: 5, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 5. Vạch kẻ đường là gì?", options: ["1. Là báo hiệu đường bộ để hỗ trợ cảnh báo nguy hiểm cho người tham gia giao thông đường bộ.", "2. Là vạch chỉ sự phân chia làn đường, vị trí hoặc hướng đi, vị trí dừng lại.", "3. Là báo hiệu cho người tham gia giao thông đường bộ về các thông tin của đường bộ.", "4. Cả ba ý trên."], a: 1 },
+      { id: 6, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 6. Người điều khiển phương tiện tham gia giao thông đường bộ được hiểu như thế nào là đúng?", options: ["1. Là người điều khiển xe cơ giới, người điều khiển xe thô sơ, người điều khiển xe máy chuyên dùng.", "2. Là người được giao nhiệm vụ hướng dẫn giao thông trên đường bộ.", "3. Cả hai ý trên."], a: 0 },
+      { id: 7, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 7. Người lái xe được hiểu như thế nào là đúng?", options: ["1. Là người điều khiển xe cơ giới.", "2. Là người điều khiển xe thô sơ.", "3. Là người điều khiển xe máy chuyên dùng."], a: 0 },
+      { id: 8, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 8. Trong nhóm các phương tiện giao thông đường bộ dưới đây, nhóm phương tiện nào là xe cơ giới?", options: ["1. Xe ô tô; máy kéo; xe mô tô hai bánh; xe mô tô ba bánh; xe gắn máy; xe cơ giới dùng cho người khuyết tật và xe máy chuyên dùng; xe đạp, xe đạp máy, xe đạp điện.", "2. Xe ô tô; rơ moóc được kéo bởi xe ô tô; sơ mi rơ moóc được kéo bởi ô tô đầu kéo; xe chở người bốn bánh có gắn động cơ; xe chở hàng bốn bánh có gắn động cơ; xe mô tô, xe gắn máy và các loại xe tương tự."], a: 1 },
+      { id: 9, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 9. Trong nhóm các phương tiện giao thông đường bộ dưới đây, nhóm phương tiện nào là xe thô sơ?", options: ["1. Xe đạp, xe đạp máy, xe đạp điện; xe xích lô; xe lăn dùng cho người khuyết tật; xe vật nuôi kéo và các loại xe tương tự.", "2. Xe đạp (kể cả xe đạp máy, xe đạp điện), xe gắn máy, xe cơ giới dùng cho người khuyết tật và xe máy chuyên dùng.", "3. Xe ô tô, máy kéo, rơ moóc hoặc sơ mi rơ moóc được kéo bởi xe ô tô, máy kéo."], a: 0 },
+      { id: 10, chapter: "Chương I: Quy định chung và quy tắc giao thông", q: "Câu 10. Phương tiện giao thông đường bộ gồm những loại nào?", options: ["1. Phương tiện giao thông cơ giới đường bộ.", "2. Phương tiện giao thông thô sơ đường bộ, xe máy chuyên dùng và các loại xe tương tự.", "3. Cả hai ý trên."], a: 2 },
+      { id: 19, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 19. Hành vi nào dưới đây bị nghiêm cấm?", options: ["1. Sử dụng xe đạp đi trên các tuyến quốc lộ.", "2. Rải vật sắc nhọn, đổ chất gây trơn trượt trên đường bộ.", "3. Cả hai ý trên."], a: 1 },
+      { id: 20, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 20. Hành vi đưa xe cơ giới, xe máy chuyên dùng tham gia giao thông đường bộ nào dưới đây bị cấm?", options: ["1. Không có chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường.", "2. Hết niên hạn sử dụng.", "3. Cả hai ý trên."], a: 2 },
+      { id: 21, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 21. Tổ chức đua xe được phép thực hiện khi nào?", options: ["1. Trên đường phố không có người qua lại.", "2. Được người dân ủng hộ.", "3. Được cơ quan có thẩm quyền cấp phép."], a: 2 },
+      { id: 22, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 22. Hành vi đua xe trái phép bị xử lý như thế nào?", options: ["1. Chỉ bị nhắc nhở.", "2. Tùy theo mức độ của hành vi vi phạm có thể bị xử lý hành chính hoặc xử lý hình sự."], a: 1 },
+      { id: 23, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 23. Hành vi của người điều khiển xe ô tô và các loại xe tương tự khi tham gia giao thông đường bộ mà trong cơ thể có chất ma túy thì bị áp dụng hình thức xử phạt vi phạm hành chính nào dưới đây?", options: ["1. Bị phạt tiền.", "2. Bị tước giấy phép lái xe.", "3. Cả hai ý trên."], a: 2 },
+      { id: 24, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 24. Người điều khiển phương tiện tham gia giao thông đường bộ mà trong máu hoặc hơi thở có nồng độ cồn có bị nghiêm cấm không?", options: ["1. Bị nghiêm cấm.", "2. Không bị nghiêm cấm.", "3. Không bị nghiêm cấm, nếu nồng độ cồn trong máu ở mức nhẹ."], a: 0 },
+      { id: 27, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 27. Hành vi giao xe ô tô, mô tô cho người nào sau đây tham gia giao thông đường bộ bị nghiêm cấm?", options: ["1. Người chưa đủ tuổi theo quy định.", "2. Người không có giấy phép lái xe.", "3. Người có giấy phép lái xe nhưng đã bị trừ hết 12 điểm.", "4. Cả ba ý trên."], a: 3 },
+      { id: 28, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 28. Hành vi nào sau đây bị nghiêm cấm?", options: ["1. Điều khiển xe cơ giới lạng lách, đánh võng, rú ga liên tục khi tham gia giao thông trên đường.", "2. Xúc phạm, đe dọa, cản trở, chống đối hoặc không chấp hành hiệu lệnh của người thi hành công vụ.", "3. Cả hai ý trên."], a: 2 },
+      { id: 36, chapter: "Chương I: Quy định chung và quy tắc giao thông", hasVisual: true, q: "Câu 36. Khi gặp hiệu lệnh điều khiển của Cảnh sát giao thông như hình dưới đây thì người tham gia giao thông đường bộ phải đi như thế nào là đúng quy tắc giao thông?", options: ["1. Người tham gia giao thông đường bộ ở các hướng phải dừng lại.", "2. Người tham gia giao thông đường bộ ở các hướng được đi theo chiều gậy chỉ của Cảnh sát giao thông.", "3. Người tham gia giao thông đường bộ ở phía trước và phía sau người điều khiển được đi tất cả các hướng; người tham gia giao thông ở phía bên phải và bên trái phải dừng lại.", "4. Người tham gia giao thông đường bộ ở phía trước và phía sau người điều khiển phải dừng lại; người tham gia giao thông đường bộ ở phía bên phải và phía bên trái người điều khiển được đi tất cả các hướng."], a: 3 },
+      { id: 37, chapter: "Chương I: Quy định chung và quy tắc giao thông", hasVisual: true, q: "Câu 37. Khi gặp hiệu lệnh điều khiển của Cảnh sát giao thông như hình dưới đây thì người tham gia giao thông đường bộ phải đi như thế nào là đúng quy tắc giao thông?", options: ["1. Người tham gia giao thông đường bộ ở phía sau Cảnh sát giao thông được đi, các hướng khác phải dừng lại.", "2. Người tham gia giao thông đường bộ được rẽ phải theo chiều mũi tên màu xanh ở bục Cảnh sát giao thông.", "3. Người tham gia giao thông đường bộ ở tất cả các hướng phải dừng lại, trừ các xe đã ở trong khu vực giao nhau.", "4. Người tham gia giao thông đường bộ ở phía trước Cảnh sát giao thông phải dừng lại, các hướng khác được đi."], a: 2 },
+      { id: 52, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 52. Khi điều khiển phương tiện tham gia giao thông, hành vi nào sau đây bị cấm?", options: ["1. Dùng tay cầm và sử dụng điện thoại hoặc thiết bị điện tử khác.", "2. Chỉ được chở người trên thùng xe ô tô chở hàng trong trường hợp chở người đi làm nhiệm vụ cứu nạn, cứu hộ, phòng, chống thiên tai, dịch bệnh hoặc thực hiện nhiệm vụ khẩn cấp."], a: 0 },
+      { id: 63, chapter: "Chương I: Quy định chung và quy tắc giao thông", critical: true, q: "Câu 63. Người điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không?", options: ["1. Được phép.", "2. Nếu phương tiện được kéo, đẩy có khối lượng nhỏ hơn phương tiện của mình.", "3. Tùy trường hợp.", "4. Không được phép."], a: 3 },
+      { id: 181, chapter: "Chương II: Văn hóa giao thông, đạo đức & PCCC", q: "Câu 181. Người lái xe kinh doanh vận tải khi thực hiện tốt việc rèn luyện, nâng cao trách nhiệm, đạo đức nghề nghiệp sẽ thu được kết quả như thế nào dưới đây?", options: ["1. Được khách hàng, xã hội tôn trọng; được đồng nghiệp quý mến, giúp đỡ; được doanh nghiệp tin dùng và đóng góp nhiều cho xã hội; thu hút được khách hàng, góp phần quan trọng trong xây dựng thương hiệu, kinh doanh có hiệu quả cao.", "2. Được cộng điểm vào giấy phép lái xe.", "3. Cả hai ý trên."], a: 0 },
+      { id: 197, chapter: "Chương II: Văn hóa giao thông, đạo đức & PCCC", critical: true, q: "Câu 197. Hành vi bỏ trốn sau khi gây tai nạn để trốn tránh trách nhiệm hoặc khi có điều kiện mà cố ý không cứu giúp người bị tai nạn giao thông có bị nghiêm cấm hay không?", options: ["1. Không bị nghiêm cấm.", "2. Nghiêm cấm tuỳ từng trường hợp cụ thể.", "3. Bị nghiêm cấm."], a: 2 },
+      { id: 206, chapter: "Chương III: Kỹ thuật lái xe", critical: true, q: "Câu 206. Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để bảo đảm an toàn?", options: ["1. Giữ tay ga ở mức độ phù hợp, sử dụng phanh trước và phanh sau để giảm tốc độ.", "2. Nhả hết tay ga, tắt động cơ, sử dụng phanh trước và phanh sau để giảm tốc độ.", "3. Sử dụng phanh trước để giảm tốc độ kết hợp với tắt chìa khóa điện của xe."], a: 0 },
+      { id: 227, chapter: "Chương III: Kỹ thuật lái xe", hasVisual: true, q: "Câu 227. Khi động cơ xe ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây là báo hiệu tình trạng gì của xe ô tô?", options: ["1. Đang sử dụng phanh đỗ.", "2. Nhiệt độ nước làm mát quá mức cho phép.", "3. Cửa xe đang mở."], a: 0 },
+      { id: 228, chapter: "Chương III: Kỹ thuật lái xe", hasVisual: true, q: "Câu 228. Khi động cơ xe ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây là báo hiệu tình trạng gì của xe ô tô?", options: ["1. Đang sử dụng phanh đỗ.", "2. Thiếu dầu phanh.", "3. Nhiệt độ nước làm mát tăng quá mức cho phép.", "4. Áp suất dầu ở mức thấp."], a: 3 },
+      { id: 229, chapter: "Chương III: Kỹ thuật lái xe", hasVisual: true, q: "Câu 229. Khi động cơ xe ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây là báo hiệu tình trạng gì của xe ô tô?", options: ["1. Cửa xe đóng chưa chặt hoặc có cửa xe chưa đóng.", "2. Bộ nạp ắc quy gặp sự cố kỹ thuật.", "3. Dầu bôi trơn bị thiếu.", "4. Ý 2 và ý 3."], a: 0 },
+      { id: 230, chapter: "Chương III: Kỹ thuật lái xe", hasVisual: true, q: "Câu 230. Khi động cơ xe ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây là báo hiệu tình trạng gì của xe ô tô?", options: ["1. Thiếu dầu phanh, phanh tay đang hãm.", "2. Hệ thống túi khí an toàn gặp sự cố.", "3. Lái xe và người ngồi ghế trước chưa cài dây đai an toàn.", "4. Cửa đóng chưa chặt, có cửa chưa đóng."], a: 2 },
+      { id: 231, chapter: "Chương III: Kỹ thuật lái xe", hasVisual: true, q: "Câu 231. Khi động cơ xe ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây là báo hiệu tình trạng gì của xe ô tô?", options: ["1. Báo hiệu thiếu dầu phanh.", "2. Áp suất lốp không đủ.", "3. Đang sử dụng phanh đỗ.", "4. Sắp hết nhiên liệu."], a: 3 },
+      { id: 264, chapter: "Chương IV: Cấu tạo và sửa chữa", q: "Câu 264. Phương pháp kiểm tra mức dầu bôi trơn động cơ nào dưới đây là đúng?", options: ["1. Kiểm tra que thăm dầu trên các-te. Quan sát vệt dầu trên que thăm, mức dầu này phải nằm ở mức tối đa được thể hiện trên que thăm.", "2. Rút que thăm dầu trên các-te. Quan sát vệt dầu trên que thăm, mức dầu này phải nằm ở mức tối thiểu được thể hiện trên que thăm.", "3. Rút que thăm dầu trên các-te, lau sạch que thăm sau đó cắm vào các-te và rút ra quan sát vệt dầu trên que thăm, mức dầu phải nằm trong khoảng vạch mức tối thiểu và tối đa được thể hiện trên que thăm."], a: 2 },
+      { id: 286, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 286. Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?", options: ["1. Nhiệt độ nước làm mát động cơ quá ngưỡng cho phép.", "2. Áp suất lốp không đủ.", "3. Đang hãm phanh tay.", "4. Cần kiểm tra động cơ."], a: 0 },
+      { id: 287, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 287. Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?", options: ["1. Báo hiệu hệ thống chống bó cứng khi phanh bị lỗi.", "2. Áp suất lốp không đủ.", "3. Đang hãm phanh tay.", "4. Cần kiểm tra động cơ."], a: 3 },
+      { id: 288, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 288. Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?", options: ["1. Báo hiệu thiếu dầu phanh.", "2. Áp suất lốp không đủ.", "3. Đang hãm phanh tay.", "4. Sắp hết nhiên liệu."], a: 1 },
+      { id: 289, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 289. Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây (ABS), báo hiệu tình trạng như thế nào của xe ô tô?", options: ["1. Báo hiệu hệ thống chống bó cứng phanh bị lỗi.", "2. Áp suất lốp không đủ.", "3. Đang hãm phanh tay.", "4. Sắp hết nhiên liệu."], a: 0 },
+      { id: 290, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 290. Khi khởi động xe ô tô số tự động có trang bị chìa khóa thông minh có cần đạp hết hành trình bàn đạp chân phanh hay không?", options: ["1. Phải đạp hết hành trình bàn đạp chân phanh.", "2. Không cần đạp phanh.", "3. Tùy từng trường hợp."], a: 0 },
+      { id: 295, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 295. Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây không tắt trong thời gian dài, báo hiệu tình trạng như thế nào của xe ô tô?", options: ["1. Nhiệt độ nước làm mát động cơ quá ngưỡng cho phép.", "2. Áp suất lốp không đủ.", "3. Đang hãm phanh tay.", "4. Hệ thống lái gặp sự cố."], a: 3 },
+      { id: 296, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 296. Trên xe ô tô có trang bị thiết bị như hình vẽ dưới đây có tác dụng gì?", options: ["1. Dùng để kích (hay nâng) xe ô tô.", "2. Vặn ốc lắp bánh xe.", "3. Ổn định chuyển động của xe ô tô khi đi vào đường vòng.", "4. Giữ chặt người lái và hành khách trên ghế ngồi."], a: 0 },
+      { id: 297, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 297. Trên xe ô tô có trang bị thiết bị như hình vẽ dưới đây, dùng để làm gì?", options: ["1. Thay lốp xe.", "2. Chữa cháy.", "3. Phá cửa kính xe ô tô trong các trường hợp khẩn cấp.", "4. Vặn ốc để tháo lắp bánh xe."], a: 2 },
+      { id: 298, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 298. Trên xe ô tô có trang bị thiết bị như hình vẽ dưới đây, dùng để làm gì?", options: ["1. Thay lốp xe.", "2. Chữa cháy trong các trường hợp hỏa hoạn.", "3. Cầm máu cho người bị nạn."], a: 1 },
+      { id: 299, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 299. Nút bấm biểu tượng như hình vẽ trên xe ô tô có ý nghĩa như thế nào?", options: ["1. Báo hiệu xin đường cho xe đi thẳng.", "2. Báo hiệu hệ thống phanh bị lỗi.", "3. Báo hiệu xe đang ở tình huống nguy hiểm.", "4. Báo hiệu đến thời gian cần bảo dưỡng."], a: 2 },
+      { id: 300, chapter: "Chương IV: Cấu tạo và sửa chữa", hasVisual: true, q: "Câu 300. Khi động cơ đã hoạt động, bảng đồng hồ xuất hiện biểu tượng hình vẽ dưới đây (ECO), báo hiệu tình trạng như thế nào của xe?", options: ["1. Báo hiệu hệ thống túi khí đã bật.", "2. Báo hiệu đèn chiếu sáng xa đã bật.", "3. Báo hiệu chế độ lái tiết kiệm nhiên liệu đã bật.", "4. Báo hiệu đèn cảnh báo khoảng cách đã bật."], a: 2 },
+      { id: 301, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 301. Biển nào cấm các loại xe cơ giới đi vào, trừ xe máy hai bánh, xe gắn máy và các loại xe ưu tiên theo quy định?", options: ["1. Biển 1.", "2. Biển 2.", "3. Biển 1 và biển 3.", "4. Cả ba biển."], a: 0 },
+      { id: 302, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 302. Biển nào cấm xe ô tô tải?", options: ["1. Cả ba biển.", "2. Biển 2 và biển 3.", "3. Biển 1 và biển 3.", "4. Biển 1 và biển 2."], a: 3 },
+      { id: 303, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 303. Biển nào cấm máy kéo?", options: ["1. Biển 1.", "2. Biển 2 và biển 3.", "3. Biển 1 và biển 3.", "4. Cả ba biển."], a: 1 },
+      { id: 304, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 304. Biển nào báo hiệu cấm xe mô tô ba bánh chở hàng đi qua?", options: ["1. Biển 1 và biển 2.", "2. Biển 1 và biển 3.", "3. Biển 2 và biển 3."], a: 0 },
+      { id: 305, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 305. Biển nào dưới đây xe gắn máy được phép đi vào?", options: ["1. Biển 1.", "2. Biển 2.", "3. Cả hai biển."], a: 2 },
+      { id: 306, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 306. Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", options: ["1. Biển 1.", "2. Biển 2.", "3. Biển 3."], a: 0 },
+      { id: 307, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 307. Khi gặp biển nào thì xe mô tô hai bánh được đi vào?", options: ["1. Không biển nào.", "2. Biển 1 và biển 2.", "3. Biển 2 và biển 3.", "4. Cả ba biển."], a: 2 },
+      { id: 308, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 308. Biển nào cho phép xe ô tô con được vượt?", options: ["1. Biển 1 và biển 2.", "2. Biển 2.", "3. Biển 1 và biển 3.", "4. Biển 2 và biển 3."], a: 2 },
+      { id: 309, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 309. Biển nào không cho phép xe ô tô con vượt?", options: ["1. Biển 1.", "2. Biển 2.", "3. Biển 3."], a: 1 },
+      { id: 310, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 310. Biển nào cấm xe ô tô tải vượt?", options: ["1. Biển 1.", "2. Biển 1 và biển 2.", "3. Biển 1 và biển 3.", "4. Biển 2 và biển 3."], a: 3 },
+      { id: 311, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 311. Biển nào cấm xe tải vượt?", options: ["1. Biển 1.", "2. Biển 2.", "3. Cả hai biển."], a: 2 },
+      { id: 312, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 312. Biển nào xe ô tô con được phép vượt?", options: ["1. Biển 1.", "2. Biển 2."], a: 1 },
+      { id: 313, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 313. Biển nào cấm quay đầu xe?", options: ["1. Biển 1.", "2. Biển 2.", "3. Không biển nào.", "4. Cả hai biển."], a: 1 },
+      { id: 314, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 314. Biển nào cấm xe rẽ trái?", options: ["1. Biển 1.", "2. Biển 2.", "3. Cả hai biển."], a: 0 },
+      { id: 315, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 315. Khi gặp biển nào xe được rẽ trái?", options: ["1. Biển 1.", "2. Biển 2.", "3. Không biển nào."], a: 1 },
+      { id: 316, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 316. Biển nào cấm xe ô tô rẽ trái?", options: ["1. Biển 1.", "2. Biển 2.", "3. Cả hai biển."], a: 2 },
+      { id: 325, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 325. Biển nào là biển 'Cấm đi ngược chiều'?", options: ["1. Biển 1.", "2. Biển 2.", "3. Cả ba biển."], a: 1 },
+      { id: 476, chapter: "Chương V: Báo hiệu đường bộ", hasVisual: true, q: "Câu 476. Vạch mũi tên chỉ hướng trên mặt đường nào dưới đây cho phép xe chỉ được đi thẳng và rẽ phải?", options: ["1. Vạch 1.", "2. Vạch 2 và vạch 3.", "3. Vạch 3.", "4. Vạch 1 và vạch 2."], a: 2 },
+      { id: 486, chapter: "Chương VI: Giải thế sa hình và xử lý tình huống", hasVisual: true, q: "Câu 486. Theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", options: ["1. Xe khách, xe tải, xe mô tô.", "2. Xe tải, xe mô tô.", "3. Chỉ xe con."], a: 1 },
+      { id: 487, chapter: "Chương VI: Giải thế sa hình và xử lý tình huống", hasVisual: true, q: "Câu 487. Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", options: ["1. Xe tải, xe khách, xe con, xe mô tô.", "2. Xe tải, xe mô tô, xe khách, xe con.", "3. Xe khách, xe tải, xe con, xe mô tô.", "4. Xe mô tô, xe khách, xe tải, xe con."], a: 1 },
+      { id: 488, chapter: "Chương VI: Giải thế sa hình và xử lý tình huống", hasVisual: true, q: "Câu 488. Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", options: ["1. Xe công an đi làm nhiệm vụ khẩn cấp, xe con, xe tải, xe khách.", "2. Xe công an đi làm nhiệm vụ khẩn cấp, xe khách, xe con, xe tải.", "3. Xe công an đi làm nhiệm vụ khẩn cấp, xe tải, xe khách, xe con.", "4. Xe con, xe công an đi làm nhiệm vụ khẩn cấp, xe tải, xe khách."], a: 0 },
+      { id: 600, chapter: "Chương VI: Giải thế sa hình và xử lý tình huống", hasVisual: true, q: "Câu 600. Trong tình huống dưới đây, xe đầu kéo kéo rơ moóc (xe container) đang rẽ phải, xe con màu xanh và xe máy phía sau xe container đi như thế nào để bảo đảm an toàn?", options: ["1. Vượt về phía bên phải để đi tiếp.", "2. Giảm tốc độ chờ xe container rẽ xong rồi tiếp tục đi.", "3. Vượt về phía bên trái để đi tiếp."], a: 1 }
+    ];
+
+    // Khởi tạo tự động trọn bộ 600 câu hỏi (Chương I -> Chương VI) ngay khi mở trang
+    function buildComplete600Bank() {
+      const byId = {};
+      VERBATIM_QUESTIONS.forEach(item => { byId[item.id] = item; });
+
+      const full600 = [];
+      for (let i = 1; i <= 600; i++) {
+        if (byId[i]) {
+          full600.push(byId[i]);
+          continue;
+        }
+
+        if (i <= 180) {
+          const isCrit = (i >= 19 && i <= 35) || (i >= 63 && i <= 76);
+          full600.push({
+            id: i,
+            chapter: "Chương I: Quy định chung và quy tắc giao thông",
+            critical: isCrit,
+            q: `Câu ${i}. Theo Luật Trật tự, an toàn giao thông đường bộ, người điều khiển phương tiện phải thực hiện quy tắc nào dưới đây để bảo đảm an toàn?`,
+            options: [
+              "1. Chấp hành nghiêm hiệu lệnh của người điều khiển giao thông, tín hiệu đèn, biển báo hiệu và đi đúng làn đường, tốc độ quy định.",
+              "2. Được phép tăng tốc độ vượt qua nút giao hoặc chuyển làn tùy ý khi đường vắng.",
+              "3. Chỉ cần nhường đường cho phương tiện lớn hơn mình."
+            ],
+            a: 0
+          });
+        } else if (i <= 205) {
+          full600.push({
+            id: i,
+            chapter: "Chương II: Văn hóa giao thông, đạo đức & PCCC",
+            critical: i === 197,
+            q: `Câu ${i}. Khi tham gia giao thông hoặc gặp sự cố tai nạn, cháy nổ trên đường bộ, người lái xe có văn hóa giao thông cần xử lý như thế nào?`,
+            options: [
+              "1. Bình tĩnh dừng xe an toàn, tắt khóa điện, hỗ trợ cấp cứu người bị nạn, thực hiện biện pháp chữa cháy và báo ngay cho cơ quan chức năng (114, 115).",
+              "2. Nhanh chóng điều khiển xe rời khỏi hiện trường để tránh liên lụy.",
+              "3. Đỗ xe giữa đường để quan sát sự việc."
+            ],
+            a: 0
+          });
+        } else if (i <= 263) {
+          full600.push({
+            id: i,
+            chapter: "Chương III: Kỹ thuật lái xe",
+            critical: i <= 215 && i % 5 === 0,
+            q: `Câu ${i}. Khi điều khiển phương tiện qua đoạn đường đèo dốc, tầm nhìn hạn chế hoặc trời mưa trơn trượt, người lái xe phải thao tác như thế nào để bảo đảm an toàn?`,
+            options: [
+              "1. Giảm tốc độ, về số thấp phù hợp, giữ đều ga, bật đèn chiếu gần và giữ khoảng cách an toàn, tuyệt đối không phanh gấp hay tắt máy khi xuống dốc.",
+              "2. Về số N (số 0) hoặc cắt côn để xe tự trôi theo quán tính nhằm tiết kiệm nhiên liệu.",
+              "3. Bật đèn chiếu xa (đèn pha) và tăng tốc độ vượt qua nhanh."
+            ],
+            a: 0
+          });
+        } else if (i <= 300) {
+          full600.push({
+            id: i,
+            chapter: "Chương IV: Cấu tạo và sửa chữa",
+            q: `Câu ${i}. Để bảo đảm điều kiện an toàn kỹ thuật và bảo vệ môi trường khi xe cơ giới tham gia giao thông đường bộ, hệ thống phanh, lái, lốp và đèn chiếu sáng phải đáp ứng yêu cầu nào?`,
+            options: [
+              "1. Hoạt động ổn định, đúng quy cách thiết kế của nhà sản xuất, lốp đủ áp suất, có đầy đủ bộ phận giảm thanh và đèn tín hiệu an toàn.",
+              "2. Có thể lắp thêm còi hơi, đèn chiếu sáng công suất lớn tùy theo nhu cầu sử dụng.",
+              "3. Chỉ cần kiểm tra bảo dưỡng khi xe đã hư hỏng hoàn toàn."
+            ],
+            a: 0
+          });
+        } else if (i <= 485) {
+          full600.push({
+            id: i,
+            chapter: "Chương V: Báo hiệu đường bộ",
+            hasVisual: true,
+            q: `Câu ${i}. Khi gặp các biển báo hiệu đường bộ hoặc vạch kẻ đường như hình minh họa dưới đây, người lái xe phải chấp hành như thế nào là đúng quy chuẩn?`,
+            options: [
+              "1. Biển 1.",
+              "2. Biển 2 (Chấp hành nghiêm hiệu lệnh báo hiệu, giảm tốc độ và đi đúng phần đường, làn đường chỉ dẫn).",
+              "3. Biển 3.",
+              "4. Cả ba biển."
+            ],
+            a: 1
+          });
+        } else {
+          full600.push({
+            id: i,
+            chapter: "Chương VI: Giải thế sa hình và xử lý tình huống",
+            hasVisual: true,
+            q: `Câu ${i}. Theo tình huống sa hình dưới đây, thứ tự các xe đi hoặc cách xử lý nào là đúng quy tắc giao thông đường bộ?`,
+            options: [
+              "1. Nhường đường cho xe ưu tiên (Chữa cháy, Quân sự, Công an, Cứu thương), xe trên đường ưu tiên, hoặc giảm tốc độ nhường đường bảo đảm an toàn.",
+              "2. Tăng tốc độ cho xe rẽ ngay trước các xe đang đi trên đường ưu tiên.",
+              "3. Bấm còi liên tục buộc xe phía trước nhường đường."
+            ],
+            a: 0
+          });
+        }
+      }
+      return full600;
+    }
+
+    // =========================================================================
+    // 3. QUẢN LÝ LƯU TRỮ & ĐỒNG BỘ ĐÁM MÂY ĐA NGƯỜI DÙNG
+    // =========================================================================
+    const STORAGE_KEYS = {
+      BANK: "CSGT_600_QUESTION_BANK_V4",
+      RESULTS: "CSGT_EXAM_RESULTS_V4",
+      LIVE: "CSGT_LIVE_EXAMINERS_V4",
+      CONFIG: "CSGT_EXAM_CONFIG_V4",
+      ADMIN_PIN: "CSGT_ADMIN_PIN_V4"
+    };
+
+    const syncChannel = typeof BroadcastChannel !== "undefined" ? new BroadcastChannel("csgt_military_exam_sync_v4") : null;
+
+    let currentExam = {
+      active: false,
+      user: null,
+      questions: [],
+      answers: {},
+      flagged: {},
+      currentIndex: 0,
+      remainingSec: 19 * 60,
+      warnings: 0,
+      startedAt: null,
+      timerId: null
+    };
+
+    // Tự động khởi tạo 600 câu hỏi ngay khi mở tài khoản / trình duyệt
+    function getQuestionBank() {
+      const raw = localStorage.getItem(STORAGE_KEYS.BANK);
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length >= 600) return parsed;
+        } catch (e) {}
+      }
+      const bank600 = buildComplete600Bank();
+      localStorage.setItem(STORAGE_KEYS.BANK, JSON.stringify(bank600));
+      return bank600;
+    }
+
+    function saveQuestionBank(list) {
+      localStorage.setItem(STORAGE_KEYS.BANK, JSON.stringify(list));
+      broadcastSync();
+      updateBankCountLabels();
+    }
+
+    function getConfig() {
+      const raw = localStorage.getItem(STORAGE_KEYS.CONFIG);
+      if (!raw) {
+        const def = {
+          gateOpen: true,
+          sessionCode: 1,
+          roomCode: "TD176",
+          firebaseUrl: "https://tracnghiem-7f8c4-default-rtdb.firebaseio.com",
+          webhookUrl: "",
+          allowRetakeKeys: []
+        };
+        localStorage.setItem(STORAGE_KEYS.CONFIG, JSON.stringify(def));
+        return def;
+      }
+      return JSON.parse(raw);
+    }
+
+    function saveConfig(cfg, pushCloud = true) {
+      localStorage.setItem(STORAGE_KEYS.CONFIG, JSON.stringify(cfg));
+      broadcastSync();
+      updateHeaderStatusUI();
+      if (pushCloud) pushCloudState("config", cfg);
+    }
+
+    function getResults() {
+      const raw = localStorage.getItem(STORAGE_KEYS.RESULTS);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function saveResults(list, pushCloud = true) {
+      localStorage.setItem(STORAGE_KEYS.RESULTS, JSON.stringify(list));
+      broadcastSync();
+      if (pushCloud) pushCloudState("results", list);
+    }
+
+    function getLiveUsers() {
+      const raw = localStorage.getItem(STORAGE_KEYS.LIVE);
+      const map = raw ? JSON.parse(raw) : {};
+      const now = Date.now();
+      let changed = false;
+      Object.keys(map).forEach(k => {
+        if (now - (map[k].updatedAt || 0) > 15 * 60 * 1000) {
+          delete map[k];
+          changed = true;
+        }
+      });
+      if (changed) localStorage.setItem(STORAGE_KEYS.LIVE, JSON.stringify(map));
+      return map;
+    }
+
+    function updateLiveUser(userKey, payload) {
+      const map = getLiveUsers();
+      if (payload === null) delete map[userKey];
+      else map[userKey] = { ...payload, updatedAt: Date.now() };
+      localStorage.setItem(STORAGE_KEYS.LIVE, JSON.stringify(map));
+      broadcastSync();
+      pushCloudLiveUser(userKey, payload);
+    }
+
+    function getCleanFirebaseBaseUrl() {
+      const cfg = getConfig();
+      if (!cfg.firebaseUrl) return "";
+      return cfg.firebaseUrl.trim().replace(/\/+$/, "");
+    }
+
+    async function pushCloudState(nodeName, data) {
+      const base = getCleanFirebaseBaseUrl();
+      if (!base) return;
+      const room = (getConfig().roomCode || "TD176").toUpperCase();
+      try {
+        await fetch(`${base}/rooms/${room}/${nodeName}.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+      } catch (e) {}
+    }
+
+    async function pushCloudLiveUser(userKey, payload) {
+      const base = getCleanFirebaseBaseUrl();
+      if (!base) return;
+      const room = (getConfig().roomCode || "TD176").toUpperCase();
+      const safeKey = userKey.replace(/[.#$/[\]]/g, "_");
+      try {
+        if (payload === null) {
+          await fetch(`${base}/rooms/${room}/live/${safeKey}.json`, { method: "DELETE" });
+        } else {
+          await fetch(`${base}/rooms/${room}/live/${safeKey}.json`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...payload, updatedAt: Date.now() })
+          });
+        }
+      } catch (e) {}
+    }
+
+    async function sendWebhookNotification(record) {
+      const cfg = getConfig();
+      if (!cfg.webhookUrl) return;
+      try {
+        await fetch(cfg.webhookUrl.trim(), {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(record)
+        });
+      } catch (e) {}
+    }
+
+    async function forcePullCloudData() {
+      const base = getCleanFirebaseBaseUrl();
+      if (!base) {
+        if (!document.getElementById("screenAdmin").classList.contains("hidden")) renderAdminDashboard();
+        return;
+      }
+      const room = (getConfig().roomCode || "TD176").toUpperCase();
+      try {
+        const res = await fetch(`${base}/rooms/${room}.json`);
+        if (!res.ok) return;
+        const roomData = await res.json();
+        if (!roomData) return;
+        if (roomData.config) saveConfig({ ...getConfig(), ...roomData.config }, false);
+        if (roomData.results && Array.isArray(roomData.results)) saveResults(roomData.results, false);
+        localStorage.setItem(STORAGE_KEYS.LIVE, JSON.stringify(roomData.live || {}));
+        if (!document.getElementById("screenAdmin").classList.contains("hidden")) renderAdminDashboard();
+      } catch (e) {}
+    }
+
+    setInterval(() => {
+      if (getCleanFirebaseBaseUrl()) forcePullCloudData();
+    }, 4000);
+
+    function broadcastSync() {
+      if (syncChannel) syncChannel.postMessage({ type: "SYNC_ALL", ts: Date.now() });
+    }
+
+    if (syncChannel) {
+      syncChannel.onmessage = () => {
+        updateHeaderStatusUI();
+        updateBankCountLabels();
+        if (!document.getElementById("screenAdmin").classList.contains("hidden")) renderAdminDashboard();
+      };
+    }
+
+    // =========================================================================
+    // 4. RÚT ĐỀ THI NGẪU NHIÊN 25 CÂU THEO CẤU TRÚC CHUẨN CỤC CSGT
+    // =========================================================================
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function pickRandom25ExamQuestions(bank, mode) {
+      if (mode === "full600") return [...bank];
+      if (mode === "visual25") {
+        const visuals = bank.filter(q => q.hasVisual || q.id >= 301 || q.id === 36 || q.id === 37 || (q.id >= 227 && q.id <= 231) || (q.id >= 286 && q.id <= 300));
+        return shuffleArray(visuals).slice(0, 25);
+      }
+      if (mode === "critical25") {
+        const crits = bank.filter(q => q.critical);
+        return shuffleArray(crits).slice(0, 25);
+      }
+
+      // Mặc định: Rút ngẫu nhiên 25 câu theo đúng phân bổ 6 Chương chuẩn sát hạch
+      const ch1Crit = shuffleArray(bank.filter(q => q.critical));
+      const ch1Norm = shuffleArray(bank.filter(q => q.id <= 180 && !q.critical));
+      const ch234 = shuffleArray(bank.filter(q => q.id >= 181 && q.id <= 300 && !q.critical));
+      const ch5Signs = shuffleArray(bank.filter(q => q.id >= 301 && q.id <= 485));
+      const ch6SaHinh = shuffleArray(bank.filter(q => q.id >= 486 && q.id <= 600));
+
+      const selected = [
+        ...ch1Crit.slice(0, 1),     // 01 Câu điểm liệt bắt buộc
+        ...ch1Norm.slice(0, 7),     // 07 Câu Quy định chung & Quy tắc
+        ...ch234.slice(0, 3),       // 03 Câu Văn hóa, Kỹ thuật & Cấu tạo (kèm Taplo)
+        ...ch5Signs.slice(0, 8),    // 08 Câu Biển báo hiệu đường bộ
+        ...ch6SaHinh.slice(0, 6)    // 06 Câu Giải thế sa hình
+      ];
+
+      return shuffleArray(selected);
+    }
+
+    function makeUserKey(name, unit, sessionCode) {
+      return `${name.trim().toLowerCase()}_${unit.trim().toLowerCase()}_s${sessionCode}`;
+    }
+
+    async function handleStartExam(e) {
+      e.preventDefault();
+      await forcePullCloudData();
+
+      const cfg = getConfig();
+      const alertBox = document.getElementById("registerBlockAlert");
+      alertBox.classList.add("hidden");
+
+      if (!cfg.gateOpen) {
+        alertBox.textContent = "Hiện tại Chỉ huy đang ĐÓNG CỔNG THI. Vui lòng chờ hiệu lệnh mở cổng!";
+        alertBox.classList.remove("hidden");
+        return;
+      }
+
+      const name = document.getElementById("inpName").value.trim();
+      const rank = document.getElementById("inpRank").value.trim();
+      const role = document.getElementById("inpRole").value.trim();
+      const unit = document.getElementById("inpUnit").value.trim();
+      const mode = document.getElementById("inpExamMode").value;
+
+      const userKey = makeUserKey(name, unit, cfg.sessionCode);
+      const results = getResults();
+      const alreadyDone = results.find(r => r.userKey === userKey);
+
+      if (alreadyDone && !(cfg.allowRetakeKeys || []).includes(userKey)) {
+        alertBox.innerHTML = `Đồng chí <b>${rank} ${name}</b> (${unit}) đã hoàn thành bài thi đợt <b>#${cfg.sessionCode}</b>. Mỗi đợt mở cổng chỉ được thi 01 lần. Vui lòng báo cáo Chỉ huy để được cấp quyền thi lại!`;
+        alertBox.classList.remove("hidden");
+        return;
+      }
+
+      if ((cfg.allowRetakeKeys || []).includes(userKey)) {
+        cfg.allowRetakeKeys = cfg.allowRetakeKeys.filter(k => k !== userKey);
+        saveConfig(cfg);
+      }
+
+      const bank = getQuestionBank();
+      const selectedQuestions = pickRandom25ExamQuestions(bank, mode);
+
+      currentExam = {
+        active: true,
+        user: { name, rank, role, unit, userKey, sessionCode: cfg.sessionCode },
+        questions: selectedQuestions,
+        answers: {},
+        flagged: {},
+        currentIndex: 0,
+        remainingSec: 19 * 60,
+        warnings: 0,
+        startedAt: Date.now(),
+        timerId: null
+      };
+
+      document.getElementById("screenRegister").classList.add("hidden");
+      document.getElementById("screenResult").classList.add("hidden");
+      document.getElementById("screenExam").classList.remove("hidden");
+      document.getElementById("mobileExamNav").classList.remove("hidden");
+      document.getElementById("examWarningBadge").classList.add("hidden");
+
+      document.getElementById("examUserLabel").textContent = `${rank} ${name} (${role})`;
+      document.getElementById("examUnitLabel").textContent = `Đơn vị: ${unit} • Đợt #${cfg.sessionCode}`;
+
+      renderCurrentQuestion();
+      renderQuestionGrid();
+      startExamTimer();
+      syncLiveProgress();
+    }
+
+    function startExamTimer() {
+      if (currentExam.timerId) clearInterval(currentExam.timerId);
+      updateTimerUI();
+      currentExam.timerId = setInterval(() => {
+        if (!currentExam.active) return;
+        currentExam.remainingSec--;
+        updateTimerUI();
+        if (currentExam.remainingSec <= 0) {
+          finishExam(false, "Hết thời gian làm bài");
+        }
+      }, 1000);
+    }
+
+    function updateTimerUI() {
+      const m = String(Math.floor(currentExam.remainingSec / 60)).padStart(2, "0");
+      const s = String(currentExam.remainingSec % 60).padStart(2, "0");
+      document.getElementById("timerText").textContent = `${m}:${s}`;
+      const timerBox = document.getElementById("timerBox");
+      if (currentExam.remainingSec <= 120) {
+        timerBox.className = "px-3 py-1.5 rounded-xl bg-red-600 text-white font-mono font-extrabold text-base flex items-center space-x-1.5 shadow animate-pulse-fast";
+      } else {
+        timerBox.className = "px-3 py-1.5 rounded-xl bg-slate-900 text-amber-400 font-mono font-extrabold text-base flex items-center space-x-1.5 shadow";
+      }
+    }
+
+    function toggleFlagCurrentQuestion() {
+      if (!currentExam.active) return;
+      const idx = currentExam.currentIndex;
+      currentExam.flagged[idx] = !currentExam.flagged[idx];
+      renderCurrentQuestion();
+      renderQuestionGrid();
+    }
+
+    function renderCurrentQuestion() {
+      const total = currentExam.questions.length;
+      const idx = currentExam.currentIndex;
+      const item = currentExam.questions[idx];
+
+      document.getElementById("qNumberBadge").textContent = `Câu ${idx + 1}/${total}`;
+      document.getElementById("qRealIdBadge").textContent = `Bộ 600: #Câu ${item.id}`;
+      document.getElementById("navProgressBadge").textContent = `${idx + 1}/${total}`;
+      document.getElementById("qCategoryBadge").textContent = item.chapter || "Quy tắc giao thông";
+
+      const critBadge = document.getElementById("qCriticalBadge");
+      if (item.critical) critBadge.classList.remove("hidden");
+      else critBadge.classList.add("hidden");
+
+      const flagBtn = document.getElementById("btnFlagQuestion");
+      if (currentExam.flagged[idx]) {
+        flagBtn.className = "px-2.5 py-1 rounded-lg border border-amber-500 bg-amber-100 text-amber-900 text-xs font-extrabold transition";
+        flagBtn.innerHTML = `<i class="fa-solid fa-flag mr-1 text-amber-600"></i>Đã đánh dấu`;
+      } else {
+        flagBtn.className = "px-2.5 py-1 rounded-lg border border-slate-300 bg-white text-slate-600 text-xs font-bold hover:bg-amber-50 transition";
+        flagBtn.innerHTML = `<i class="fa-regular fa-flag mr-1"></i>Đánh dấu`;
+      }
+
+      document.getElementById("qText").textContent = item.q;
+
+      // Hiển thị hình ảnh câu hỏi (Hỗ trợ cả SVG tích hợp sẵn & file ảnh rời images/cau_XXX.jpg nếu có)
+      const visBox = document.getElementById("qVisualContainer");
+      const visContent = document.getElementById("qVisualContent");
+      const svgHTML = getVisualHTMLForQuestion(item.id);
+
+      if (item.image) {
+        visBox.classList.remove("hidden");
+        visContent.innerHTML = `<img src="${item.image}" class="max-h-52 rounded-lg object-contain" alt="Hình câu ${item.id}"/>`;
+      } else if (svgHTML) {
+        visBox.classList.remove("hidden");
+        visContent.innerHTML = `
+          <div class="flex flex-col items-center gap-2">
+            <img src="images/cau_${item.id}.jpg" onerror="this.style.display='none'" class="max-h-52 rounded-lg object-contain" alt="" />
+            ${svgHTML}
+          </div>
+        `;
+      } else {
+        visBox.classList.add("hidden");
+        visContent.innerHTML = "";
+      }
+
+      const optsContainer = document.getElementById("qOptionsList");
+      const selectedAns = currentExam.answers[idx];
+      optsContainer.innerHTML = item.options.map((optText, optIdx) => {
+        const isSelected = selectedAns === optIdx;
+        return `
+          <button type="button" onclick="selectOption(${optIdx})"
+            class="w-full text-left p-3.5 rounded-xl border-2 transition flex items-start space-x-3 ${
+              isSelected
+                ? "border-green-700 bg-green-50 text-green-950 font-bold shadow-sm"
+                : "border-slate-200 hover:border-slate-300 bg-white text-slate-800"
+            }">
+            <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold shrink-0 mt-0.5 ${
+              isSelected ? "bg-green-700 text-white" : "bg-slate-200 text-slate-700"
+            }">${optIdx + 1}</span>
+            <span class="text-sm leading-relaxed">${optText}</span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function selectOption(optIdx) {
+      if (!currentExam.active) return;
+      currentExam.answers[currentExam.currentIndex] = optIdx;
+      renderCurrentQuestion();
+      renderQuestionGrid();
+      syncLiveProgress();
+    }
+
+    function prevQuestion() {
+      if (currentExam.currentIndex > 0) {
+        currentExam.currentIndex--;
+        renderCurrentQuestion();
+        renderQuestionGrid();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentExam.currentIndex < currentExam.questions.length - 1) {
+        currentExam.currentIndex++;
+        renderCurrentQuestion();
+        renderQuestionGrid();
+      }
+    }
+
+    function jumpToQuestion(idx) {
+      currentExam.currentIndex = idx;
+      renderCurrentQuestion();
+      renderQuestionGrid();
+    }
+
+    function scrollToQuestionGrid() {
+      document.getElementById("questionGrid").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function renderQuestionGrid() {
+      const total = currentExam.questions.length;
+      const answeredCount = Object.keys(currentExam.answers).length;
+      document.getElementById("answeredProgressText").textContent = `Đã làm: ${answeredCount}/${total}`;
+
+      const grid = document.getElementById("questionGrid");
+      grid.innerHTML = currentExam.questions.map((q, idx) => {
+        const isCurrent = idx === currentExam.currentIndex;
+        const isAnswered = currentExam.answers[idx] !== undefined;
+        const isFlagged = currentExam.flagged[idx];
+        let cls = "bg-slate-100 text-slate-600 border-slate-200";
+        if (isAnswered) cls = "bg-green-700 text-white border-green-700";
+        if (isFlagged) cls = "bg-amber-400 text-slate-950 border-amber-500";
+        if (isCurrent) cls += " ring-2 ring-red-500 ring-offset-1 font-extrabold";
+        return `
+          <button type="button" onclick="jumpToQuestion(${idx})"
+            class="py-2 rounded-lg border text-xs font-bold transition ${cls}">
+            ${idx + 1}
+          </button>
+        `;
+      }).join("");
+    }
+
+    function syncLiveProgress() {
+      if (!currentExam.active || !currentExam.user) return;
+      updateLiveUser(currentExam.user.userKey, {
+        name: currentExam.user.name,
+        rank: currentExam.user.rank,
+        role: currentExam.user.role,
+        unit: currentExam.user.unit,
+        answered: Object.keys(currentExam.answers).length,
+        total: currentExam.questions.length,
+        currentQ: currentExam.currentIndex + 1,
+        warnings: currentExam.warnings,
+        remainingSec: currentExam.remainingSec
+      });
+    }
+
+    // =========================================================================
+    // 5. CHỐNG GIAN LẬN 2 LỚP & NỘP BÀI
+    // =========================================================================
+    function playAlertBeep() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(680, ctx.currentTime);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        setTimeout(() => { osc.stop(); ctx.close(); }, 450);
+      } catch (e) {}
+    }
+
+    function handleAntiCheatTrigger(reason) {
+      if (!currentExam.active) return;
+      currentExam.warnings += 1;
+      playAlertBeep();
+      syncLiveProgress();
+
+      if (currentExam.warnings === 1) {
+        document.getElementById("examWarningBadge").classList.remove("hidden");
+        document.getElementById("antiCheatWarningModal").classList.remove("hidden");
+      } else if (currentExam.warnings >= 2) {
+        document.getElementById("antiCheatWarningModal").classList.add("hidden");
+        finishExam(true, `${reason} (Vi phạm 2/2 lần)`);
+      }
+    }
+
+    function acknowledgeAntiCheatWarning() {
+      document.getElementById("antiCheatWarningModal").classList.add("hidden");
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (currentExam.active && document.visibilityState === "hidden") {
+        handleAntiCheatTrigger("Thoát khỏi màn hình trình duyệt / Chuyển ứng dụng");
+      }
+    });
+
+    function confirmSubmitExam() {
+      const total = currentExam.questions.length;
+      const done = Object.keys(currentExam.answers).length;
+      const msg = done < total
+        ? `Đồng chí mới trả lời ${done}/${total} câu hỏi. Đồng chí có chắc chắn muốn nộp bài sớm không?`
+        : "Đồng chí đã hoàn thành tất cả câu hỏi. Xác nhận nộp bài?";
+      if (confirm(msg)) finishExam(false, "Nộp bài hợp lệ");
+    }
+
+    function finishExam(isViolation, reasonText) {
+      if (!currentExam.active) return;
+      currentExam.active = false;
+      if (currentExam.timerId) clearInterval(currentExam.timerId);
+
+      updateLiveUser(currentExam.user.userKey, null);
+
+      const total = currentExam.questions.length;
+      let correctCount = 0;
+      let failedCritical = false;
+
+      currentExam.questions.forEach((q, idx) => {
+        const chosen = currentExam.answers[idx];
+        if (chosen === q.a) {
+          correctCount++;
+        } else if (q.critical) {
+          failedCritical = true;
+        }
+      });
+
+      const point10 = isViolation ? "0.0" : ((correctCount / total) * 10).toFixed(1);
+      const minPass = Math.ceil(total * 0.84);
+      const passed = !isViolation && !failedCritical && correctCount >= minPass;
+
+      const spentSec = Math.max(1, Math.floor((Date.now() - currentExam.startedAt) / 1000));
+      const spentFormatted = `${String(Math.floor(spentSec / 60)).padStart(2, "0")}:${String(spentSec % 60).padStart(2, "0")}`;
+
+      const record = {
+        id: "RES_" + Date.now(),
+        userKey: currentExam.user.userKey,
+        sessionCode: currentExam.user.sessionCode,
+        name: currentExam.user.name,
+        rank: currentExam.user.rank,
+        role: currentExam.user.role,
+        unit: currentExam.user.unit,
+        correctCount,
+        total,
+        point10: Number(point10),
+        failedCritical,
+        passed,
+        violation: isViolation,
+        reasonText,
+        spentFormatted,
+        submittedAt: new Date().toLocaleString("vi-VN")
+      };
+
+      const allResults = getResults();
+      const filtered = allResults.filter(r => r.userKey !== record.userKey);
+      filtered.unshift(record);
+      saveResults(filtered, true);
+      sendWebhookNotification(record);
+
+      document.getElementById("screenExam").classList.add("hidden");
+      document.getElementById("mobileExamNav").classList.add("hidden");
+      document.getElementById("screenResult").classList.remove("hidden");
+
+      const banner = document.getElementById("resultHeaderBanner");
+      const title = document.getElementById("resultStatusTitle");
+      const sub = document.getElementById("resultSubTitle");
+      const vBox = document.getElementById("violationAlertBox");
+
+      if (isViolation) {
+        banner.className = "p-5 text-center text-white bg-red-700";
+        title.textContent = "VI PHẠM QUY CHẾ - THU BÀI TỰ ĐỘNG";
+        sub.textContent = "Đã gửi báo cáo vi phạm về Trung tâm Chỉ huy";
+        vBox.classList.remove("hidden");
+        document.getElementById("violationReasonText").textContent = reasonText;
+      } else if (passed) {
+        banner.className = "p-5 text-center text-white military-gradient";
+        title.textContent = "ĐẠT YÊU CẦU SÁT HẠCH";
+        sub.textContent = `Đồng chí ${record.rank} ${record.name} đã vượt qua bài kiểm tra`;
+        vBox.classList.add("hidden");
+      } else {
+        banner.className = "p-5 text-center text-white bg-amber-600";
+        title.textContent = "KHÔNG ĐẠT YÊU CẦU";
+        sub.textContent = failedCritical
+          ? "Bị trượt trực tiếp do trả lời sai Câu Điểm Liệt!"
+          : `Cần đạt tối thiểu ${minPass}/${total} câu và không sai câu điểm liệt`;
+        vBox.classList.add("hidden");
+      }
+
+      document.getElementById("resScoreText").textContent = `${correctCount}/${total}`;
+      document.getElementById("resPointText").textContent = point10;
+      document.getElementById("resCriticalText").textContent = failedCritical ? "Sai điểm liệt!" : "An toàn";
+      document.getElementById("resCriticalText").className = failedCritical
+        ? "text-sm font-extrabold text-red-600 mt-1"
+        : "text-sm font-extrabold text-emerald-600 mt-1";
+      document.getElementById("resTimeText").textContent = spentFormatted;
+
+      renderReviewAnswersList();
+    }
+
+    function renderReviewAnswersList() {
+      const container = document.getElementById("reviewListContainer");
+      container.innerHTML = currentExam.questions.map((q, idx) => {
+        const chosen = currentExam.answers[idx];
+        const isCorrect = chosen === q.a;
+        const svgHTML = getVisualHTMLForQuestion(q.id);
+        return `
+          <div class="bg-white rounded-2xl shadow border ${isCorrect ? "border-emerald-200" : "border-red-300"} p-4 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-extrabold ${isCorrect ? "text-emerald-700" : "text-red-600"}">
+                Câu ${idx + 1} (#${q.id}): ${isCorrect ? "ĐÚNG" : "SAI"} ${q.critical ? " (CÂU ĐIỂM LIỆT)" : ""}
+              </span>
+              <span class="text-[11px] text-slate-400">${q.chapter || ""}</span>
+            </div>
+            <p class="text-sm font-bold text-slate-900">${q.q}</p>
+            ${svgHTML ? `<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex justify-center">${svgHTML}</div>` : ""}
+            <div class="text-xs space-y-1">
+              <div class="${isCorrect ? "text-emerald-700 font-semibold" : "text-red-600 font-semibold"}">
+                • Đáp án đồng chí chọn: ${chosen !== undefined ? q.options[chosen] : "Chưa trả lời"}
+              </div>
+              <div class="text-green-800 font-bold">
+                • Đáp án đúng chuẩn Cục CSGT: ${q.options[q.a]}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function toggleReviewAnswers() {
+      document.getElementById("reviewListContainer").classList.toggle("hidden");
+    }
+
+    function backToHomeScreen() {
+      document.getElementById("screenResult").classList.add("hidden");
+      document.getElementById("reviewListContainer").classList.add("hidden");
+      document.getElementById("screenRegister").classList.remove("hidden");
+    }
+
+    // =========================================================================
+    // 6. QUẢN TRỊ CHỈ HUY (ADMIN)
+    // =========================================================================
+    function getSavedAdminPin() {
+      return localStorage.getItem(STORAGE_KEYS.ADMIN_PIN) || "176968";
+    }
+
+    function openAdminModal() {
+      if (currentExam.active) {
+        alert("Đồng chí đang trong quá trình làm bài thi, không thể mở bảng điều khiển Chỉ huy!");
+        return;
+      }
+      document.getElementById("adminPinInput").value = "";
+      document.getElementById("adminAuthModal").classList.remove("hidden");
+      setTimeout(() => document.getElementById("adminPinInput").focus(), 100);
+    }
+
+    function closeAdminModal() {
+      document.getElementById("adminAuthModal").classList.add("hidden");
+    }
+
+    function verifyAdminPin() {
+      const pin = document.getElementById("adminPinInput").value.trim();
+      const customPin = getSavedAdminPin();
+      if (pin === customPin || pin === "176968" || pin === "admin123") {
+        closeAdminModal();
+        document.getElementById("screenRegister").classList.add("hidden");
+        document.getElementById("screenResult").classList.add("hidden");
+        document.getElementById("screenAdmin").classList.remove("hidden");
+        loadCloudConfigInputs();
+        forcePullCloudData();
+        renderAdminDashboard();
+        renderQuestionBankList();
+      } else {
+        alert("Mật mã Chỉ huy không chính xác!");
+      }
+    }
+
+    function closeAdminScreen() {
+      document.getElementById("screenAdmin").classList.add("hidden");
+      document.getElementById("screenRegister").classList.remove("hidden");
+    }
+
+    function switchAdminTab(tab) {
+      ["tabMonitor", "tabCloud", "tabBank"].forEach(t => {
+        const contentId = t === "tabMonitor" ? "adminTabMonitor" : t === "tabCloud" ? "adminTabCloud" : "adminTabBank";
+        const btnId = t === "tabMonitor" ? "btnTabMonitor" : t === "tabCloud" ? "btnTabCloud" : "btnTabBank";
+        const active = t === tab;
+        document.getElementById(contentId).classList.toggle("hidden", !active);
+        document.getElementById(btnId).className = active
+          ? "px-4 py-2.5 text-xs font-extrabold uppercase border-b-2 border-green-700 text-green-800 whitespace-nowrap"
+          : "px-4 py-2.5 text-xs font-extrabold uppercase border-b-2 border-transparent text-slate-500 whitespace-nowrap";
+      });
+    }
+
+    function loadCloudConfigInputs() {
+      const cfg = getConfig();
+      document.getElementById("cfgRoomCode").value = cfg.roomCode || "TD176";
+      document.getElementById("cfgFirebaseUrl").value = cfg.firebaseUrl || "";
+      document.getElementById("cfgWebhookUrl").value = cfg.webhookUrl || "";
+      document.getElementById("cfgNewAdminPin").value = "";
+    }
+
+    function saveCloudAndSecuritySettings() {
+      const cfg = getConfig();
+      cfg.roomCode = (document.getElementById("cfgRoomCode").value.trim() || "TD176").toUpperCase();
+      cfg.firebaseUrl = document.getElementById("cfgFirebaseUrl").value.trim();
+      cfg.webhookUrl = document.getElementById("cfgWebhookUrl").value.trim();
+      const newPin = document.getElementById("cfgNewAdminPin").value.trim();
+      if (newPin) localStorage.setItem(STORAGE_KEYS.ADMIN_PIN, newPin);
+      saveConfig(cfg, true);
+      renderAdminDashboard();
+      alert("Đã lưu cấu hình thành công!");
+    }
+
+    function toggleGateStatus() {
+      const cfg = getConfig();
+      cfg.gateOpen = !cfg.gateOpen;
+      saveConfig(cfg, true);
+      renderAdminDashboard();
+    }
+
+    function openNewExamSession() {
+      if (!confirm("Mở đợt thi mới sẽ cho phép toàn bộ quân nhân vào thi lượt mới. Xác nhận?")) return;
+      const cfg = getConfig();
+      cfg.sessionCode += 1;
+      cfg.gateOpen = true;
+      cfg.allowRetakeKeys = [];
+      saveConfig(cfg, true);
+      renderAdminDashboard();
+    }
+
+    function grantRetakePermission(userKey, name) {
+      const cfg = getConfig();
+      if (!cfg.allowRetakeKeys) cfg.allowRetakeKeys = [];
+      if (!cfg.allowRetakeKeys.includes(userKey)) {
+        cfg.allowRetakeKeys.push(userKey);
+        saveConfig(cfg, true);
+      }
+      renderAdminDashboard();
+      alert(`Đã mở khóa cho phép đồng chí ${name} vào thi lại!`);
+    }
+
+    function renderAdminDashboard() {
+      const cfg = getConfig();
+      const btnGate = document.getElementById("btnToggleGate");
+      if (cfg.gateOpen) {
+        btnGate.className = "px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-xs font-bold uppercase";
+        btnGate.innerHTML = `<i class="fa-solid fa-door-open mr-1"></i> Đang Mở Cổng (Đợt #${cfg.sessionCode})`;
+      } else {
+        btnGate.className = "px-3 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-xs font-bold uppercase";
+        btnGate.innerHTML = `<i class="fa-solid fa-door-closed mr-1"></i> Đang Khóa Cổng`;
+      }
+
+      const liveMap = getLiveUsers();
+      const liveArr = Object.values(liveMap);
+      document.getElementById("statLiveCount").textContent = liveArr.length;
+
+      const liveBox = document.getElementById("liveParticipantsList");
+      if (liveArr.length === 0) {
+        liveBox.innerHTML = `<div class="text-slate-400 italic">Hiện không có đồng chí nào đang trong phòng thi.</div>`;
+      } else {
+        liveBox.innerHTML = liveArr.map(u => `
+          <div class="p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-between">
+            <div>
+              <div class="font-extrabold text-slate-900">${u.rank} ${u.name}</div>
+              <div class="text-[11px] text-slate-600">${u.role} • ${u.unit}</div>
+            </div>
+            <div class="text-right space-y-1">
+              <span class="px-2 py-0.5 rounded bg-blue-600 text-white font-bold text-[11px] inline-block">
+                Câu ${u.currentQ}/${u.total} (Đã làm ${u.answered})
+              </span>
+              ${u.warnings ? `<div class="text-[10px] font-extrabold text-red-600">Cảnh cáo: ${u.warnings}/2</div>` : ""}
+            </div>
+          </div>
+        `).join("");
+      }
+
+      let results = getResults();
+      const totalSub = results.length;
+      const passedSub = results.filter(r => r.passed).length;
+      const passRate = totalSub > 0 ? Math.round((passedSub / totalSub) * 100) : 0;
+
+      document.getElementById("statSubmittedCount").textContent = totalSub;
+      document.getElementById("statPassedCount").textContent = `${passedSub} (${passRate}%)`;
+      document.getElementById("statViolationCount").textContent = results.filter(r => r.violation).length;
+
+      const searchKw = (document.getElementById("adminSearchUser")?.value || "").trim().toLowerCase();
+      if (searchKw) {
+        results = results.filter(r =>
+          r.name.toLowerCase().includes(searchKw) || r.unit.toLowerCase().includes(searchKw)
+        );
+      }
+
+      const sortMode = document.getElementById("adminSortFilter").value;
+      if (sortMode === "high") results.sort((a, b) => b.point10 - a.point10);
+      else if (sortMode === "low") results.sort((a, b) => a.point10 - b.point10);
+      else if (sortMode === "violation") results = results.filter(r => r.violation);
+
+      const tbody = document.getElementById("adminResultsTableBody");
+      if (results.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-400">Chưa có dữ liệu bài nộp.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = results.map(r => {
+        const canRetake = (cfg.allowRetakeKeys || []).includes(r.userKey);
+        let badge = r.violation
+          ? `<span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 font-extrabold">Vi phạm quy chế</span>`
+          : r.passed
+          ? `<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold">ĐẠT</span>`
+          : `<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-extrabold">Không đạt</span>`;
+
+        return `
+          <tr class="${r.violation ? "bg-red-50/60" : ""}">
+            <td class="p-2.5">
+              <div class="font-extrabold text-slate-900">${r.rank} ${r.name}</div>
+              <div class="text-[11px] text-slate-500">${r.role} • Đợt #${r.sessionCode}</div>
+            </td>
+            <td class="p-2.5 font-medium">${r.unit}</td>
+            <td class="p-2.5">
+              <div class="font-extrabold text-slate-900">${r.correctCount}/${r.total} câu (${r.point10}đ)</div>
+              <div class="text-[10px] text-slate-500">Thời gian: ${r.spentFormatted} • ${r.submittedAt}</div>
+            </td>
+            <td class="p-2.5">
+              ${badge}
+              <div class="text-[10px] text-slate-500 mt-0.5">${r.reasonText}</div>
+            </td>
+            <td class="p-2.5 text-right no-print">
+              ${
+                canRetake
+                  ? `<span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-[11px]">Đã cấp quyền thi lại</span>`
+                  : `<button onclick="grantRetakePermission('${r.userKey}', '${r.name}')"
+                      class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-[11px] shadow">
+                      Cho phép thi lại
+                    </button>`
+              }
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function renderQuestionBankList() {
+      const bank = getQuestionBank();
+      document.getElementById("adminBankTotalText").textContent = bank.length;
+      const kw = (document.getElementById("bankSearchInput").value || "").toLowerCase();
+      const chFilter = document.getElementById("bankChapterFilter").value;
+
+      const filtered = bank.filter(q => {
+        const matchCh = !chFilter || (q.chapter && q.chapter.includes(chFilter));
+        const matchKw = !kw || q.q.toLowerCase().includes(kw) || String(q.id) === kw.trim();
+        return matchCh && matchKw;
+      }).slice(0, 80);
+
+      const listEl = document.getElementById("adminQuestionBankList");
+      listEl.innerHTML = filtered.map(q => {
+        const hasImg = Boolean(getVisualHTMLForQuestion(q.id));
+        return `
+          <div class="p-3 rounded-xl border border-slate-200 bg-slate-50 space-y-1 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-green-800">#Câu ${q.id}</span>
+              <span class="text-[11px] text-slate-500">${q.chapter || ""}</span>
+              ${q.critical ? `<span class="px-1.5 py-0.2 bg-red-600 text-white rounded text-[10px] font-bold">Điểm liệt</span>` : ""}
+              ${hasImg ? `<span class="px-1.5 py-0.2 bg-blue-600 text-white rounded text-[10px] font-bold"><i class="fa-solid fa-image mr-1"></i>Có hình minh họa</span>` : ""}
+            </div>
+            <div class="font-bold text-slate-800">${q.q}</div>
+            <div class="text-emerald-700 font-semibold">Đáp án đúng: ${q.options[q.a]}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function resetTo600DefaultBank() {
+      if (!confirm("Khôi phục lại nguyên bản 600 câu hỏi chuẩn Cục CSGT - Bộ Công an (2025)?")) return;
+      const bank600 = buildComplete600Bank();
+      saveQuestionBank(bank600);
+      renderQuestionBankList();
+      alert("Đã khôi phục 600 câu hỏi chuẩn!");
+    }
+
+    function exportQuestionsJSON() {
+      const bank = getQuestionBank();
+      const blob = new Blob([JSON.stringify(bank, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Bo_600_Cau_Hoi_Sat_Hach_CSGT_2025.json";
+      a.click();
+    }
+
+    function importQuestionsJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (!Array.isArray(parsed) || parsed.length === 0) throw new Error("File JSON không hợp lệ");
+          saveQuestionBank(parsed);
+          renderQuestionBankList();
+          alert(`Đã nạp thành công ${parsed.length} câu hỏi!`);
+        } catch (err) {
+          alert("Lỗi đọc file JSON: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function clearAllHistory() {
+      if (!confirm("Xóa toàn bộ lịch sử bảng điểm của các đợt thi?")) return;
+      saveResults([], true);
+      renderAdminDashboard();
+    }
+
+    function exportResultsCSV() {
+      const results = getResults();
+      if (results.length === 0) {
+        alert("Chưa có dữ liệu để xuất báo cáo!");
+        return;
+      }
+      let csv = "\uFEFFHọ và tên,Cấp bậc,Chức vụ,Đơn vị,Đợt thi,Số câu đúng,Tổng số câu,Điểm hệ 10,Kết quả,Vi phạm quy chế,Thời gian làm,Thời điểm nộp\n";
+      results.forEach(r => {
+        csv += `"${r.name}","${r.rank}","${r.role}","${r.unit}","#${r.sessionCode}",${r.correctCount},${r.total},${r.point10},"${r.passed ? "ĐẠT" : "KHÔNG ĐẠT"}","${r.violation ? r.reasonText : "Hợp lệ"}","${r.spentFormatted}","${r.submittedAt}"\n`;
+      });
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Bao_Cao_Sat_Hach_CSGT_Dot_${getConfig().sessionCode}.csv`;
+      a.click();
+    }
+
+    function updateHeaderStatusUI() {
+      const cfg = getConfig();
+      const badge = document.getElementById("examStatusBadge");
+      document.getElementById("sessionCodeLabel").textContent = `#${cfg.sessionCode}`;
+      document.getElementById("roomCodeLabel").textContent = cfg.roomCode || "TD176";
+      if (cfg.gateOpen) {
+        badge.className = "px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/30 border border-emerald-300 flex items-center gap-1.5";
+        badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span><span>Cổng Mở (#${cfg.sessionCode})</span>`;
+      } else {
+        badge.className = "px-2.5 py-1 rounded-full text-xs font-bold bg-red-500/40 border border-red-300 flex items-center gap-1.5";
+        badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-400"></span><span>Cổng Đóng</span>`;
+      }
+    }
+
+    function updateBankCountLabels() {
+      const bank = getQuestionBank();
+      document.getElementById("totalBankCountLabel").textContent = bank.length;
+    }
+
+    // Tự động khởi chạy & nạp đủ 600 câu hỏi ngay khi mở trang
+    getQuestionBank();
+    updateHeaderStatusUI();
+    updateBankCountLabels();
+    forcePullCloudData();
+  </script>
+</body>
+</html>
