@@ -79,7 +79,7 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
 
   <div class="bg-army-900/90 border-t border-army-600 no-print">
     <div class="max-w-7xl mx-auto px-1 sm:px-4">
-      <nav class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-1 py-2" id="main-nav">
+      <nav class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-1 py-2" id="main-nav">
         <button onclick="switchTab('home')" data-tab="home" class="nav-tab active-tab flex flex-col items-center justify-center gap-1 px-2 py-2.5 rounded-lg text-xs font-bold transition-all bg-gold-500 text-army-900 shadow-md">
           <i class="fa-solid fa-house text-base"></i><span>Trang chủ</span>
         </button>
@@ -91,6 +91,9 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
         </button>
         <button onclick="switchTab('dbdv')" data-tab="dbdv" class="nav-tab flex flex-col items-center justify-center gap-1 px-2 py-2.5 rounded-lg text-xs font-bold text-white hover:bg-army-700/80 transition-all">
           <i class="fa-solid fa-flag text-base text-gold-400"></i><span>DBĐV</span>
+        </button>
+        <button onclick="switchTab('gdqp')" data-tab="gdqp" class="nav-tab flex flex-col items-center justify-center gap-1 px-2 py-2.5 rounded-lg text-xs font-bold text-white hover:bg-army-700/80 transition-all">
+          <i class="fa-solid fa-graduation-cap text-base text-gold-400"></i><span>GDQP&AN</span>
         </button>
         <button onclick="switchTab('vanban')" data-tab="vanban" class="nav-tab flex flex-col items-center justify-center gap-1 px-2 py-2.5 rounded-lg text-xs font-bold text-white hover:bg-army-700/80 transition-all">
           <i class="fa-solid fa-book-open text-base text-gold-400"></i><span>Văn bản PL</span>
@@ -149,6 +152,8 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
               <option value="Công dân trong độ tuổi NVQS">Công dân trong độ tuổi NVQS</option>
               <option value="Dân quân tự vệ">Dân quân tự vệ</option>
               <option value="Quân nhân dự bị">Quân nhân dự bị</option>
+              <option value="Học sinh, sinh viên GDQP&AN">Học sinh, sinh viên GDQP&AN</option>
+              <option value="Cán bộ, giáo viên GDQP&AN">Cán bộ, giáo viên GDQP&AN</option>
               <option value="Thân nhân công dân">Thân nhân công dân</option>
               <option value="Cơ quan, tổ chức, doanh nghiệp">Cơ quan, tổ chức, doanh nghiệp</option>
               <option value="Công dân địa phương khác">Công dân địa phương khác</option>
@@ -159,9 +164,10 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
             <select id="field-type" required onchange="onFieldChange(this.value)" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-army-700 focus:bg-white">
               <option value="">-- Chọn lĩnh vực --</option>
               <option value="Tuyển quân (NVQS)">Tuyển quân (NVQS)</option>
-              <option value="Dân quân tự vệ">Dân quân tự vệ</option>
               <option value="Dự bị động viên">Dự bị động viên</option>
-              <option value="Chế độ chính sách">Chế độ chính sách</option>
+              <option value="Dân quân tự vệ">Dân quân tự vệ</option>
+              <option value="Giáo dục quốc phòng và an ninh">Giáo dục quốc phòng và an ninh</option>
+              <option value="Chính sách và hậu phương Quân đội">Chính sách và hậu phương Quân đội</option>
               <option value="Khác">Khác</option>
             </select>
           </div>
@@ -175,6 +181,7 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
               <option value="Khiếu nại">Khiếu nại</option>
               <option value="Tố cáo">Tố cáo</option>
               <option value="Đề nghị giải quyết chế độ">Đề nghị giải quyết chế độ</option>
+              <option value="Đề nghị giám định sức khỏe">Đề nghị giám định sức khỏe</option>
             </select>
             <div id="request-type-hint" class="mt-1.5 text-[11px] text-slate-500 leading-snug"></div>
           </div>
@@ -195,7 +202,7 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
               <span><i class="fa-solid fa-lightbulb text-gold-600 mr-1"></i>Gợi ý nội dung thường gặp (chạm để chọn nhanh)</span>
               <span id="symptom-selected-count" class="text-[11px] bg-army-700 text-white px-2 py-0.5 rounded-full">0</span>
             </div>
-            <div id="symptom-list" class="space-y-1.5 max-h-64 overflow-y-auto"></div>
+            <div id="symptom-list" class="space-y-1.5 max-h-96 overflow-y-auto"></div>
             <p class="text-[10px] text-slate-500 mt-2 italic"><i class="fa-solid fa-circle-info mr-1"></i>Gợi ý đã chọn sẽ được chuyển đến Ban CHQS xã kèm phản ánh.</p>
           </div>
           <div>
@@ -314,14 +321,19 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
               <label class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">Thôn / Địa chỉ <span class="text-flag-700">*</span></label>
               <select id="village" required class="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-army-700">
                 <option value="">-- Chọn thôn tại xã Phù Cát --</option>
-                <option>Thôn 1 - Xã Phù Cát</option>
-                <option>Thôn 2 - Xã Phù Cát</option>
-                <option>Thôn 3 - Xã Phù Cát</option>
-                <option>Thôn 4 - Xã Phù Cát</option>
-                <option>Thôn 5 - Xã Phù Cát</option>
-                <option>Thôn 6 - Xã Phù Cát</option>
-                <option>Thôn 7 - Xã Phù Cát</option>
-                <option>Khu dân cư trung tâm</option>
+                <option>Thôn Đông Hạ</option>
+                <option>Thôn Đông Thượng</option>
+                <option>Thôn Việt Yên</option>
+                <option>Thôn Yên Thái</option>
+                <option>Thôn Phú Sơn</option>
+                <option>Thôn Phù Cát</option>
+                <option>Thôn Phú Thịnh</option>
+                <option>Thôn Phú Mãn</option> 
+ <option>Thôn Bạch Thạch</option> 
+ <option>Thôn Long Phú</option>  
+<option>Thôn Thắng Đầu</option>
+<option>Thôn Hoà Trúc</option>
+<option>Thôn Hoà Phú</option>
                 <option>Tạm trú ngoài địa phương</option>
               </select>
             </div>
@@ -367,24 +379,127 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
     </form>
   </section>
 
-  <section id="tab-tuyequan" class="tab-content hidden space-y-6">
+   <section id="tab-tuyequan" class="tab-content hidden space-y-6">
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6">
-      <div class="border-b border-slate-200 pb-4 mb-4">
-        <span class="bg-army-100 text-army-800 text-xs font-extrabold px-3 py-1 rounded-full uppercase">Căn cứ: Luật NVQS 78/2015; Luật 98/2025; Luật 14/2026</span>
-        <h2 class="text-xl sm:text-2xl font-extrabold text-army-900 mt-2 font-serif">CÔNG TÁC TUYỂN QUÂN VÀ GỌI CÔNG DÂN NHẬP NGŨ</h2>
+      <div class="border-b border-slate-200 pb-4 mb-5">
+        <span class="bg-army-100 text-army-800 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+          Căn cứ: Luật NVQS 78/2015; Luật 98/2025; Luật 14/2026; TT 105/2023/TT-BQP; TT 106/2025/TT-BQP
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-army-900 mt-3 font-serif">CÔNG TÁC TUYỂN QUÂN VÀ GỌI CÔNG DÂN NHẬP NGŨ</h2>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50"><h3 class="font-bold text-army-800 mb-2">Đăng ký, quản lý nguồn</h3><ul class="text-xs sm:text-sm text-slate-700 space-y-1 list-disc list-inside"><li>Đăng ký lần đầu (tuổi 17), bổ sung, chuyển nơi cư trú.</li><li>Kiểm tra điều kiện, độ tuổi, đăng ký, khám tuyển.</li></ul></div>
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50"><h3 class="font-bold text-army-800 mb-2">Sơ tuyển và khám sức khỏe</h3><ul class="text-xs sm:text-sm text-slate-700 space-y-1 list-disc list-inside"><li>Giấy gọi, lịch/địa điểm; tiêu chuẩn sức khỏe.</li><li>Kiến nghị khám lại; phản ánh khám thiếu bước.</li></ul></div>
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50"><h3 class="font-bold text-army-800 mb-2">Xét duyệt, công khai</h3><ul class="text-xs sm:text-sm text-slate-700 space-y-1 list-disc list-inside"><li>Tiêu chuẩn chính trị, sức khỏe, văn hóa.</li><li>Danh sách gọi khám, gọi nhập ngũ.</li></ul></div>
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50"><h3 class="font-bold text-army-800 mb-2">Tạm hoãn, miễn gọi nhập ngũ</h3><ul class="text-xs sm:text-sm text-slate-700 space-y-1 list-disc list-inside"><li>Đang học tập; sức khỏe; hoàn cảnh gia đình.</li><li>Hồ sơ chứng minh; đề nghị bổ sung hồ sơ.</li></ul></div>
-        <div class="border-2 border-flag-700 rounded-xl p-4 bg-red-50"><h3 class="font-bold text-flag-800 mb-2">Phản ánh dấu hiệu vi phạm</h3><ul class="text-xs sm:text-sm text-slate-800 space-y-1 list-disc list-inside"><li>Vòi vĩnh, nhận tiền/quà; làm sai lệch hồ sơ.</li><li>Công khai dữ liệu nhạy cảm; đe dọa người phản ánh.</li></ul></div>
-        <div class="bg-army-50 rounded-xl p-4 border-l-4 border-army-700"><h3 class="font-bold text-army-900 mb-1">Mốc thời gian</h3><ul class="text-xs text-slate-700 space-y-1"><li>• Gọi đăng ký tuổi 17: <strong>05 ngày</strong></li><li>• Gọi sơ tuyển/nhập ngũ: <strong>15 ngày</strong></li><li>• Niêm yết công khai: <strong>20 ngày</strong></li></ul></div>
-      </div>
-      <div class="mt-4">
-        <button onclick="openFeedbackFor('Tuyển quân (NVQS)')" class="bg-army-700 hover:bg-army-800 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2">
-          <i class="fa-solid fa-comment-medical"></i>Gửi phản ánh về tuyển quân
-        </button>
+        
+        <!-- Card 1: Đăng ký -->
+        <div class="group border border-slate-200 rounded-xl p-5 bg-slate-50 hover:bg-white hover:shadow-md hover:border-army-400 transition-all duration-300">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-full bg-army-100 flex items-center justify-center text-army-700 group-hover:bg-army-700 group-hover:text-white transition-colors">
+              <i class="fa-solid fa-address-card"></i>
+            </div>
+            <h3 class="font-bold text-army-800 text-base">Đăng ký, quản lý nguồn</h3>
+          </div>
+          <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Đăng ký lần đầu (tuổi 17), bổ sung, chuyển nơi cư trú.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Kiểm tra điều kiện, độ tuổi, đăng ký, khám tuyển.</span></li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Sơ tuyển -->
+        <div class="group border border-slate-200 rounded-xl p-5 bg-slate-50 hover:bg-white hover:shadow-md hover:border-army-400 transition-all duration-300">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-full bg-army-100 flex items-center justify-center text-army-700 group-hover:bg-army-700 group-hover:text-white transition-colors">
+              <i class="fa-solid fa-stethoscope"></i>
+            </div>
+            <h3 class="font-bold text-army-800 text-base">Sơ tuyển và khám sức khỏe</h3>
+          </div>
+          <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Giấy gọi, lịch/địa điểm; tiêu chuẩn sức khỏe.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Kiến nghị khám lại; phản ánh khám thiếu bước.</span></li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Xét duyệt -->
+        <div class="group border border-slate-200 rounded-xl p-5 bg-slate-50 hover:bg-white hover:shadow-md hover:border-army-400 transition-all duration-300">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-full bg-army-100 flex items-center justify-center text-army-700 group-hover:bg-army-700 group-hover:text-white transition-colors">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <h3 class="font-bold text-army-800 text-base">Xét duyệt, công khai</h3>
+          </div>
+          <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Tiêu chuẩn chính trị, sức khỏe, văn hóa.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Danh sách gọi khám, gọi nhập ngũ.</span></li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Tạm hoãn -->
+        <div class="group border border-slate-200 rounded-xl p-5 bg-slate-50 hover:bg-white hover:shadow-md hover:border-army-400 transition-all duration-300">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-army-100 flex items-center justify-center text-army-700 group-hover:bg-army-700 group-hover:text-white transition-colors">
+                <i class="fa-solid fa-calendar-minus"></i>
+              </div>
+              <h3 class="font-bold text-army-800 text-base">Tạm hoãn, miễn gọi</h3>
+            </div>
+            <button onclick="openFeedbackFor('Tuyển quân (NVQS)')" class="text-[10px] text-army-600 hover:text-army-800 font-bold underline decoration-dotted" title="Gửi phản ánh về tạm hoãn">Hỏi ngay <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Đang học tập; sức khỏe; hoàn cảnh gia đình.</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-army-500 mt-0.5"></i><span>Hồ sơ chứng minh; đề nghị bổ sung hồ sơ.</span></li>
+          </ul>
+        </div>
+
+        <!-- Card 5: Vi phạm (Nổi bật) -->
+        <div class="relative overflow-hidden border-2 border-flag-600 rounded-xl p-5 bg-red-50 hover:shadow-lg transition-all duration-300 group">
+          <div class="absolute -right-4 -top-4 text-red-100 opacity-50 group-hover:scale-110 group-hover:text-red-200 transition-transform duration-500">
+            <i class="fa-solid fa-triangle-exclamation text-8xl"></i>
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-8 h-8 rounded-full bg-flag-600 flex items-center justify-center text-white shadow-sm">
+                <i class="fa-solid fa-bullhorn"></i>
+              </div>
+              <h3 class="font-bold text-flag-800 text-base uppercase">Phản ánh dấu hiệu vi phạm</h3>
+            </div>
+            <ul class="text-xs sm:text-sm text-flag-900 space-y-2 mb-4 font-medium">
+              <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-flag-600 mt-0.5"></i><span>Vòi vĩnh, nhận tiền/quà; làm sai lệch hồ sơ.</span></li>
+              <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-flag-600 mt-0.5"></i><span>Công khai dữ liệu nhạy cảm; đe dọa người phản ánh.</span></li>
+            </ul>
+            <button onclick="openFeedbackFor('Tuyển quân (NVQS)')" class="w-full sm:w-auto bg-flag-700 hover:bg-flag-800 text-white text-xs font-bold px-4 py-2 rounded-lg transition shadow-md shadow-red-700/20">
+              <i class="fa-solid fa-pen-to-square mr-1"></i>Gửi tố cáo / phản ánh ngay
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 6: Timeline (Mốc thời gian) -->
+        <div class="bg-army-900 rounded-xl p-5 text-white shadow-md relative overflow-hidden">
+          <div class="absolute right-0 bottom-0 opacity-10">
+            <i class="fa-solid fa-clock text-9xl -mb-4 -mr-4"></i>
+          </div>
+          <h3 class="font-bold text-gold-400 mb-4 flex items-center gap-2 text-base"><i class="fa-solid fa-hourglass-half"></i> Mốc thời gian quan trọng</h3>
+          
+          <div class="relative border-l border-army-600 ml-2 space-y-4">
+            <!-- Mốc 1 -->
+            <div class="relative pl-5">
+              <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-gold-400 rounded-full shadow-[0_0_0_3px_rgba(234,179,8,0.2)]"></div>
+              <div class="text-sm font-semibold">Gọi đăng ký tuổi 17</div>
+              <span class="inline-block mt-1 bg-army-800 text-gold-300 text-[10px] font-bold px-2 py-0.5 rounded border border-army-600">05 ngày</span>
+            </div>
+            <!-- Mốc 2 -->
+            <div class="relative pl-5">
+              <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-gold-400 rounded-full shadow-[0_0_0_3px_rgba(234,179,8,0.2)]"></div>
+              <div class="text-sm font-semibold">Gọi sơ tuyển/nhập ngũ</div>
+              <span class="inline-block mt-1 bg-army-800 text-gold-300 text-[10px] font-bold px-2 py-0.5 rounded border border-army-600">15 ngày</span>
+            </div>
+            <!-- Mốc 3 -->
+            <div class="relative pl-5">
+              <div class="absolute -left-[5px] top-1 w-2.5 h-2.5 bg-gold-400 rounded-full shadow-[0_0_0_3px_rgba(234,179,8,0.2)]"></div>
+              <div class="text-sm font-semibold">Niêm yết công khai</div>
+              <span class="inline-block mt-1 bg-army-800 text-gold-300 text-[10px] font-bold px-2 py-0.5 rounded border border-army-600">20 ngày</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -420,6 +535,27 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
       </div>
       <div class="mt-4 bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs sm:text-sm text-amber-950"><strong><i class="fa-solid fa-lock mr-1"></i>Bảo mật:</strong> Không công khai danh sách, vị trí, quân số, kế hoạch động viên nhạy cảm.</div>
       <div class="mt-4"><button onclick="openFeedbackFor('Dự bị động viên')" class="bg-army-700 hover:bg-army-800 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2"><i class="fa-solid fa-comment-medical"></i>Gửi phản ánh về DBĐV</button></div>
+    </div>
+  </section>
+
+  <section id="tab-gdqp" class="tab-content hidden space-y-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6">
+      <div class="border-b border-slate-200 pb-4 mb-4">
+        <span class="bg-army-100 text-army-800 text-xs font-extrabold px-3 py-1 rounded-full uppercase">Căn cứ: Luật GDQP&AN 30/2013/QH13; NĐ 13/2014/NĐ-CP</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-army-900 mt-2 font-serif">GIÁO DỤC QUỐC PHÒNG VÀ AN NINH</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50"><h3 class="font-bold text-army-800 text-sm mb-2">Chương trình, nội dung</h3><p class="text-xs text-slate-600">Môn học, thời lượng, hình thức bồi dưỡng.</p></div>
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50"><h3 class="font-bold text-army-800 text-sm mb-2">Cơ sở giáo dục, trung tâm</h3><p class="text-xs text-slate-600">Điều kiện, công nhận kết quả, chuyển đổi.</p></div>
+        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50"><h3 class="font-bold text-army-800 text-sm mb-2">Chứng nhận, chứng chỉ</h3><p class="text-xs text-slate-600">Cấp, thu hồi, xác nhận hoàn thành.</p></div>
+        <div class="border-2 border-flag-700 rounded-xl p-4 bg-red-50"><h3 class="font-bold text-flag-800 text-sm mb-2">Phản ánh dấu hiệu vi phạm</h3><p class="text-xs text-slate-800">Dạy thay, cấp khống chứng chỉ, thu sai học phí, ép buộc học.</p></div>
+        <div class="bg-army-50 rounded-xl p-4 border-l-4 border-army-700"><h3 class="font-bold text-army-900 text-sm mb-1">Đối tượng</h3><ul class="text-xs text-slate-700 space-y-1"><li>• Học sinh, sinh viên</li><li>• Cán bộ, công chức</li><li>• Đối tượng bồi dưỡng khác</li></ul></div>
+      </div>
+      <div class="mt-4">
+        <button onclick="openFeedbackFor('Giáo dục quốc phòng và an ninh')" class="bg-army-700 hover:bg-army-800 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2">
+          <i class="fa-solid fa-comment-medical"></i>Gửi phản ánh về GDQP&AN
+        </button>
+      </div>
     </div>
   </section>
 
@@ -482,7 +618,7 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
   <section id="tab-chedo" class="tab-content hidden space-y-5">
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
       <div class="border-b border-slate-200 pb-4 mb-4">
-        <h2 class="text-xl sm:text-2xl font-extrabold text-army-900 font-serif">TRA CỨU CHẾ ĐỘ CHÍNH SÁCH</h2>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-army-900 font-serif">TRA CỨU CHÍNH SÁCH VÀ HẬU PHƯƠNG QUÂN ĐỘI</h2>
         <p class="text-slate-600 text-sm mt-1">Ước tính mức hưởng dựa trên định mức do Ban CHQS xã cập nhật.</p>
       </div>
       <div class="bg-red-50 border-2 border-flag-700 rounded-xl p-4 mb-4 text-xs sm:text-sm text-flag-900">
@@ -507,6 +643,7 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
         <div id="calc-result-content" class="text-sm text-slate-800 space-y-2"></div>
         <div class="mt-3 pt-3 border-t border-army-300 text-xs text-slate-600"><i class="fa-solid fa-circle-info mr-1"></i><strong>Đây chỉ là ước tính tham khảo.</strong></div>
       </div>
+      <div class="mt-4"><button onclick="openFeedbackFor('Chính sách và hậu phương Quân đội')" class="bg-army-700 hover:bg-army-800 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2"><i class="fa-solid fa-comment-medical"></i>Gửi phản ánh về chính sách</button></div>
     </div>
   </section>
 
@@ -531,7 +668,19 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
           <div><strong class="text-slate-800">Giờ tiếp công dân:</strong><br><span class="text-slate-600">Giờ hành chính các ngày làm việc. Trong đợt tuyển quân bố trí trực cả Thứ 7, Chủ nhật.</span></div>
         </div>
       </div>
-      <div class="mt-6 p-4 bg-army-50 border border-army-200 rounded-xl text-xs text-slate-700">
+
+      <div class="mt-6 bg-army-50 border border-army-200 rounded-xl p-4">
+        <h4 class="font-bold text-army-900 mb-2"><i class="fa-solid fa-list-ol mr-1"></i>Quy trình tiếp nhận, xử lý tại cấp xã</h4>
+        <ol class="text-xs text-slate-700 space-y-1.5 list-decimal list-inside">
+          <li><strong>Tiếp nhận:</strong> ghi ngày giờ, người tiếp nhận, kênh tiếp nhận, nội dung, tài liệu kèm theo.</li>
+          <li><strong>Kiểm tra:</strong> xác định loại đơn, yêu cầu bổ sung (không đòi dữ liệu vượt mục đích xử lý).</li>
+          <li><strong>Đối chiếu:</strong> hồ sơ tuyển quân và văn bản áp dụng; xác định cơ quan có thẩm quyền, chuyển đơn hoặc giải quyết phần thuộc trách nhiệm.</li>
+          <li><strong>Theo dõi:</strong> thời hạn, cập nhật kết quả, thông báo công dân; lưu vết toàn bộ quá trình.</li>
+          <li><strong>Bảo mật:</strong> hồ sơ sức khỏe, thông tin cá nhân, danh tính người tố cáo; chỉ cấp quyền truy cập cho người có nhiệm vụ.</li>
+        </ol>
+      </div>
+
+      <div class="mt-4 p-4 bg-army-50 border border-army-200 rounded-xl text-xs text-slate-700">
         <i class="fa-solid fa-circle-info text-army-700 mr-1"></i>
         Mọi phản ánh, kiến nghị vui lòng gửi qua <strong>Cổng tiếp nhận chính thức</strong> để được xử lý theo đúng quy trình.
       </div>
@@ -545,7 +694,16 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
       <div><div class="text-gold-400 font-extrabold uppercase mb-2">BAN CHỈ HUY QUÂN SỰ XÃ PHÚ CÁT</div><p class="text-army-200">Cơ quan Thường trực Hội đồng NVQS xã Phù Cát.</p></div>
-      <div><div class="text-white font-bold uppercase mb-2">Văn bản pháp lý</div><ul class="space-y-1 text-army-200"><li>• Luật NVQS 78/2015/QH13</li><li>• Luật DQTV 48/2019/QH14; Luật DBĐV 53/2019/QH14</li><li>• Luật Khiếu nại, Tố cáo, Tiếp công dân</li></ul></div>
+      <div>
+        <div class="text-white font-bold uppercase mb-2">Văn bản pháp lý</div>
+        <ul class="space-y-1 text-army-200">
+          <li>• Luật NVQS 78/2015/QH13 (sửa đổi bởi Luật 98/2025, Luật 14/2026)</li>
+          <li>• Luật DQTV 48/2019/QH14; Luật DBĐV 53/2019/QH14</li>
+          <li>• Luật GDQP&AN 30/2013/QH13</li>
+          <li>• Luật Khiếu nại 2011, Tố cáo 2018, Tiếp công dân 2013</li>
+          <li>• TT 105/2023/TT-BQP & TT 106/2025/TT-BQP (sức khỏe, khám sức khỏe)</li>
+        </ul>
+      </div>
       <div><div class="text-white font-bold uppercase mb-2">Nguyên tắc</div><ul class="space-y-1 text-army-200"><li>• Tiếp nhận - phân loại - chuyển đúng thẩm quyền</li><li>• Bảo mật thông tin, bảo vệ người phản ánh</li></ul></div>
     </div>
     <div class="border-t border-army-700 mt-6 pt-4 text-center text-xs text-army-300">© Cổng Tiếp nhận Phản ánh - Ban CHQS xã Phú Cát</div>
@@ -641,82 +799,40 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
       </div>
       <button onclick="closeProcessModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
     </div>
-    
     <div class="p-5 overflow-y-auto space-y-4 flex-1">
-      <!-- Thông tin cơ bản -->
       <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 flex justify-between items-center">
-        <div>
-          <div class="text-xs text-slate-500 font-bold uppercase">Mã hồ sơ:</div>
-          <div class="font-mono font-bold text-army-800 text-lg" id="proc-id"></div>
-        </div>
-        <div class="text-right">
-          <div class="text-xs text-slate-500 font-bold uppercase">Người gửi:</div>
-          <div class="font-bold text-slate-800" id="proc-name"></div>
-        </div>
+        <div><div class="text-xs text-slate-500 font-bold uppercase">Mã hồ sơ:</div><div class="font-mono font-bold text-army-800 text-lg" id="proc-id"></div></div>
+        <div class="text-right"><div class="text-xs text-slate-500 font-bold uppercase">Người gửi:</div><div class="font-bold text-slate-800" id="proc-name"></div></div>
       </div>
-
-      <!-- CHI TIẾT THÔNG TIN PHẢN ÁNH MỚI CẬP NHẬT -->
       <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 space-y-2 text-sm">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-2 border-b border-slate-200">
-            <div><span class="text-slate-500">Lĩnh vực:</span> <strong id="proc-field" class="text-army-800"></strong></div>
-            <div><span class="text-slate-500">Dạng yêu cầu:</span> <strong id="proc-type" class="text-army-800"></strong></div>
-            <div><span class="text-slate-500">Thời gian/Địa điểm:</span> <span id="proc-time" class="italic"></span></div>
-            <div><span class="text-slate-500">Cơ quan liên quan:</span> <span id="proc-agency" class="italic"></span></div>
+          <div><span class="text-slate-500">Lĩnh vực:</span> <strong id="proc-field" class="text-army-800"></strong></div>
+          <div><span class="text-slate-500">Dạng yêu cầu:</span> <strong id="proc-type" class="text-army-800"></strong></div>
+          <div><span class="text-slate-500">Thời gian/Địa điểm:</span> <span id="proc-time" class="italic"></span></div>
+          <div><span class="text-slate-500">Cơ quan liên quan:</span> <span id="proc-agency" class="italic"></span></div>
         </div>
-        
-        <div>
-            <span class="font-bold text-army-800 block mb-1">Nội dung phản ánh:</span>
-            <div id="proc-desc" class="text-slate-700 whitespace-pre-wrap"></div>
-        </div>
-        
-        <div>
-            <span class="font-bold text-army-800 block mb-1">Kết quả mong muốn:</span>
-            <div id="proc-desired" class="text-slate-700 italic"></div>
-        </div>
-
-        <div id="proc-symptoms-container" class="hidden">
-            <span class="font-bold text-army-800 block mb-1">Gợi ý đã chọn:</span>
-            <div id="proc-symptoms" class="text-blue-700 text-xs"></div>
-        </div>
+        <div><span class="font-bold text-army-800 block mb-1">Nội dung phản ánh:</span><div id="proc-desc" class="text-slate-700 whitespace-pre-wrap"></div></div>
+        <div><span class="font-bold text-army-800 block mb-1">Kết quả mong muốn:</span><div id="proc-desired" class="text-slate-700 italic"></div></div>
+        <div id="proc-symptoms-container" class="hidden"><span class="font-bold text-army-800 block mb-1">Gợi ý đã chọn:</span><div id="proc-symptoms" class="text-blue-700 text-xs"></div></div>
       </div>
-
-      <!-- TỆP ĐÍNH KÈM GỐC CỦA NGƯỜI DÂN -->
       <div id="proc-original-files-container" class="bg-white border border-slate-200 rounded-xl p-3 hidden">
         <div class="font-bold text-army-800 text-sm mb-2"><i class="fa-solid fa-paperclip text-gold-600 mr-1"></i> Tệp đính kèm của người dân:</div>
         <div id="proc-original-files" class="flex flex-wrap gap-2"></div>
       </div>
-
       <div>
         <label class="block text-sm font-bold text-slate-700 mb-2">Cập nhật trạng thái <span class="text-flag-700">*</span></label>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          <label class="cursor-pointer">
-            <input type="radio" name="proc-status" value="Đã tiếp nhận" class="peer sr-only">
-            <div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-blue-100 peer-checked:border-blue-500 peer-checked:text-blue-800 transition">Đã tiếp nhận</div>
-          </label>
-          <label class="cursor-pointer">
-            <input type="radio" name="proc-status" value="Đang xác minh" class="peer sr-only">
-            <div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-amber-100 peer-checked:border-amber-500 peer-checked:text-amber-800 transition">Đang xác minh</div>
-          </label>
-          <label class="cursor-pointer">
-            <input type="radio" name="proc-status" value="Chờ phê duyệt" class="peer sr-only">
-            <div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-indigo-100 peer-checked:border-indigo-500 peer-checked:text-indigo-800 transition">Chờ phê duyệt</div>
-          </label>
-          <label class="cursor-pointer col-span-2 sm:col-span-1">
-            <input type="radio" name="proc-status" value="Đã trả lời" class="peer sr-only">
-            <div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-emerald-100 peer-checked:border-emerald-500 peer-checked:text-emerald-800 transition">Đã trả lời</div>
-          </label>
-          <label class="cursor-pointer col-span-2 sm:col-span-1">
-            <input type="radio" name="proc-status" value="Kết thúc" class="peer sr-only">
-            <div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-slate-200 peer-checked:border-slate-500 peer-checked:text-slate-800 transition">Kết thúc</div>
-          </label>
+          <label class="cursor-pointer"><input type="radio" name="proc-status" value="Đã tiếp nhận" class="peer sr-only"><div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-blue-100 peer-checked:border-blue-500 peer-checked:text-blue-800 transition">Đã tiếp nhận</div></label>
+          <label class="cursor-pointer"><input type="radio" name="proc-status" value="Đang xác minh" class="peer sr-only"><div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-amber-100 peer-checked:border-amber-500 peer-checked:text-amber-800 transition">Đang xác minh</div></label>
+          <label class="cursor-pointer"><input type="radio" name="proc-status" value="Chờ phê duyệt" class="peer sr-only"><div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-indigo-100 peer-checked:border-indigo-500 peer-checked:text-indigo-800 transition">Chờ phê duyệt</div></label>
+          <label class="cursor-pointer col-span-2 sm:col-span-1"><input type="radio" name="proc-status" value="Đã trả lời" class="peer sr-only"><div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-emerald-100 peer-checked:border-emerald-500 peer-checked:text-emerald-800 transition">Đã trả lời</div></label>
+          <label class="cursor-pointer col-span-2 sm:col-span-1"><input type="radio" name="proc-status" value="Kết thúc" class="peer sr-only"><div class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-center text-sm font-semibold text-slate-600 peer-checked:bg-slate-200 peer-checked:border-slate-500 peer-checked:text-slate-800 transition">Kết thúc</div></label>
         </div>
       </div>
-
       <div>
         <label class="block text-sm font-bold text-slate-700 mb-2">Phản hồi của Ban CHQS</label>
         <textarea id="proc-reply" rows="5" placeholder="Nhập nội dung phản hồi chi tiết cho người dân..." class="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-army-700 focus:bg-white"></textarea>
       </div>
-
       <div>
         <label class="block text-sm font-bold text-slate-700 mb-2">Đính kèm văn bản / hình ảnh phản hồi (Tùy chọn)</label>
         <input type="file" id="proc-files" multiple accept="image/*,.pdf,.doc,.docx" onchange="onProcessFileSelect(event)" class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-army-50 file:text-army-700 hover:file:bg-army-100 border border-slate-300 rounded-xl bg-slate-50 cursor-pointer">
@@ -724,7 +840,6 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
         <p class="text-[11px] text-slate-500 mt-1 italic"><i class="fa-solid fa-circle-info mr-1"></i>Tối đa 3 tệp, mỗi tệp ≤ 20MB. Tệp này sẽ hiển thị cho người dân khi tra cứu.</p>
       </div>
     </div>
-
     <div class="bg-slate-50 px-5 py-3 border-t border-slate-200 flex justify-end gap-2 flex-shrink-0">
       <button onclick="closeProcessModal()" class="px-5 py-2 rounded-xl text-sm font-bold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100">Hủy</button>
       <button onclick="saveProcess()" id="btn-save-process" class="px-6 py-2 rounded-xl text-sm font-bold bg-army-700 hover:bg-army-800 text-white shadow-md"><i class="fa-solid fa-floppy-disk mr-1"></i>Lưu kết quả</button>
@@ -737,29 +852,21 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
 </div>
 
 <!-- ADMIN PORTAL -->
-<div id="admin-portal" class="hidden min-h-screen bg-slate-100">
+<div id="admin-portal" class="hidden fixed inset-0 z-[100] overflow-y-auto bg-slate-100">
   <div class="bg-army-900 text-white border-b-4 border-gold-500">
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-3 flex-wrap">
       <div class="flex items-center gap-3">
         <i class="fa-solid fa-shield-halved text-gold-400 text-2xl"></i>
-        <div>
-          <div class="text-xs text-gold-400 uppercase font-bold">Giao diện quản trị nội bộ</div>
-          <h2 class="font-extrabold text-lg">BAN CHQS XÃ PHÚ CÁT - DASHBOARD</h2>
-        </div>
+        <div><div class="text-xs text-gold-400 uppercase font-bold">Giao diện quản trị nội bộ</div><h2 class="font-extrabold text-lg">BAN CHQS XÃ PHÚ CÁT - DASHBOARD</h2></div>
       </div>
       <div class="flex items-center gap-3">
-        <div class="text-right text-xs">
-          <div class="text-gold-400 uppercase font-bold">Đang đăng nhập</div>
-          <div class="font-bold text-white" id="admin-officer-name">--</div>
-        </div>
+        <div class="text-right text-xs"><div class="text-gold-400 uppercase font-bold">Đang đăng nhập</div><div class="font-bold text-white" id="admin-officer-name">--</div></div>
         <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-3 py-1.5 rounded-lg text-xs"><i class="fa-solid fa-right-from-bracket mr-1"></i>Đăng xuất</button>
         <button onclick="closeAdminPortal()" class="bg-gold-500 hover:bg-gold-400 text-army-900 font-bold px-3 py-1.5 rounded-lg text-xs"><i class="fa-solid fa-arrow-left mr-1"></i>Về Cổng</button>
       </div>
     </div>
   </div>
-
   <div class="max-w-7xl mx-auto px-4 py-6 space-y-5">
-    <!-- CHIA 5 Ô ĐỂ ĐỒNG BỘ 1-1 VỚI TRẠNG THÁI -->
     <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
       <div class="bg-white rounded-xl p-4 border-l-4 border-army-700 shadow-sm"><div class="text-xs text-slate-500 uppercase font-bold">Mới</div><div class="text-2xl font-extrabold text-army-800" id="admin-new-count">0</div></div>
       <div class="bg-white rounded-xl p-4 border-l-4 border-amber-500 shadow-sm"><div class="text-xs text-slate-500 uppercase font-bold">Đang xác minh</div><div class="text-2xl font-extrabold text-amber-700" id="admin-progress-count">0</div></div>
@@ -767,7 +874,6 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
       <div class="bg-white rounded-xl p-4 border-l-4 border-emerald-600 shadow-sm"><div class="text-xs text-slate-500 uppercase font-bold">Đã trả lời</div><div class="text-2xl font-extrabold text-emerald-700" id="admin-resolved-count">0</div></div>
       <div class="bg-white rounded-xl p-4 border-l-4 border-slate-500 shadow-sm"><div class="text-xs text-slate-500 uppercase font-bold">Kết thúc</div><div class="text-2xl font-extrabold text-slate-800" id="admin-finished-count">0</div></div>
     </div>
-
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
       <div class="bg-army-800 text-white px-5 py-3 flex flex-wrap items-center justify-between gap-3">
         <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-list-check mr-2"></i>Danh sách hồ sơ cần xử lý</h3>
@@ -791,11 +897,8 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
       </div>
       <div id="admin-pagination" class="flex justify-center gap-2 py-4 bg-slate-50 border-t border-slate-200"></div>
     </div>
-
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-      <div class="bg-army-800 text-white px-5 py-3 flex items-center justify-between">
-        <h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-book mr-2"></i>Quản lý Văn bản Pháp luật</h3>
-      </div>
+      <div class="bg-army-800 text-white px-5 py-3"><h3 class="font-bold text-sm uppercase"><i class="fa-solid fa-book mr-2"></i>Quản lý Văn bản Pháp luật</h3></div>
       <div class="p-5 space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div><label class="block text-xs font-bold text-slate-700 mb-1">Số hiệu văn bản</label><input type="text" id="doc-add-number" placeholder="VD: 78/2015/QH13" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm"></div>
@@ -803,10 +906,7 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
           <div class="md:col-span-2"><label class="block text-xs font-bold text-slate-700 mb-1">Tiêu đề</label><input type="text" id="doc-add-title" placeholder="VD: Luật Nghĩa vụ quân sự" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm"></div>
           <div class="md:col-span-2"><label class="block text-xs font-bold text-slate-700 mb-1">Cơ quan ban hành</label><input type="text" id="doc-add-agency" placeholder="VD: Quốc hội" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm"></div>
           <div class="md:col-span-2"><label class="block text-xs font-bold text-slate-700 mb-1">Nội dung / Trích lục</label><textarea id="doc-add-content" rows="4" placeholder="Dán nội dung văn bản tại đây..." class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm"></textarea></div>
-          <div class="md:col-span-2">
-            <label class="block text-xs font-bold text-slate-700 mb-1">Đính kèm file (PDF, Word - Tùy chọn)</label>
-            <input type="file" id="doc-add-file" accept=".pdf,.doc,.docx" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-army-50 file:text-army-700 hover:file:bg-army-100">
-          </div>
+          <div class="md:col-span-2"><label class="block text-xs font-bold text-slate-700 mb-1">Đính kèm file (PDF, Word - Tùy chọn)</label><input type="file" id="doc-add-file" accept=".pdf,.doc,.docx" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-army-50 file:text-army-700 hover:file:bg-army-100"></div>
         </div>
         <button id="btn-add-doc" onclick="addDocument()" class="bg-army-700 hover:bg-army-800 text-white font-bold px-5 py-2 rounded-lg text-sm"><i class="fa-solid fa-plus mr-1"></i>Thêm văn bản</button>
         <div class="mt-4 border-t border-slate-200 pt-4">
@@ -818,11 +918,14 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
   </div>
 </div>
 
+<!-- NẠP DỮ LIỆU GỢI Ý 430 MỤC (5 LĨNH VỰC) -->
+<script src="fields-data.js"></script>
+
 <script>
 /* ============================================================ */
 /* CẤU HÌNH API */
 /* ============================================================ */
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzdBOL0jLIkzDhO4gEPd7RM0LGJiv_yTQKgY2YIQ08dFVBKqWcWuqseeetDO5wGRUdV/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxtcME-uP71I9s8UYpWgJSaCkWl4cO8mOu7jm6wD6oc4M8ZpVhu9UhMXE3U66C2SIdv/exec';
 
 /* ============================================================ */
 /* BIẾN TOÀN CỤC */
@@ -835,8 +938,6 @@ const ITEMS_PER_PAGE = 5;
 let cachedDocs = [];
 let cachedFAQ = [];
 let cachedRates = { rates: [], congChuan: 22 };
-
-// Xử lý Admin Modal
 let currentProcessingId = '';
 let currentProcessingFiles = [];
 let currentProcessingData = null;
@@ -886,9 +987,8 @@ function getOfficer() {
 
 function openLogin() {
   const officer = getOfficer();
-  if (officer) {
-    openAdminPortal();
-  } else {
+  if (officer) { openAdminPortal(); }
+  else {
     document.getElementById('login-modal').classList.remove('hidden');
     document.getElementById('login-modal').classList.add('flex');
     document.getElementById('login-error').classList.add('hidden');
@@ -907,10 +1007,8 @@ async function handleLogin(e) {
   const password = document.getElementById('login-password').value;
   const errBox = document.getElementById('login-error');
   const btn = document.getElementById('login-btn');
-
   btn.disabled = true;
   btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang kiểm tra...';
-
   try {
     const res = await callAPI({ action: 'login', id, password });
     if (res.success) {
@@ -979,7 +1077,6 @@ function switchTab(tab) {
     activeBtn.classList.add('bg-gold-500', 'text-army-900', 'shadow-md');
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
-
   if (tab === 'hoidap' && cachedFAQ.length === 0) loadFAQ();
   if (tab === 'chedo' && cachedRates.rates.length === 0) loadRates().then(updateCalcOptions);
   if (tab === 'tracuu') renderLookupList();
@@ -997,32 +1094,14 @@ function openFeedbackFor(fieldValue) {
 
 /* ============================================================ */
 /* FORM LOGIC */
+/* FIELDS được nạp từ fields-data.js (biến global GOP_Y_FIELDS) */
 /* ============================================================ */
-const FIELDS = {
-  'Tuyển quân (NVQS)': {
-    'Đăng ký, quản lý nguồn': ['Sai thông tin đăng ký NVQS (họ tên, ngày sinh, CCCD)', 'Chưa được đăng ký NVQS lần đầu (tuổi 17)', 'Chưa được cập nhật khi chuyển nơi cư trú', 'Không nhận được giấy chứng nhận đăng ký NVQS'],
-    'Sơ tuyển và khám sức khỏe': ['Không nhận được giấy gọi sơ tuyển/khám tuyển', 'Giấy gọi bị sai thông tin cá nhân', 'Kết quả sơ tuyển/khám tuyển chưa được giải thích rõ', 'Đề nghị khám lại do kết quả chưa thống nhất', 'Phản ánh khám thiếu bước, không khách quan'],
-    'Tạm hoãn, miễn gọi nhập ngũ': ['Chưa được hướng dẫn hồ sơ tạm hoãn (đang học)', 'Chưa được hướng dẫn hồ sơ miễn (sức khỏe, hoàn cảnh)', 'Đề nghị bổ sung hồ sơ chứng minh hoàn cảnh'],
-    'Lệnh gọi và giao quân': ['Chưa nhận được lệnh gọi nhập ngũ đúng thời hạn', 'Thông tin trên lệnh gọi chưa chính xác', 'Không thể có mặt đúng ngày, cần xác nhận lý do'],
-    'Phản ánh dấu hiệu vi phạm': ['Vòi vĩnh, nhận tiền/quà', 'Làm sai lệch hồ sơ', 'Can thiệp kết quả sức khỏe', 'Cố ý bỏ lọt công dân', 'Công khai dữ liệu nhạy cảm', 'Đe dọa người phản ánh']
-  },
-  'Dân quân tự vệ': {
-    'Tuyển chọn, đăng ký': ['Chưa được công nhận hoàn thành nghĩa vụ DQTV', 'Đề nghị tạm hoãn/miễn DQTV', 'Thay đổi nơi cư trú chưa được cập nhật'],
-    'Tổ chức, chức vụ': ['Bổ nhiệm/miễn nhiệm chức vụ chưa đúng quy định', 'Phụ cấp chức vụ chưa được chi trả'],
-    'Huấn luyện và điều động': ['Chưa nhận được kế hoạch huấn luyện/điều động', 'Xin vắng/hoãn chưa được giải quyết', 'Ngày tham gia thực tế chưa được xác nhận đúng'],
-    'Tiền ăn, ngày công, phụ cấp': ['Chậm chi trả tiền ăn, ngày công', 'Chi thiếu so với quy định', 'Sai số ngày được tính hưởng'],
-    'Ốm đau, tai nạn': ['Chưa được hướng dẫn hồ sơ y tế', 'Chưa rõ chế độ BHYT/BHXH']
-  },
-  'Dự bị động viên': {
-    'Đăng ký và quản lý QNDB': ['Sai thông tin đăng ký ngạch dự bị', 'Chưa cập nhật thay đổi nơi cư trú/nơi làm việc'],
-    'Lệnh gọi tập trung, huy động': ['Chưa phân biệt rõ tập trung huấn luyện với huy động', 'Thời gian thông báo lệnh gọi chưa đúng', 'Đề nghị xem xét vắng/hoãn'],
-    'Phụ cấp trách nhiệm': ['Không được chi trả phụ cấp trách nhiệm', 'Chi thiếu số tháng tính hưởng', 'Sai đối tượng hưởng'],
-    'Phong, thăng quân hàm QNDB': ['Chậm xét phong/thăng quân hàm dự bị', 'Sai thông tin trong hồ sơ xét']
-  },
-  'Chế độ chính sách': {
-    'Chế độ DQTV': ['Chưa nhận tiền ăn, ngày công', 'Phụ cấp chức vụ chưa được chi trả', 'Quân trang chưa được cấp đủ'],
-    'Chế độ QNDB': ['Chưa nhận phụ cấp trách nhiệm', 'Tiền ăn, đi lại chưa được thanh toán']
-  },
+const FIELDS = window.GOP_Y_FIELDS || {
+  'Tuyển quân (NVQS)': {},
+  'Dự bị động viên': {},
+  'Dân quân tự vệ': {},
+  'Giáo dục quốc phòng và an ninh': {},
+  'Chính sách và hậu phương Quân đội': {},
   'Khác': { 'Câu hỏi chung': ['Câu hỏi về thủ tục hành chính', 'Câu hỏi về thẩm quyền giải quyết'] }
 };
 
@@ -1043,7 +1122,8 @@ function onRequestTypeChange(type) {
     'Phản ánh': 'Nêu vấn đề, hiện tượng cần xem xét.',
     'Khiếu nại': 'Yêu cầu xem xét lại quyết định hành chính.',
     'Tố cáo': 'Thông báo hành vi vi phạm pháp luật. Cần bảo vệ người tố cáo.',
-    'Đề nghị giải quyết chế độ': 'Đề nghị xem xét, giải quyết chế độ chính sách. Vui lòng điền thêm Phần 3.'
+    'Đề nghị giải quyết chế độ': 'Đề nghị xem xét, giải quyết chế độ chính sách. Vui lòng điền thêm Phần 3.',
+    'Đề nghị giám định sức khỏe': 'Đề nghị giám định lại sức khỏe khi không đồng ý kết luận khám. Ban CHQS xã hướng dẫn thủ tục, không tự thay đổi kết luận y khoa.'
   };
   if (type && hints[type]) {
     hint.innerHTML = hints[type];
@@ -1052,6 +1132,7 @@ function onRequestTypeChange(type) {
       (type === 'Tố cáo' ? 'bg-red-50 border-flag-700 text-flag-900' :
        type === 'Khiếu nại' ? 'bg-orange-50 border-orange-500 text-orange-950' :
        type === 'Đề nghị giải quyết chế độ' ? 'bg-amber-50 border-gold-500 text-amber-950' :
+       type === 'Đề nghị giám định sức khỏe' ? 'bg-purple-50 border-purple-500 text-purple-950' :
        'bg-blue-50 border-blue-500 text-blue-950');
     noticeText.innerHTML = '<strong>Phân loại: ' + type + '.</strong> ' + hints[type];
   } else {
@@ -1066,7 +1147,9 @@ function onRequestTypeChange(type) {
 function renderSymptoms(field, requestType) {
   const container = document.getElementById('suggested-symptoms');
   const list = document.getElementById('symptom-list');
-  if (!field || !FIELDS[field]) { container.classList.add('hidden'); return; }
+  if (!field || !FIELDS[field] || !Object.keys(FIELDS[field]).length) {
+    container.classList.add('hidden'); return;
+  }
   let html = '';
   for (const [groupName, items] of Object.entries(FIELDS[field])) {
     html += `<div class="text-[11px] font-bold text-army-700 uppercase mt-2 mb-1">${escapeHTML(groupName)}</div>`;
@@ -1092,19 +1175,12 @@ function updateSymptomCount() {
 }
 
 function onFileSelect(e) {
-  let files = Array.from(e.target.files || []);
-  const MAX_SIZE = 20 * 1024 * 1024; // ĐÃ NÂNG LÊN 20MB
+  const files = Array.from(e.target.files || []);
+  const MAX_SIZE = 20 * 1024 * 1024;
   const MAX_FILES = 3;
-
   const valid = files.filter(f => f.size <= MAX_SIZE);
-  if (valid.length < files.length) {
-    showToast('Đã bỏ qua ' + (files.length - valid.length) + ' tệp quá 20MB');
-  }
-  if (valid.length > MAX_FILES) {
-    valid.splice(MAX_FILES);
-    showToast('Chỉ nhận tối đa ' + MAX_FILES + ' tệp');
-  }
-
+  if (valid.length < files.length) showToast('Đã bỏ qua ' + (files.length - valid.length) + ' tệp quá 20MB');
+  if (valid.length > MAX_FILES) { valid.splice(MAX_FILES); showToast('Chỉ nhận tối đa ' + MAX_FILES + ' tệp'); }
   attachedFiles = valid;
   document.getElementById('file-preview').innerHTML = valid.map(f =>
     `<span class="inline-flex items-center gap-1.5 bg-army-100 text-army-900 text-xs font-semibold px-2.5 py-1 rounded-lg border border-army-300"><i class="fa-solid fa-file-circle-check"></i>${escapeHTML(f.name)}</span>`
@@ -1144,14 +1220,8 @@ async function submitFeedback(e) {
     errText.textContent = 'Vui lòng điền đầy đủ các trường bắt buộc.';
     errBox.classList.remove('hidden'); errBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); return;
   }
-  if (!isAnon && !fullName) { 
-    errText.textContent = 'Vui lòng nhập họ tên hoặc chọn Ẩn danh.'; 
-    errBox.classList.remove('hidden'); return; 
-  }
-  if (!phone) { 
-    errText.textContent = 'Vui lòng nhập số điện thoại.'; 
-    errBox.classList.remove('hidden'); return; 
-  }
+  if (!isAnon && !fullName) { errText.textContent = 'Vui lòng nhập họ tên hoặc chọn Ẩn danh.'; errBox.classList.remove('hidden'); return; }
+  if (!phone) { errText.textContent = 'Vui lòng nhập số điện thoại.'; errBox.classList.remove('hidden'); return; }
   errBox.classList.add('hidden');
 
   const btn = document.getElementById('submit-btn');
@@ -1161,16 +1231,12 @@ async function submitFeedback(e) {
   try {
     const filesPayload = [];
     if (attachedFiles && attachedFiles.length > 0) {
-      for (const f of attachedFiles) {
-        filesPayload.push(await fileToBase64(f));
-      }
+      for (const f of attachedFiles) filesPayload.push(await fileToBase64(f));
     }
-
     const symptomsPayload = Array.from(selectedSymptoms).map(s => {
       const parts = s.split('::');
       return { group: parts[1], text: parts[2] };
     });
-
     const result = await callAPI({
       action: 'submitFeedback',
       objectType, field, requestType, description, isAnon, fullName, phone,
@@ -1189,7 +1255,6 @@ async function submitFeedback(e) {
       symptoms: symptomsPayload,
       files: filesPayload
     });
-
     if (!result.success) throw new Error(result.error || 'Có lỗi xảy ra từ máy chủ');
 
     document.getElementById('receipt-code').textContent = result.code;
@@ -1198,20 +1263,21 @@ async function submitFeedback(e) {
     document.getElementById('rc-time').textContent = `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
     document.getElementById('rc-field').textContent = field;
     document.getElementById('rc-type').textContent = requestType;
-    document.getElementById('rc-sla').textContent = (requestType === 'Tố cáo' || requestType === 'Khiếu nại') ? 'Trong vòng 05 ngày làm việc' : 'Trong vòng 03 ngày làm việc';
+    document.getElementById('rc-sla').textContent = result.deadline
+      ? 'Hạn xử lý: ' + result.deadline
+      : ((requestType === 'Tố cáo' || requestType === 'Khiếu nại') ? 'Trong vòng 30 ngày' : 'Trong vòng 15 ngày');
     document.getElementById('receipt-modal').classList.remove('hidden');
     document.getElementById('receipt-modal').classList.add('flex');
 
     document.getElementById('feedback-form').reset();
-    selectedSymptoms.clear(); 
+    selectedSymptoms.clear();
     attachedFiles = [];
     document.getElementById('file-preview').innerHTML = '';
     document.getElementById('suggested-symptoms').classList.add('hidden');
     document.getElementById('policy-section').classList.add('hidden');
     document.getElementById('classification-notice').classList.add('hidden');
-    toggleAnon(false); 
+    toggleAnon(false);
     updateSymptomCount();
-    
   } catch (err) {
     errText.textContent = 'Gửi thất bại: ' + err.message;
     errBox.classList.remove('hidden');
@@ -1221,6 +1287,7 @@ async function submitFeedback(e) {
     btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> GỬI PHẢN ÁNH';
   }
 }
+
 function closeReceipt() { document.getElementById('receipt-modal').classList.add('hidden'); document.getElementById('receipt-modal').classList.remove('flex'); }
 
 function copyCode() {
@@ -1229,10 +1296,11 @@ function copyCode() {
 }
 
 function goToLookup() {
+  const code = document.getElementById('receipt-code').textContent;
   closeReceipt();
   switchTab('tracuu');
   setTimeout(() => {
-    document.getElementById('lookup-input').value = document.getElementById('receipt-code').textContent;
+    document.getElementById('lookup-input').value = code;
     currentPageLookup = 1; renderLookupList();
   }, 120);
 }
@@ -1295,12 +1363,10 @@ async function renderLookupList() {
         const parts = line.split(' | ');
         return { url: parts[0], name: parts[1] || 'File đính kèm' };
       });
-
       const replyFilesList = (s.replyFiles || '').split('\n').filter(x => x.trim()).map(line => {
         const parts = line.split(' | ');
         return { url: parts[0], name: parts[1] || 'File phản hồi' };
       });
-
       const symptomsList = (s.symptoms || '').split('\n').filter(x => x.trim());
 
       return `<div class="bg-white rounded-2xl shadow-sm border ${s.priority === 'Cao' ? 'border-2 border-flag-700' : 'border-slate-200'} overflow-hidden">
@@ -1323,48 +1389,28 @@ async function renderLookupList() {
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-slate-800 text-xs sm:text-sm">
             <strong>Nội dung:</strong> ${escapeHTML(s.description)}
           </div>
-          ${symptomsList.length > 0 ? `
-            <div class="bg-blue-50 p-3 rounded-xl border border-blue-200 text-xs">
-              <div class="font-bold text-blue-900 mb-1"><i class="fa-solid fa-tags mr-1"></i>Gợi ý đã chọn:</div>
-              <ul class="space-y-0.5 text-blue-900 list-disc list-inside">
-                ${symptomsList.map(x => `<li>${escapeHTML(x)}</li>`).join('')}
-              </ul>
-            </div>` : ''}
-          ${filesList.length > 0 ? `
-            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-              <div class="font-bold text-slate-800 text-xs mb-2"><i class="fa-solid fa-paperclip mr-1"></i>Tệp đính kèm (${filesList.length}):</div>
-              <div class="flex flex-wrap gap-2">
-                ${filesList.map(f => `<a href="${f.url}" target="_blank" class="inline-flex items-center gap-1.5 bg-white hover:bg-army-50 border border-slate-300 hover:border-army-500 px-2.5 py-1.5 rounded-lg text-xs transition">
-                  <i class="fa-solid fa-file-arrow-down text-army-700"></i>
-                  <span class="max-w-[200px] truncate">${escapeHTML(f.name)}</span>
-                </a>`).join('')}
-              </div>
-            </div>` : ''}
+          ${symptomsList.length > 0 ? `<div class="bg-blue-50 p-3 rounded-xl border border-blue-200 text-xs">
+            <div class="font-bold text-blue-900 mb-1"><i class="fa-solid fa-tags mr-1"></i>Gợi ý đã chọn:</div>
+            <ul class="space-y-0.5 text-blue-900 list-disc list-inside">${symptomsList.map(x => `<li>${escapeHTML(x)}</li>`).join('')}</ul>
+          </div>` : ''}
+          ${filesList.length > 0 ? `<div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div class="font-bold text-slate-800 text-xs mb-2"><i class="fa-solid fa-paperclip mr-1"></i>Tệp đính kèm (${filesList.length}):</div>
+            <div class="flex flex-wrap gap-2">${filesList.map(f => `<a href="${f.url}" target="_blank" class="inline-flex items-center gap-1.5 bg-white hover:bg-army-50 border border-slate-300 hover:border-army-500 px-2.5 py-1.5 rounded-lg text-xs transition"><i class="fa-solid fa-file-arrow-down text-army-700"></i><span class="max-w-[200px] truncate">${escapeHTML(f.name)}</span></a>`).join('')}</div>
+          </div>` : ''}
           <div class="bg-army-50 border-l-4 border-army-700 p-3.5 rounded-r-xl text-xs sm:text-sm text-slate-800">
             <div class="font-extrabold text-army-900 uppercase text-xs mb-1"><i class="fa-solid fa-shield-halved mr-1"></i>Phản hồi của Ban CHQS xã:</div>
             <p class="mb-2">${escapeHTML(s.officialReply || 'Đang chờ xử lý.')}</p>
-            
-            <!-- PHẦN HIỂN THỊ FILE PHẢN HỒI CHO NGƯỜI DÂN -->
-            ${replyFilesList.length > 0 ? `
-              <div class="mt-3 pt-3 border-t border-army-200">
-                <div class="font-bold text-flag-800 text-xs mb-2"><i class="fa-solid fa-paperclip"></i> Văn bản / Tài liệu đính kèm từ Ban CHQS:</div>
-                <div class="flex flex-wrap gap-2">
-                  ${replyFilesList.map(f => `<a href="${f.url}" target="_blank" class="inline-flex items-center gap-2 bg-white hover:bg-army-100 border border-army-400 px-3 py-2 rounded-lg text-xs transition shadow-sm">
-                    <i class="fa-solid fa-file-pdf text-flag-700 text-base"></i>
-                    <span class="max-w-[200px] truncate text-army-900 font-bold">${escapeHTML(f.name)}</span>
-                  </a>`).join('')}
-                </div>
-              </div>` : ''}
-
+            ${replyFilesList.length > 0 ? `<div class="mt-3 pt-3 border-t border-army-200">
+              <div class="font-bold text-flag-800 text-xs mb-2"><i class="fa-solid fa-paperclip"></i> Văn bản / Tài liệu đính kèm từ Ban CHQS:</div>
+              <div class="flex flex-wrap gap-2">${replyFilesList.map(f => `<a href="${f.url}" target="_blank" class="inline-flex items-center gap-2 bg-white hover:bg-army-100 border border-army-400 px-3 py-2 rounded-lg text-xs transition shadow-sm"><i class="fa-solid fa-file-pdf text-flag-700 text-base"></i><span class="max-w-[200px] truncate text-army-900 font-bold">${escapeHTML(f.name)}</span></a>`).join('')}</div>
+            </div>` : ''}
             ${s.handler ? `<div class="mt-2 text-[10px] text-slate-500 italic">— Xử lý bởi: ${escapeHTML(s.handler)}</div>` : ''}
           </div>
         </div>
       </div>`;
     }).join('');
   } catch (err) {
-    container.innerHTML = `<div class="bg-red-50 rounded-2xl p-6 text-center border border-red-300 text-flag-800 text-sm">
-      <i class="fa-solid fa-circle-exclamation mr-1"></i>Lỗi: ${escapeHTML(err.message)}
-    </div>`;
+    container.innerHTML = `<div class="bg-red-50 rounded-2xl p-6 text-center border border-red-300 text-flag-800 text-sm"><i class="fa-solid fa-circle-exclamation mr-1"></i>Lỗi: ${escapeHTML(err.message)}</div>`;
   }
 }
 
@@ -1418,7 +1464,6 @@ async function renderDocs() {
 function openDocModal(id) {
   const d = cachedDocs.find(x => x.id === id);
   if (!d) return;
-  
   document.getElementById('doc-modal-title').textContent = d.title;
   document.getElementById('doc-modal-number').textContent = d.number;
   document.getElementById('doc-modal-date').textContent = formatDate(d.date);
@@ -1428,15 +1473,10 @@ function openDocModal(id) {
 
   const fileContainer = document.getElementById('doc-modal-file-container');
   const fileView = document.getElementById('doc-modal-file-view');
-  
   fileContainer.classList.remove('hidden');
-  
+
   if (!d.fileUrl || d.fileUrl.trim() === '') {
-    fileView.innerHTML = `
-      <div class="p-6 bg-slate-50 border border-slate-200 rounded text-center text-sm text-slate-500">
-        <i class="fa-solid fa-file-circle-xmark text-3xl text-slate-300 mb-2 block"></i>
-        <strong>Văn bản này không có tệp đính kèm.</strong>
-      </div>`;
+    fileView.innerHTML = `<div class="p-6 bg-slate-50 border border-slate-200 rounded text-center text-sm text-slate-500"><i class="fa-solid fa-file-circle-xmark text-3xl text-slate-300 mb-2 block"></i><strong>Văn bản này không có tệp đính kèm.</strong></div>`;
     document.getElementById('doc-modal').classList.remove('hidden');
     document.getElementById('doc-modal').classList.add('flex');
     return;
@@ -1446,24 +1486,17 @@ function openDocModal(id) {
   const fileType = (d.fileType || '').toLowerCase();
   let viewHtml = '';
   let fileId = '';
-  
-  const idMatch = String(d.fileUrl).match(/\/d\/([a-zA-Z0-9_-]+)/);
+   const idMatch = String(d.fileUrl).match(/\/d\/([a-zA-Z0-9_-]+)/);
   if (idMatch) fileId = idMatch[1];
-
   const isPdf = fileType.includes('pdf') || lower.endsWith('.pdf');
   const isDoc = /\.(doc|docx)$/i.test(lower) || fileType.includes('word');
-
   if (isPdf || isDoc) {
     const previewUrl = fileId ? 'https://drive.google.com/file/d/' + fileId + '/preview' : d.fileUrl;
     viewHtml += `<iframe src="${previewUrl}" class="w-full border border-slate-300 rounded-lg mb-3" style="height: 600px; min-height: 60vh;"></iframe>`;
   } else {
     viewHtml += `<div class="p-4 bg-slate-50 border rounded text-center text-sm mb-3">Không hỗ trợ xem trước file này.</div>`;
   }
-  
-  viewHtml += `<div class="flex gap-2">
-    <a href="${d.fileUrl}" target="_blank" class="bg-army-700 text-white font-bold py-2 px-4 rounded-lg text-sm"><i class="fa-solid fa-external-link mr-1"></i> Mở Google Drive</a>
-  </div>`;
-  
+  viewHtml += `<div class="flex gap-2"><a href="${d.fileUrl}" target="_blank" class="bg-army-700 text-white font-bold py-2 px-4 rounded-lg text-sm"><i class="fa-solid fa-external-link mr-1"></i> Mở Google Drive</a></div>`;
   fileView.innerHTML = viewHtml;
   document.getElementById('doc-modal').classList.remove('hidden');
   document.getElementById('doc-modal').classList.add('flex');
@@ -1474,7 +1507,6 @@ function closeDocModal() { document.getElementById('doc-modal').classList.add('h
 async function addDocument() {
   const officer = getOfficer();
   if (!officer) { showToast('Phiên đăng nhập đã hết hạn.'); logout(); return; }
-
   const number = document.getElementById('doc-add-number').value.trim();
   const date = document.getElementById('doc-add-date').value;
   const title = document.getElementById('doc-add-title').value.trim();
@@ -1482,7 +1514,6 @@ async function addDocument() {
   const content = document.getElementById('doc-add-content').value.trim();
   const fileInput = document.getElementById('doc-add-file');
   const file = fileInput.files[0];
-
   if (!number || !title || !agency || !content) { showToast('Vui lòng nhập đầy đủ Số hiệu, Tiêu đề, Cơ quan và Nội dung.'); return; }
 
   const btn = document.getElementById('btn-add-doc');
@@ -1497,8 +1528,7 @@ async function addDocument() {
 
   try {
     const result = await callAPI({
-      action: 'addDocument',
-      number, date, title, agency, content, file: fileData,
+      action: 'addDocument', number, date, title, agency, content, file: fileData,
       officerId: officer.id, officerName: officer.name
     });
     if (result.success) {
@@ -1560,7 +1590,7 @@ async function renderAdminTable() {
           <td class="px-3 py-2">${escapeHTML(s.fullName)}</td>
           <td class="px-3 py-2 text-xs">${escapeHTML(s.field)}</td>
           <td class="px-3 py-2 text-xs">${escapeHTML(s.requestType)}</td>
-          <td class="px-3 py-2"><span class="text-xs font-bold px-2 py-0.5 rounded ${s.status === 'Đã trả lời' ? 'bg-emerald-100 text-emerald-800' : s.status === 'Đang xác minh' ? 'bg-amber-100 text-amber-800' : 'bg-blue-100 text-blue-800'}">${escapeHTML(s.status)}</span></td>
+          <td class="px-3 py-2"><span class="text-xs font-bold px-2 py-0.5 rounded ${s.status === 'Đã trả lời' ? 'bg-emerald-100 text-emerald-800' : s.status === 'Đang xác minh' ? 'bg-amber-100 text-amber-800' : s.status === 'Kết thúc' ? 'bg-slate-200 text-slate-800' : s.status === 'Chờ phê duyệt' ? 'bg-indigo-100 text-indigo-800' : 'bg-blue-100 text-blue-800'}">${escapeHTML(s.status)}</span></td>
           <td class="px-3 py-2 text-xs text-slate-600">${escapeHTML(s.handler || '—')}</td>
           <td class="px-3 py-2 text-xs"><button onclick="openProcessModal('${s.id}')" class="bg-army-100 hover:bg-army-200 text-army-800 font-bold px-3 py-1 rounded-lg transition"><i class="fa-solid fa-pen-to-square mr-1"></i>Xử lý</button></td>
         </tr>
@@ -1568,309 +1598,240 @@ async function renderAdminTable() {
     }
 
     let pagHtml = '';
-    if (totalPages > 1) for (let i = 1; i <= totalPages; i++) pagHtml += `<button onclick="currentPageAdmin=${i}; renderAdminTable()" class="px-3 py-1.5 rounded-lg text-sm font-bold ${i === currentPageAdmin ? 'bg-army-700 text-white' : 'bg-white text-army-700 border border-slate-300 hover:bg-slate-50'}">${i}</button>`;
+    if (totalPages > 1) {
+      for (let i = 1; i <= totalPages; i++) {
+        pagHtml += `<button onclick="currentPageAdmin=${i}; renderAdminTable()" class="px-3 py-1.5 rounded-lg text-sm font-bold ${i === currentPageAdmin ? 'bg-army-700 text-white' : 'bg-white text-army-700 border border-slate-300 hover:bg-slate-50'}">${i}</button>`;
+      }
+    }
     pagination.innerHTML = pagHtml;
 
-    // ĐỒNG BỘ ĐẾM 5 TRẠNG THÁI
-    document.getElementById('admin-new-count').textContent = filtered.filter(s => s.status === 'Đã tiếp nhận').length;
-    document.getElementById('admin-progress-count').textContent = filtered.filter(s => s.status === 'Đang xác minh').length;
-    document.getElementById('admin-pending-count').textContent = filtered.filter(s => s.status === 'Chờ phê duyệt').length;
-    document.getElementById('admin-resolved-count').textContent = filtered.filter(s => s.status === 'Đã trả lời').length;
-    document.getElementById('admin-finished-count').textContent = filtered.filter(s => s.status === 'Kết thúc').length;
+    const counts = { 'Đã tiếp nhận': 0, 'Đang xác minh': 0, 'Chờ phê duyệt': 0, 'Đã trả lời': 0, 'Kết thúc': 0 };
+    filtered.forEach(s => { if (counts[s.status] !== undefined) counts[s.status]++; });
+    document.getElementById('admin-new-count').textContent = counts['Đã tiếp nhận'];
+    document.getElementById('admin-progress-count').textContent = counts['Đang xác minh'];
+    document.getElementById('admin-pending-count').textContent = counts['Chờ phê duyệt'];
+    document.getElementById('admin-resolved-count').textContent = counts['Đã trả lời'];
+    document.getElementById('admin-finished-count').textContent = counts['Kết thúc'];
   } catch (err) {
     tbody.innerHTML = `<tr><td colspan="7" class="text-center py-4 text-red-600">Lỗi: ${escapeHTML(err.message)}</td></tr>`;
   }
 }
 
-// CẬP NHẬT: BỔ SUNG ĐẦY ĐỦ THÔNG TIN VÀO MODAL XỬ LÝ
 async function openProcessModal(id) {
-  currentProcessingId = id;
-  currentProcessingFiles = [];
-  document.getElementById('proc-file-preview').innerHTML = '';
-  document.getElementById('proc-files').value = '';
-  
-  const res = await fetchAPI({ action: 'getSubmissions', query: id, status: 'ALL', exactCode: '1' });
-  if(!res.submissions || res.submissions.length === 0) {
-    showToast('Không tìm thấy thông tin hồ sơ'); return;
-  }
-  const data = res.submissions[0];
-  currentProcessingData = data;
+  try {
+    const res = await fetchAPI({ action: 'getSubmissions', query: id, status: 'ALL', exactCode: '1' });
+    const s = (res.submissions || [])[0];
+    if (!s) { showToast('Không tìm thấy hồ sơ'); return; }
 
-  // 1. Gán thông tin cơ bản
-  document.getElementById('proc-id').textContent = data.id;
-  document.getElementById('proc-name').textContent = data.isAnon ? 'Ẩn danh' : data.fullName;
-  
-  // 2. Gán thông tin chi tiết
-  document.getElementById('proc-field').textContent = data.field || 'Không có';
-  document.getElementById('proc-type').textContent = data.requestType || 'Không có';
-  document.getElementById('proc-time').textContent = data.timeLocation || 'Không có';
-  document.getElementById('proc-agency').textContent = data.relatedAgency || 'Không có';
-  document.getElementById('proc-desc').textContent = data.description || 'Không có';
-  document.getElementById('proc-desired').textContent = data.desiredResult || 'Không có';
-  
-  // 3. Xử lý hiển thị Gợi ý đã chọn
-  const symptomsContainer = document.getElementById('proc-symptoms-container');
-  const symptomsEl = document.getElementById('proc-symptoms');
-  if (data.symptoms && data.symptoms.trim() !== '') {
-    symptomsContainer.classList.remove('hidden');
-    symptomsEl.innerHTML = escapeHTML(data.symptoms).replace(/\n/g, '<br>');
-  } else {
-    symptomsContainer.classList.add('hidden');
-  }
+    currentProcessingData = s;
+    currentProcessingId = id;
+    currentProcessingFiles = [];
 
-  // 4. Hiển thị Tệp đính kèm gốc của người dân (nếu có)
-  const filesContainer = document.getElementById('proc-original-files-container');
-  const filesList = document.getElementById('proc-original-files');
-  if (data.files && data.files.trim() !== '') {
-    filesContainer.classList.remove('hidden');
-    const filesArr = data.files.split('\n').filter(x => x.trim());
-    filesList.innerHTML = filesArr.map(line => {
+    document.getElementById('proc-id').textContent = s.id;
+    document.getElementById('proc-name').textContent = s.fullName;
+    document.getElementById('proc-field').textContent = s.field;
+    document.getElementById('proc-type').textContent = s.requestType;
+    document.getElementById('proc-time').textContent = s.timeLocation || '—';
+    document.getElementById('proc-agency').textContent = s.relatedAgency || '—';
+    document.getElementById('proc-desc').textContent = s.description || '';
+    document.getElementById('proc-desired').textContent = s.desiredResult || '—';
+
+    const symptomsList = (s.symptoms || '').split('\n').filter(x => x.trim());
+    const symContainer = document.getElementById('proc-symptoms-container');
+    if (symptomsList.length > 0) {
+      document.getElementById('proc-symptoms').innerHTML = symptomsList.map(x => `<div>• ${escapeHTML(x)}</div>`).join('');
+      symContainer.classList.remove('hidden');
+    } else symContainer.classList.add('hidden');
+
+    const origFiles = (s.files || '').split('\n').filter(x => x.trim()).map(line => {
       const parts = line.split(' | ');
-      const url = parts[0];
-      const name = parts[1] || 'File đính kèm';
-      return `<a href="${url}" target="_blank" class="inline-flex items-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-300 px-2.5 py-1.5 rounded-lg text-xs transition shadow-sm">
-                <i class="fa-solid fa-paperclip"></i>
-                <span class="max-w-[200px] truncate font-semibold">${escapeHTML(name)}</span>
-              </a>`;
-    }).join('');
-  } else {
-    filesContainer.classList.add('hidden');
-    filesList.innerHTML = '';
-  }
+      return { url: parts[0], name: parts[1] || 'File' };
+    });
+    const origContainer = document.getElementById('proc-original-files-container');
+    if (origFiles.length > 0) {
+      document.getElementById('proc-original-files').innerHTML = origFiles.map(f =>
+        `<a href="${f.url}" target="_blank" class="inline-flex items-center gap-1 bg-white hover:bg-army-50 border border-slate-300 px-2 py-1 rounded text-xs"><i class="fa-solid fa-file"></i>${escapeHTML(f.name)}</a>`
+      ).join('');
+      origContainer.classList.remove('hidden');
+    } else origContainer.classList.add('hidden');
 
-  // 5. Trạng thái hiện tại
-  const radios = document.getElementsByName('proc-status');
-  let found = false;
-  for (let r of radios) {
-    if (r.value === data.status) { r.checked = true; found = true; break; }
-  }
-  if (!found && radios.length > 0) radios[0].checked = true; 
+    document.querySelectorAll('input[name="proc-status"]').forEach(r => {
+      r.checked = (r.value === s.status);
+    });
 
-  document.getElementById('proc-reply').value = data.officialReply || '';
-  
-  document.getElementById('process-modal').classList.remove('hidden');
-  document.getElementById('process-modal').classList.add('flex');
+    document.getElementById('proc-reply').value = s.officialReply || '';
+    document.getElementById('proc-file-preview').innerHTML = '';
+    document.getElementById('proc-files').value = '';
+
+    document.getElementById('process-modal').classList.remove('hidden');
+    document.getElementById('process-modal').classList.add('flex');
+  } catch (err) {
+    showToast('Lỗi: ' + err.message);
+  }
 }
 
 function closeProcessModal() {
   document.getElementById('process-modal').classList.add('hidden');
   document.getElementById('process-modal').classList.remove('flex');
+  currentProcessingId = '';
+  currentProcessingFiles = [];
+  currentProcessingData = null;
 }
 
 function onProcessFileSelect(e) {
-  let files = Array.from(e.target.files || []);
-  const MAX_SIZE = 20 * 1024 * 1024; // ĐÃ NÂNG LÊN 20MB
-  const MAX_FILES = 3;
-
-  const valid = files.filter(f => f.size <= MAX_SIZE);
-  if (valid.length < files.length) showToast('Đã bỏ qua ' + (files.length - valid.length) + ' tệp quá 20MB');
-  if (valid.length > MAX_FILES) { valid.splice(MAX_FILES); showToast('Chỉ nhận tối đa ' + MAX_FILES + ' tệp'); }
-
+  const files = Array.from(e.target.files || []);
+  const MAX_SIZE = 20 * 1024 * 1024;
+  const valid = files.filter(f => f.size <= MAX_SIZE).slice(0, 3);
+  if (valid.length < files.length) showToast('Đã lọc bớt file quá lớn hoặc quá nhiều (tối đa 3 tệp, ≤ 20MB/tệp)');
   currentProcessingFiles = valid;
   document.getElementById('proc-file-preview').innerHTML = valid.map(f =>
-    `<span class="inline-flex items-center gap-1.5 bg-army-100 text-army-900 text-xs font-semibold px-2.5 py-1 rounded-lg border border-army-300"><i class="fa-solid fa-file-circle-check"></i>${escapeHTML(f.name)}</span>`
+    `<span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-900 text-xs px-2 py-1 rounded border border-emerald-300"><i class="fa-solid fa-file"></i>${escapeHTML(f.name)}</span>`
   ).join('');
 }
 
 async function saveProcess() {
   const officer = getOfficer();
-  if (!officer) { showToast('Phiên đăng nhập đã hết hạn.'); logout(); return; }
-  
+  if (!officer) { showToast('Phiên đăng nhập hết hạn'); return; }
+
   const statusEl = document.querySelector('input[name="proc-status"]:checked');
-  if(!statusEl) { showToast('Vui lòng chọn trạng thái xử lý.'); return; }
-  
-  const status = statusEl.value;
-  const reply = document.getElementById('proc-reply').value.trim();
-  
+  if (!statusEl) { showToast('Vui lòng chọn trạng thái'); return; }
+
   const btn = document.getElementById('btn-save-process');
   btn.disabled = true;
   btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang lưu...';
 
   try {
     const filesPayload = [];
-    if (currentProcessingFiles.length > 0) {
-      for (const f of currentProcessingFiles) {
-        filesPayload.push(await fileToBase64(f));
-      }
+    for (const f of currentProcessingFiles) {
+      filesPayload.push(await fileToBase64(f));
     }
 
-    const result = await callAPI({ 
-      action: 'updateSubmission', 
-      id: currentProcessingId, 
-      status: status, 
-      officialReply: reply, 
-      officerId: officer.id, 
-      officerName: officer.name,
+    const result = await callAPI({
+      action: 'updateSubmission',
+      id: currentProcessingId,
+      status: statusEl.value,
+      officialReply: document.getElementById('proc-reply').value,
       replyFiles: filesPayload,
-      existingReplyFiles: currentProcessingData ? currentProcessingData.replyFiles : '' // Truyền dữ liệu cũ
+      officerName: officer.name,
+      officerId: officer.id
     });
-    
-    if (result.success) { 
-      showToast('Đã lưu kết quả xử lý.'); 
+
+    if (result.success) {
+      showToast('Đã lưu kết quả xử lý');
       closeProcessModal();
-      renderAdminTable(); 
-    }
-    else showToast('Lỗi: ' + result.error);
-  } catch (err) { 
-    showToast('Lỗi: ' + err.message); 
-  } finally { 
-    btn.disabled = false; 
-    btn.innerHTML = '<i class="fa-solid fa-floppy-disk mr-1"></i>Lưu kết quả'; 
+      renderAdminTable();
+    } else showToast('Lỗi: ' + (result.error || 'không xác định'));
+  } catch (err) {
+    showToast('Lỗi: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-floppy-disk mr-1"></i>Lưu kết quả';
   }
 }
 
 /* ============================================================ */
-/* FAQ */
+/* HỎI ĐÁP PHÁP LUẬT */
 /* ============================================================ */
 async function loadFAQ() {
+  const list = document.getElementById('faq-list');
+  list.innerHTML = '<div class="text-center py-8"><i class="fa-solid fa-spinner fa-spin text-3xl text-army-700"></i></div>';
   try {
     const res = await fetchAPI({ action: 'getFAQ' });
     cachedFAQ = res.faq || [];
+    renderFaqList(cachedFAQ);
   } catch (err) {
-    console.error('Lỗi tải FAQ:', err);
-    cachedFAQ = [];
+    list.innerHTML = `<div class="bg-red-50 rounded-2xl p-6 text-center border text-flag-800 text-sm">Lỗi: ${escapeHTML(err.message)}</div>`;
   }
-  renderFaq();
 }
 
-function renderFaq(filter = '') {
-  const container = document.getElementById('faq-list');
-  const q = (filter || '').toLowerCase().trim();
-  const list = cachedFAQ.filter(f =>
-    !q || (f.question || '').toLowerCase().includes(q) || (f.answer || '').toLowerCase().includes(q)
-  );
+function filterFaq(query) {
+  const q = (query || '').toLowerCase().trim();
+  const filtered = q ? cachedFAQ.filter(f =>
+    (f.question || '').toLowerCase().includes(q) || (f.answer || '').toLowerCase().includes(q)
+  ) : cachedFAQ;
+  renderFaqList(filtered);
+}
 
-  if (!list.length) {
-    container.innerHTML = `<div class="text-center py-8 text-slate-500 text-sm">
-      <i class="fa-solid fa-inbox text-3xl text-slate-300 mb-2 block"></i>
-      ${q ? 'Không tìm thấy câu hỏi phù hợp.' : 'Chưa có câu hỏi nào. Vui lòng quay lại sau.'}
-    </div>`;
+function renderFaqList(items) {
+  const list = document.getElementById('faq-list');
+  if (!items.length) {
+    list.innerHTML = '<div class="bg-white rounded-2xl p-8 text-center border border-slate-200"><i class="fa-solid fa-circle-question text-3xl text-slate-300 mb-2"></i><div class="text-slate-600">Chưa có câu hỏi.</div></div>';
     return;
   }
-
-  container.innerHTML = list.map((f, i) => `
-    <details class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden group" ${i === 0 ? 'open' : ''}>
-      <summary class="px-4 py-3 cursor-pointer font-bold text-sm text-army-900 flex items-center justify-between hover:bg-army-50">
+  list.innerHTML = items.map(f => `
+    <details class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <summary class="px-5 py-3 cursor-pointer font-bold text-army-900 hover:bg-army-50 transition flex items-center gap-2">
+        <i class="fa-solid fa-circle-question text-gold-500"></i>
         <span>${escapeHTML(f.question)}</span>
-        <i class="fa-solid fa-chevron-down text-xs text-slate-500 group-open:rotate-180 transition-transform"></i>
       </summary>
-      <div class="px-4 pb-4 space-y-2 text-sm">
-        <p class="text-slate-800 whitespace-pre-wrap">${escapeHTML(f.answer)}</p>
-        ${f.legal ? `<div class="bg-amber-50 border-l-4 border-amber-500 p-2.5 rounded-r-lg text-xs text-amber-950">
-          <strong>Căn cứ:</strong> ${escapeHTML(f.legal)}<br>
-          ${f.effective ? '<strong>Hiệu lực:</strong> ' + escapeHTML(f.effective) : ''}
-        </div>` : ''}
-        ${f.status === 'needs-verification' ? '<div class="text-xs text-flag-700 font-semibold"><i class="fa-solid fa-circle-info mr-1"></i>Nội dung cần cán bộ pháp chế xác nhận.</div>' : ''}
+      <div class="px-5 pb-4 pt-2 border-t border-slate-100 text-sm text-slate-700 space-y-2">
+        <p><strong>Trả lời:</strong> ${escapeHTML(f.answer)}</p>
+        ${f.legal ? `<p class="text-xs"><strong>Căn cứ:</strong> <span class="bg-army-100 px-2 py-0.5 rounded">${escapeHTML(f.legal)}</span></p>` : ''}
+        ${f.effective ? `<p class="text-xs"><strong>Hiệu lực:</strong> ${escapeHTML(f.effective)}</p>` : ''}
       </div>
     </details>
   `).join('');
 }
-function filterFaq(v) { renderFaq(v); }
 
 /* ============================================================ */
 /* TÍNH CHẾ ĐỘ */
 /* ============================================================ */
 async function loadRates() {
-  if (cachedRates.rates.length > 0) return cachedRates;
   try {
     const res = await fetchAPI({ action: 'getRates' });
     cachedRates = { rates: res.rates || [], congChuan: res.congChuan || 22 };
+    return cachedRates;
   } catch (err) {
-    console.error('Lỗi tải định mức:', err);
+    console.error('loadRates:', err);
+    return cachedRates;
   }
-  return cachedRates;
 }
 
 function updateCalcOptions() {
-  const select = document.getElementById('calc-position');
-  if (!select || cachedRates.rates.length === 0) return;
-  const currentVal = select.value;
-  select.innerHTML = cachedRates.rates.map(r =>
-    `<option value="${r.code}">${escapeHTML(r.name)}</option>`
-  ).join('');
-  if (cachedRates.rates.some(r => r.code === currentVal)) select.value = currentVal;
+  const sel = document.getElementById('calc-position');
+  if (!sel) return;
+  if (!cachedRates.rates.length) {
+    sel.innerHTML = '<option value="">-- Chưa có dữ liệu định mức --</option>';
+    return;
+  }
+  sel.innerHTML = '<option value="">-- Chọn vị trí --</option>' +
+    cachedRates.rates.map(r => `<option value="${escapeHTML(r.code)}">${escapeHTML(r.name)}</option>`).join('');
 }
 
-async function calculatePolicy() {
+function calculatePolicy() {
+  const code = document.getElementById('calc-position').value;
   const days = parseInt(document.getElementById('calc-days').value) || 0;
-  const posCode = document.getElementById('calc-position').value;
   const result = document.getElementById('calc-result');
   const content = document.getElementById('calc-result-content');
 
-  if (days <= 0) {
-    content.innerHTML = '<div class="text-flag-700 font-semibold"><i class="fa-solid fa-circle-exclamation mr-1"></i>Vui lòng nhập số ngày lớn hơn 0.</div>';
-    result.classList.remove('hidden');
-    return;
-  }
+  if (!code) { showToast('Vui lòng chọn vị trí'); return; }
+  const rate = cachedRates.rates.find(r => r.code === code);
+  if (!rate) { showToast('Không tìm thấy định mức'); return; }
 
-  content.innerHTML = '<div class="text-center py-4"><i class="fa-solid fa-spinner fa-spin text-2xl text-army-700"></i></div>';
-  result.classList.remove('hidden');
-
-  const data = await loadRates();
-  const rate = data.rates.find(r => r.code === posCode);
-
-  if (!rate) {
-    content.innerHTML = `<div class="text-flag-700 font-semibold"><i class="fa-solid fa-circle-exclamation mr-1"></i>Chưa có định mức cho vị trí này. Vui lòng liên hệ Ban CHQS xã.</div>`;
-    return;
-  }
-
-  const congChuan = data.congChuan;
-  const dayAmount = rate.dayRate * days;
-  const monthToDay = rate.monthAllowance / congChuan;
-  const allowanceAmount = Math.round(monthToDay * days);
-  const total = dayAmount + allowanceAmount;
-
-  const fmt = n => n.toLocaleString('vi-VN') + ' đ';
+  const totalDay = (rate.dayRate || 0) * days;
+  const monthAllowance = rate.monthAllowance || 0;
+  const total = totalDay + monthAllowance;
 
   content.innerHTML = `
-    <div class="bg-white border border-army-300 rounded-lg p-4 space-y-2 text-sm">
-      <div class="flex justify-between items-center pb-2 border-b border-slate-200">
-        <span class="text-slate-600">Vị trí:</span>
-        <strong class="text-army-900">${escapeHTML(rate.name)}</strong>
-      </div>
-      <div class="flex justify-between items-center">
-        <span class="text-slate-600">Định mức/ngày:</span>
-        <strong class="text-slate-900">${fmt(rate.dayRate)}</strong>
-      </div>
-      <div class="flex justify-between items-center">
-        <span class="text-slate-600">Số ngày thực tế:</span>
-        <strong class="text-slate-900">${days} ngày</strong>
-      </div>
-      <div class="flex justify-between items-center pt-2 border-t border-slate-200">
-        <span class="text-slate-600">Tiền ăn + ngày công:</span>
-        <strong class="text-slate-900">${fmt(dayAmount)}</strong>
-      </div>
-      ${rate.monthAllowance > 0 ? `
-        <div class="flex justify-between items-center">
-          <span class="text-slate-600">Phụ cấp/tháng:</span>
-          <strong class="text-slate-900">${fmt(rate.monthAllowance)}</strong>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-slate-600">Phụ cấp quy đổi (${days}/${congChuan} ngày):</span>
-          <strong class="text-slate-900">${fmt(allowanceAmount)}</strong>
-        </div>
-      ` : ''}
-      <div class="flex justify-between items-center pt-3 mt-2 border-t-2 border-army-600 text-base">
-        <span class="font-bold text-army-900">TỔNG CỘNG:</span>
-        <strong class="text-xl text-flag-700">${fmt(total)}</strong>
-      </div>
-    </div>
-    ${rate.note ? `<div class="mt-2 text-xs text-slate-600 italic"><i class="fa-solid fa-info-circle mr-1"></i>${escapeHTML(rate.note)}</div>` : ''}
-    <div class="mt-3 p-3 bg-amber-50 border border-amber-300 rounded-lg text-xs text-amber-900">
-      <strong><i class="fa-solid fa-triangle-exclamation mr-1"></i>Lưu ý:</strong> Đây là <strong>ước tính tham khảo</strong> dựa trên định mức do cán bộ nhập vào hệ thống. Mức chính thức do cơ quan có thẩm quyền quyết định theo văn bản pháp luật hiện hành. Vui lòng liên hệ Ban CHQS xã để được xác nhận.
-    </div>
+    <div class="flex justify-between"><span>Vị trí:</span> <strong>${escapeHTML(rate.name)}</strong></div>
+    <div class="flex justify-between"><span>Định mức/ngày:</span> <strong>${(rate.dayRate || 0).toLocaleString('vi-VN')} đ</strong></div>
+    <div class="flex justify-between"><span>Số ngày:</span> <strong>${days}</strong></div>
+    <div class="flex justify-between"><span>Thành tiền ngày công:</span> <strong>${totalDay.toLocaleString('vi-VN')} đ</strong></div>
+    ${monthAllowance ? `<div class="flex justify-between"><span>Phụ cấp/tháng:</span> <strong>${monthAllowance.toLocaleString('vi-VN')} đ</strong></div>` : ''}
+    <div class="flex justify-between pt-2 border-t border-army-300 text-base"><span class="font-bold">TỔNG ƯỚC TÍNH:</span> <strong class="text-flag-700 text-lg">${total.toLocaleString('vi-VN')} đ</strong></div>
+    ${rate.note ? `<div class="text-xs text-slate-500 italic mt-2">Ghi chú: ${escapeHTML(rate.note)}</div>` : ''}
   `;
+  result.classList.remove('hidden');
 }
 
 /* ============================================================ */
-/* INIT */
+/* KHỞI TẠO KHI TẢI TRANG */
 /* ============================================================ */
-window.onload = async function() {
-  renderLookupList();
-  renderDocs();
-  loadFAQ();
-  loadRates().then(updateCalcOptions);
-};
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.GOP_Y_FIELDS) {
+    console.warn('[Phú Cát] fields-data.js chưa được nạp. Form vẫn hoạt động nhưng không có gợi ý tình huống.');
+  }
+});
 </script>
 </body>
 </html>
