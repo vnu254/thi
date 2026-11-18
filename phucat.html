@@ -28,9 +28,9 @@ body { background-color:#f4f6f3; color:#1e293b; scroll-behavior:smooth; }
 ::-webkit-scrollbar-thumb { background:#1b4d2e; border-radius:4px; }
 .tab-content { animation:fadeIn 0.25s ease; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
-.symptom-check:checked + div { background-color:#f0fdf4; border-color:#1b4d2e; box-shadow:0 0 0 1px #1b4d2e; }
-.symptom-check:checked + div .check-icon { background:#1b4d2e; border-color:#1b4d2e; color:white; }
-.symptom-check:checked + div .check-icon i { display:block; }
+.symptom-check:checked + div, .inline-symptom-checkbox:checked + div { background-color:#f0fdf4; border-color:#1b4d2e; box-shadow:0 0 0 1px #1b4d2e; }
+.symptom-check:checked + div .check-icon, .inline-symptom-checkbox:checked + div .check-icon { background:#1b4d2e; border-color:#1b4d2e; color:white; }
+.symptom-check:checked + div .check-icon i, .inline-symptom-checkbox:checked + div .check-icon i { display:block; }
 .check-icon i { display:none; }
 .warning-pulse { animation:warningPulse 2.5s infinite; }
 @keyframes warningPulse { 0%,100%{border-color:rgba(185,28,28,0.9);} 50%{border-color:rgba(234,179,8,0.9);} }
